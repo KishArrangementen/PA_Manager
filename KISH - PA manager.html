@@ -1,0 +1,3665 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KISH &middot; PA Manager</title>
+<link rel="icon" href="data:image/png;base64,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">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+  :root {
+    --bg: #12141a; --bg2: #1a1d26; --surface: #1a1d26;
+    --glass: #1a1d26; --glass2: #222633;
+    --glass-border: #2e3342; --glass-border2: #3a4050;
+    --text: #e8eaf0; --text2: #8b92a5; --text3: #5a6275;
+    --accent: #2563eb; --accent-hover: #4a80f0; --accent-glow: rgba(37,99,235,0.18);
+    --salmon: #e88e6e; --yellow: #e8c840; --brown: #a67c52; --green: #4ade80;
+    --blue: #60a5fa; --red: #f87171; --pink: #f472b6; --teal: #2dd4bf;
+    --border: #2e3342; --accent3: #7ca6f5; --surface2: #222633; --surface3: #222633;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif; background: #12141a;
+    color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(ellipse at 30% 0%, rgba(37,99,235,0.06) 0%, transparent 50%),
+                      radial-gradient(ellipse at 70% 100%, rgba(45,212,191,0.04) 0%, transparent 50%);
+    background-attachment: fixed;
+    display: flex; flex-direction: column;
+  }
+
+  .container { max-width: 880px; margin: 0 auto; padding: 20px 24px 80px; flex: 1; width: 100%; }
+
+  .hero { padding: 48px 0 40px; text-align: center; }
+  .hero h1 {
+    font-size: 32px; font-weight: 700; letter-spacing: -0.8px; color: var(--text);
+    text-shadow: 0 0 80px rgba(37,99,235,0.15);
+  }
+
+  /* Glass cards */
+  .step {
+    background: var(--glass);
+    border: 1px solid var(--glass-border); border-radius: 14px;
+    margin-bottom: 12px; overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    transition: border-color 0.2s;
+  }
+  .step:hover { border-color: var(--glass-border2); }
+  .step-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .step-number {
+    width: 24px; height: 24px; background: var(--accent);
+    color: #fff; border-radius: 7px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0;
+    box-shadow: 0 2px 8px var(--accent-glow);
+  }
+  .step-title { font-weight: 600; font-size: 14px; color: var(--text2); }
+  .step-body { padding: 20px; }
+
+  /* Dropzone */
+  .dropzone {
+    border: 1.5px dashed rgba(37,99,235,0.4); border-radius: 14px;
+    padding: 48px 28px; text-align: center; cursor: pointer;
+    transition: all 0.2s; background: rgba(255,255,255,0.02);
+  }
+  .dropzone:hover, .dropzone.dragover {
+    border-color: var(--accent); background: rgba(37,99,235,0.06);
+    box-shadow: 0 0 30px rgba(37,99,235,0.08);
+  }
+  .dropzone-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.6; }
+  .dropzone-text { font-size: 15px; font-weight: 600; color: var(--text); }
+  .dropzone-sub { font-size: 12px; color: var(--text3); margin-top: 4px; }
+  input[type="file"] { display: none; }
+  /* Compactere number-inputs in walk-in popup (focus op +/- buttons) */
+  .wi-num::-webkit-outer-spin-button, .wi-num::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .wi-num { -moz-appearance: textfield; }
+  /* Twee dropzones naast elkaar */
+  .dz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 560px) { .dz-grid { grid-template-columns: 1fr; } }
+  .dz-compact { padding: 26px 18px; }
+  .dz-loaded { border-style: solid; border-color: var(--teal); background: rgba(45,212,191,0.05); }
+  .dz-badge { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; color:var(--teal); margin-top:8px; }
+  /* Cross-check paneel */
+  .xcheck { margin-top:14px; border-radius:12px; padding:14px 16px; border:1.5px solid; font-size:13px; }
+  .xcheck.ok { border-color: rgba(45,212,191,0.4); background: rgba(45,212,191,0.06); }
+  .xcheck.warn { border-color: rgba(232,200,64,0.45); background: rgba(232,200,64,0.07); }
+  .xcheck.info { border-color: var(--glass-border); background: rgba(255,255,255,0.02); }
+  .xcheck-row { display:flex; justify-content:space-between; gap:12px; padding:3px 0; }
+  .xcheck-mut { color: var(--text3); font-size:11px; margin-top:6px; }
+
+  /* Status */
+  .status { padding: 10px 14px; border-radius: 10px; margin-top: 12px; display: none; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; backdrop-filter: blur(10px); }
+  .status.visible { display: flex; }
+  .status.success { background: rgba(45,212,191,0.08); color: var(--teal); }
+  .status.error { background: rgba(248,113,113,0.08); color: var(--red); }
+  .status.loading { background: rgba(37,99,235,0.08); color: var(--accent); }
+
+  /* Stats */
+  .summary-stats { margin-bottom: 20px; }
+  .stat-value { font-size: 22px; font-weight: 700; font-family: 'JetBrains Mono', monospace; letter-spacing: -0.5px; color: var(--accent); }
+  .stat-label { font-size: 9px; color: var(--text); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px; font-weight: 500; }
+
+  /* Table */
+  table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+  th {
+    text-align: left; padding: 10px 14px; color: var(--text3);
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  td { padding: 13px 14px; border-bottom: 1px solid rgba(255,255,255,0.025); vertical-align: middle; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* DISH-matched label colors */
+  .label-badge {
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: 6px; white-space: nowrap; display: inline-block;
+  }
+  .label-normaal { background: rgba(244,114,182,0.12); color: #f472b6; }
+  .label-luxe { background: rgba(232,200,64,0.12); color: var(--yellow); }
+  .label-koffie { background: rgba(166,124,82,0.15); color: var(--brown); }
+  .label-combi { background: rgba(37,99,235,0.12); color: var(--accent); }
+  .label-kind { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .label-naborrel { background: rgba(74,222,128,0.1); color: #4ade80; }
+  .notes-cell { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text3); }
+
+  /* Console */
+  .console-script {
+    margin-top: 12px; background: rgba(0,0,0,0.3); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 12px; padding: 16px; position: relative;
+  }
+  .console-script pre { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text3); white-space: pre-wrap; word-break: break-all; max-height: 260px; overflow-y: auto; }
+  .copy-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: var(--glass2); color: var(--text2); border: 1px solid var(--glass-border);
+    padding: 6px 14px; border-radius: 8px; font-size: 11px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s;
+    backdrop-filter: blur(10px);
+  }
+  .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .instructions { font-size: 13px; color: var(--text2); line-height: 1.8; }
+  .instructions strong { color: var(--text); }
+  .instructions code { background: var(--glass2); padding: 2px 7px; border-radius: 5px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+
+  /* Location buttons */
+  .loc-btn {
+    flex: 1; padding: 18px 20px; border: 1.5px solid var(--glass-border);
+    background: var(--glass); color: var(--text2);
+    border-radius: 14px; cursor: pointer; backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px; text-align: center; align-items: center;
+    transition: all 0.2s; position: relative; overflow: hidden;
+  }
+  .loc-btn::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .loc-btn:hover {
+    background: var(--glass2); color: var(--text);
+    border-color: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .loc-btn:hover::before { opacity: 1; }
+  .loc-btn:active { transform: translateY(0); }
+  .loc-btn.active {
+    border-color: var(--accent); color: var(--text);
+    background: rgba(37,99,235,0.08);
+    box-shadow: 0 0 24px var(--accent-glow), 0 8px 24px rgba(0,0,0,0.15), inset 0 1px 0 rgba(37,99,235,0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    margin-top: 16px; width: 100%; padding: 13px;
+    background: var(--accent); color: #fff; border: none;
+    border-radius: 10px; font-weight: 600; font-size: 13px;
+    cursor: pointer; font-family: 'Inter', sans-serif;
+    transition: all 0.15s; box-shadow: 0 4px 16px var(--accent-glow);
+  }
+  .btn-primary:hover { background: var(--accent-hover); box-shadow: 0 6px 24px rgba(37,99,235,0.25); }
+
+  /* Tabs */
+  .tab-btn {
+    padding: 8px 16px; background: none; border: none;
+    color: var(--text3); font-weight: 500; font-size: 13px;
+    cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -1px; font-family: 'Inter', sans-serif; transition: all 0.15s;
+  }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  .tab-btn:hover:not(.active) { color: var(--text2); }
+
+  details summary { cursor: pointer; font-size: 13px; color: var(--text2); font-weight: 600; }
+  details summary:hover { color: var(--accent); }
+
+  /* Month filter buttons */
+  .month-btn {
+    padding: 7px 16px; border-radius: 10px; border: 1px solid var(--glass-border);
+    background: var(--glass); color: var(--text3); font-size: 12px; font-weight: 600;
+    cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s;
+    backdrop-filter: blur(8px);
+  }
+  .month-btn:hover { background: var(--glass2); color: var(--text2); border-color: var(--glass-border2); }
+  .month-btn.active { background: var(--accent) !important; color: #fff !important; border-color: var(--accent) !important; box-shadow: 0 2px 12px var(--accent-glow); }
+
+  /* Date picker buttons */
+  .date-btn {
+    padding: 12px 6px; background: var(--glass); border: 1px solid var(--glass-border);
+    color: var(--text); border-radius: 10px; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    transition: all 0.2s; backdrop-filter: blur(8px); text-align: center; width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .date-btn:hover {
+    background: var(--glass2); border-color: var(--accent);
+    transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2), 0 0 16px var(--accent-glow);
+  }
+  .date-btn:active { transform: translateY(0); }
+  .date-btn[data-past="1"] { opacity: 0.4; }
+  .date-btn[data-past="1"]:hover { opacity: 0.6; }
+  .hidden { display: none !important; }
+
+  /* Table grid cells */
+  .tg-cell {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 48px; height: 44px; background: var(--glass); border: 1px solid var(--glass-border);
+    border-radius: 8px; cursor: pointer; transition: all 0.15s;
+    font-family: 'Inter', sans-serif;
+  }
+  .tg-cell:hover { border-color: var(--accent); background: rgba(37,99,235,0.06); }
+  .tg-blocked { opacity: 0.3; background: rgba(248,113,113,0.06); border-color: rgba(248,113,113,0.3); }
+  .tg-blocked:hover { opacity: 0.5; }
+  .tg-nr { font-size: 11px; font-weight: 700; color: var(--text); line-height: 1; }
+  .tg-seats { font-size: 10px; font-weight: 600; color: var(--accent); line-height: 1; margin-top: 2px; }
+
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 2px; }
+  ::selection { background: rgba(37,99,235,0.3); }
+
+  /* 2. Zebra stripes */
+  tbody tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  tbody tr:hover td { background: rgba(37,99,235,0.04) !important; }
+
+  /* 7. Status dots */
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; flex-shrink: 0; }
+  .status-ok { background: #22c55e; box-shadow: 0 0 6px rgba(34,197,94,0.4); }
+  .status-warn { background: #eab308; box-shadow: 0 0 6px rgba(234,179,8,0.4); }
+  .status-err { background: #ef4444; box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+
+  /* 5. Popup animation */
+  @keyframes popIn { from { opacity:0; transform: scale(0.95) translateY(10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+  .popup-animated { animation: popIn 0.2s ease-out; }
+
+  /* Weather animations */
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.7; } }
+  @keyframes float { 0%,100% { transform: translateX(0); } 50% { transform: translateX(3px); } }
+  @keyframes rain { 0% { opacity:1; transform: translateY(0); } 100% { opacity:0; transform: translateY(6px); } }
+  @keyframes snow { 0% { opacity:1; transform: translateY(0); } 100% { opacity:0; transform: translateY(8px); } }
+  @keyframes flash { 0%,90%,100% { opacity:1; } 93%,97% { opacity:0.2; } }
+  @keyframes fogLine { 0%,100% { transform: translateX(0); opacity:0.3; } 50% { transform: translateX(4px); opacity:0.15; } }
+
+  /* 8. Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 12px 14px 60px; }
+    .step-body { padding: 14px; }
+    table { font-size: 11px; }
+    th, td { padding: 8px 6px; }
+    .loc-btn { padding: 12px 10px; font-size: 12px; }
+    .summary-stats > div > div { min-width: 60px; }
+    .stat-value { font-size: 18px; }
+    .stat-label { font-size: 8px; }
+    .date-btn { padding: 8px 4px !important; font-size: 11px !important; }
+    .month-btn { padding: 5px 10px; font-size: 11px; }
+    nav div:first-child span:first-child { font-size: 14px !important; }
+  }
+
+</style>
+
+
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav style="position:sticky;top:0;z-index:50;background:#171a22;border-bottom:1px solid var(--glass-border);padding:12px 0;box-shadow:0 4px 18px rgba(0,0,0,0.35);">
+  <div id="navInner" style="max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;">
+    <div id="navLogo" style="display:flex;align-items:center;gap:12px;margin:0 auto;transition:margin 0.6s ease;">
+      <img src="data:image/png;base64,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" width="34" height="34" style="border-radius:8px;display:block;" alt="">
+      <div style="display:flex;flex-direction:column;line-height:1;">
+        <span style="font-size:16px;font-weight:800;letter-spacing:-0.3px;color:var(--text);">KISH <span style="font-weight:600;color:var(--text2);">&middot; PA Manager</span></span>
+        <span style="font-size:10px;color:var(--text3);font-weight:500;letter-spacing:0.5px;">AFAS CIRCUSTHEATER</span>
+      </div>
+    </div>
+    <div id="navInfo" style="display:none;text-align:right;font-size:11px;line-height:1.4;opacity:0;transition:opacity 0.5s ease;">
+      <div id="navDate" style="color:var(--accent);font-weight:700;"></div>
+      <div id="navGuests" style="color:var(--text3);"></div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- Jarvis Greeting -->
+<div id="jarvisGreeting" style="margin-bottom:16px;padding:24px;background:linear-gradient(135deg,rgba(37,99,235,0.06),rgba(45,212,191,0.04));border:1px solid rgba(37,99,235,0.12);border-radius:14px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;right:0;width:200px;height:100%;background:radial-gradient(circle at 100% 50%,rgba(37,99,235,0.06),transparent 70%);pointer-events:none;"></div>
+  <!-- Name selection -->
+  <div id="jarvisNameSelect" style="text-align:center;position:relative;z-index:1;">
+    <div style="font-size:14px;color:var(--text2);margin-bottom:16px;">Wie maakt er gebruik van de <span style="color:var(--accent);font-weight:700;">P.A.M.</span>?</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button onclick="startJarvis('Irene')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Irene</button>
+      <button onclick="startJarvis('Joris')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Joris</button>
+      <button onclick="startJarvis('Kevin')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Kevin</button>
+    </div>
+  </div>
+  <!-- Greeting (hidden until name selected) -->
+  <div id="jarvisText" style="font-size:14px;color:var(--text2);line-height:1.8;position:relative;z-index:1;text-align:center;display:none;">
+  </div>
+</div>
+
+<!-- STAP 1 -->
+<div class="step" id="step1" style="opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease;">
+  <div class="step-header">
+    
+    <span class="step-title" style="width:100%;text-align:center;">Excel uploaden</span>
+  </div>
+  <div class="step-body">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <div class="dropzone" id="dropzone" style="flex:1;min-width:240px;margin:0;" onclick="document.getElementById('fileInput').click()">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">1 · Excel (AFAS)</div>
+        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Primaire bron — sleep je .xlsx hierheen of klik</div>
+        <div id="excelBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">✓ Geladen</div>
+      </div>
+      <div class="dropzone" id="dropzoneHtm" style="flex:1;min-width:240px;margin:0;" onclick="document.getElementById('fileInputHtm').click()">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">2 · AudienceView (.htm)</div>
+        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Extra controle — sleep je .htm hierheen of klik</div>
+        <div id="htmBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">✓ Geladen</div>
+      </div>
+    </div>
+    <input type="file" id="fileInput" accept=".pdf,.xlsx,.xls">
+    <input type="file" id="fileInputHtm" accept=".htm,.html">
+    <div id="htmVerify" class="hidden" style="margin-top:14px;"></div>
+    <div id="datePickerWrap" class="hidden" style="margin-top:16px;">
+      <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">Meerdere data gevonden. Filter op maand en kies de datum:</div>
+      <div id="monthFilter" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;"></div>
+      <div id="weekOverview" style="margin-bottom:16px;"></div>
+      <div id="datePicker"></div>
+    </div>
+    <div class="status" id="status1"><span id="status1Text"></span></div>
+  </div>
+</div>
+
+<!-- STAP 2: Locatie kiezen -->
+<div class="step hidden" id="step2">
+  <div class="step-header">
+    
+    <span class="step-title" style="width:100%;text-align:center;">Locatie-indeling</span>
+  </div>
+  <div class="step-body">
+    <div style="margin-bottom:14px;color:var(--text2);font-size:13px;">
+      Kies de hoofdlocatie. Circusbar wordt automatisch gevuld met koffie + overige gasten.
+    </div>
+    <div style="display:flex;gap:12px;margin-bottom:16px;">
+      <button class="loc-btn active" data-loc="Theaterrestaurant" onclick="pickLocation(this)">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:18px;font-weight:800;color:var(--accent);">TR</div>
+        <div style="font-size:15px;font-weight:700;">Theaterrestaurant</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:400;margin-top:3px;">52 tafels · 101 – 152</div>
+      </button>
+      <button class="loc-btn" data-loc="Le Cirque" onclick="pickLocation(this)">
+        <div style="width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:18px;font-weight:800;color:var(--accent);">LC</div>
+        <div style="font-size:15px;font-weight:700;">Le Cirque</div>
+        <div style="font-size:11px;color:var(--text3);font-weight:400;margin-top:3px;">40 tafels · 1 – 40</div>
+      </button>
+    </div>
+    <div id="locationSummary"></div>
+    
+    <!-- Tafel configuratie -->
+    <div style="margin-top:14px;" id="tafelConfig">
+      <button onclick="document.getElementById('tafelContent').classList.toggle('hidden');this.querySelector('.tg-arrow').textContent=document.getElementById('tafelContent').classList.contains('hidden')?'▶':'▼'" style="width:100%;padding:14px 18px;background:rgba(37,99,235,0.06);border:1.5px solid rgba(37,99,235,0.25);border-radius:12px;color:var(--text);font-size:14px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;display:flex;align-items:center;gap:10px;transition:all 0.15s;text-align:left;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.25)';this.style.background='rgba(37,99,235,0.06)'">
+        <span style="width:28px;height:28px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="1" fill="#fff"/><rect x="8" y="1" width="5" height="5" rx="1" fill="#fff" opacity="0.6"/><rect x="1" y="8" width="5" height="5" rx="1" fill="#fff" opacity="0.6"/><rect x="8" y="8" width="5" height="5" rx="1" fill="#fff" opacity="0.4"/></svg>
+        </span>
+        <div style="flex:1;">
+          <div style="font-size:14px;font-weight:700;">Tafelindeling aanpassen</div>
+          <div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:1px;">Blokkeer tafels of pas stoelen aan per locatie</div>
+        </div>
+        <span class="tg-arrow" style="font-size:10px;color:var(--accent);">▶</span>
+      </button>
+      <div id="tafelContent" class="hidden" style="margin-top:10px;">
+      <div style="margin-top:10px;font-size:12px;color:var(--text2);margin-bottom:8px;">Pas het aantal stoelen per tafel aan. Klik om te blokkeren/deblokkeren.</div>
+      <div id="tafelGrids" style="overflow-x:auto;"></div>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="confirmLocations()">✓ Verdeling berekenen &amp; script genereren</button>
+  </div>
+</div>
+
+<!-- STAP 3: Controleer -->
+<div class="step hidden" id="step3">
+  <div class="step-header">
+    
+    <span class="step-title" style="width:100%;text-align:center;">Controleer reserveringen</span>
+  </div>
+  <div class="step-body">
+    <div class="summary-stats" id="summaryStats"></div>
+    <div id="freeTablesInfo" style="margin-bottom:14px;"></div>
+    <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
+      <div style="flex:1;position:relative;">
+        <input type="text" id="searchRes" placeholder="🔍 Zoek gast op naam..." oninput="filterReservations()" style="width:100%;padding:10px 14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:13px;font-family:DM Sans,sans-serif;outline:none;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--glass-border)'">
+      </div>
+      <button onclick="addWalkIn()" style="padding:10px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;white-space:nowrap;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--glass-border)'">+ Gast toevoegen</button>
+    </div>
+    <div id="resTable" style="overflow-x:auto;"></div>
+  </div>
+</div>
+
+<!-- Hapjeslijst -->
+<div class="step hidden" id="stepHapjes">
+  <div class="step-header">
+    <span class="step-title" style="width:100%;text-align:center;">Hapjeslijst</span>
+  </div>
+  <div class="step-body">
+    <div id="hapjesContent"></div>
+  </div>
+</div>
+
+<!-- STAP 4 -->
+<div class="step hidden" id="step4">
+  <div class="step-header">
+    
+    <span class="step-title" style="width:100%;text-align:center;">Invullen op Kish</span>
+  </div>
+  <div class="step-body">
+    <div class="instructions">
+      <strong>Kish tafels (Eigen systeem):</strong><br>
+      1. Sleep de knop hieronder naar je <strong>bladwijzerbalk</strong> (eenmalig)<br>
+      2. Open de <code>Kish App</code> en klik op de bookmarklet → alles wordt geïmporteerd
+    </div>
+    <div style="margin-top:16px;text-align:center;">
+      <a id="ctBookmarkletLink" href="#" style="display:inline-block;padding:16px 32px;background:#2ec08a;color:#fff;font-weight:700;font-size:14px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;font-family:'Inter',sans-serif;cursor:grab;transition:all 0.25s;">
+          🍿 Kish App tafels invuller — sleep naar bladwijzerbalk
+        </a>
+    </div>
+    <details style="margin-top:28px;border-top:1px solid var(--glass-border);padding-top:18px;">
+      <summary style="cursor:pointer;color:var(--text2);font-weight:600;font-size:13px;display:flex;align-items:center;gap:8px;justify-content:center;">
+        <span style="font-size:11px;">&#9654;</span> Invullen op DISH (alleen als het nodig is)
+      </summary>
+      <div class="instructions" style="margin-top:16px;">
+        <strong>Hoe te gebruiken:</strong><br>
+        1. Sleep de knop hieronder naar je <strong>bladwijzerbalk</strong> (eenmalig)<br>
+        2. Ga naar <code>app.tafelreservering.com</code> → juiste <strong>datum</strong><br>
+        3. Klik op de bookmarklet → alles wordt automatisch ingevuld
+      </div>
+      <div style="margin-top:16px;text-align:center;">
+        <a id="bookmarkletLink" href="#" style="display:inline-block;padding:16px 32px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;font-family:'Inter',sans-serif;cursor:grab;transition:all 0.25s;">
+        🎭 DISH Invuller — sleep naar bladwijzerbalk
+      </a>
+      </div>
+    </details>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer style="position:relative;z-index:50;border-top:1px solid var(--glass-border);padding:16px 0;text-align:center;background:#171a22;box-shadow:0 -4px 24px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.05);">
+  <span style="font-size:12px;color:var(--text3);font-weight:500;">© Kevin Kiene — 2026</span>
+</footer>
+
+<script>
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  let allReservations = [];
+  let pdfStartTime = '';
+
+  // ===== DRAG & DROP =====
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault(); dropzone.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    handleFile(file);
+  });
+  fileInput.addEventListener('change', e => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+  // ===== HTM dropzone (AudienceView cross-check) =====
+  const dropzoneHtm = document.getElementById('dropzoneHtm');
+  const fileInputHtm = document.getElementById('fileInputHtm');
+  dropzoneHtm.addEventListener('dragover', e => { e.preventDefault(); dropzoneHtm.classList.add('dragover'); });
+  dropzoneHtm.addEventListener('dragleave', () => dropzoneHtm.classList.remove('dragover'));
+  dropzoneHtm.addEventListener('drop', e => {
+    e.preventDefault(); dropzoneHtm.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) processHTM(file);
+  });
+  fileInputHtm.addEventListener('change', e => { if (e.target.files[0]) processHTM(e.target.files[0]); });
+
+  function handleFile(file) {
+    const ext = file.name.toLowerCase().split('.').pop();
+    if (ext === 'pdf') {
+      processPDF(file);
+    } else if (ext === 'xlsx' || ext === 'xls') {
+      processXLSX(file);
+    } else {
+      showStatus('error', 'Alleen PDF of XLSX bestanden');
+    }
+  }
+
+  function showStatus(type, text) {
+    const el = document.getElementById('status1');
+    el.className = 'status visible ' + type;
+    document.getElementById('status1Text').textContent = text;
+  }
+
+  // ===== PDF PROCESSING =====
+  async function processPDF(file) {
+    showStatus('loading', `Laden: "${file.name}"...`);
+    try {
+      const buf = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+      let allItems = [];
+      let headerText = '';
+
+      for (let p = 1; p <= pdf.numPages; p++) {
+        const page = await pdf.getPage(p);
+        const tc = await page.getTextContent();
+
+        tc.items.forEach(item => {
+          if (!item.str.trim()) return;
+          allItems.push({
+            text: item.str.trim(),
+            x: Math.round(item.transform[4]),
+            y: Math.round(item.transform[5]),
+            page: p
+          });
+
+          // Zoek Voorstelling header voor begintijd
+          if (item.str.toLowerCase().includes('voorstelling')) {
+            headerText += item.str + ' ';
+          }
+        });
+
+        // Zoek tijdstip ALLEEN in items die bij "Voorstelling" horen
+        if (!pdfStartTime && p === 1) {
+          var voorstellingY = null;
+          tc.items.forEach(item => {
+            if (item.str.toLowerCase().includes('voorstelling')) {
+              voorstellingY = item.transform[5];
+            }
+          });
+          
+          // Zoek tijdpatroon ALLEEN op dezelfde Y-positie als Voorstelling
+          if (voorstellingY) {
+            tc.items.forEach(item => {
+              if (pdfStartTime) return;
+              if (Math.abs(item.transform[5] - voorstellingY) < 10) {
+                var matches = item.str.match(/(\d{1,2}:\d{2})/g);
+                if (matches) {
+                  pdfStartTime = matches[matches.length - 1];
+                }
+              }
+            });
+          }
+        }
+      }
+
+      // Zoek ook tijd in headerText
+      if (!pdfStartTime && headerText) {
+        const m = headerText.match(/(\d{1,2}:\d{2})/);
+        if (m) pdfStartTime = m[1];
+      }
+
+      // Groepeer items in rijen op basis van Y-positie
+      const rows = groupIntoRows(allItems);
+
+      const reservations = parseRows(rows);
+      if (reservations.length === 0) {
+        showStatus('error', 'Geen reserveringen gevonden.');
+        return;
+      }
+
+      allReservations = reservations;
+      showStatus('success', `✓ ${reservations.length} reserveringen` + (pdfStartTime ? ` (begintijd: ${pdfStartTime})` : ''));
+      renderResults();
+    } catch (err) {
+      console.error(err);
+      showStatus('error', 'Fout: ' + err.message);
+    }
+  }
+
+  function groupIntoRows(items) {
+    // Sorteer eerst op pagina, dan Y (hoog→laag), dan X (links→rechts)
+    items.sort((a, b) => {
+      if (a.page !== b.page) return a.page - b.page;
+      if (Math.abs(a.y - b.y) > 3) return b.y - a.y; // hoog naar laag
+      return a.x - b.x; // links naar rechts
+    });
+
+    // Groepeer items die op dezelfde Y-lijn staan (tolerantie: 3px)
+    const rows = [];
+    let currentRow = [];
+    let currentY = null;
+
+    items.forEach(item => {
+      if (currentY === null || Math.abs(item.y - currentY) > 3) {
+        if (currentRow.length > 0) rows.push(currentRow.map(i => i.text));
+        currentRow = [item];
+        currentY = item.y;
+      } else {
+        currentRow.push(item);
+      }
+    });
+    if (currentRow.length > 0) rows.push(currentRow.map(i => i.text));
+
+    return rows;
+  }
+
+  // ===== PASTE FALLBACK =====
+  // ===== PARSER =====
+  function parseRows(rows) {
+    // Vind de header rij
+    let headerIdx = -1;
+    for (let i = 0; i < Math.min(rows.length, 25); i++) {
+      const joined = rows[i].join(' ').toLowerCase();
+      if (joined.includes('klantnr') && joined.includes('naam')) { headerIdx = i; break; }
+    }
+    if (headerIdx === -1) return [];
+
+    console.log('Header op rij:', headerIdx);
+
+    // Zoek de Voorstelling-regel voor begintijd
+    // ALLEEN in de rij die "Voorstelling" bevat
+    for (let i = 0; i < headerIdx; i++) {
+      const joined = rows[i].join(' ').toLowerCase();
+      if (joined.includes('voorstelling')) {
+        // Zoek tijdpatroon in elke cel van deze rij
+        for (let j = 0; j < rows[i].length; j++) {
+          // Zoek het laatste tijdpatroon in de cel (na de datum)
+          const matches = rows[i][j].match(/(\d{1,2}:\d{2})/g);
+          if (matches) {
+            // Pak het laatste tijdpatroon (dat is de aanvangstijd, niet een ander getal)
+            pdfStartTime = matches[matches.length - 1];
+            break;
+          }
+        }
+        break; // Stop na de Voorstelling-rij
+      }
+    }
+
+    // Parse datarijen
+    const arrangementPatterns = ['pauze-arrangement', 'koffie-arrangement', 'kids-arrangement', 'na borrel'];
+    
+    const dataRows = [];
+    for (let i = headerIdx + 1; i < rows.length; i++) {
+      const row = rows[i];
+      if (row.length < 3) continue;
+
+      // Alleen rijen met klantnummer
+      if (!/^\d{5,}$/.test(row[0].trim())) continue;
+
+      const naam = row[2] || '';
+      if (!naam || naam.trim().length < 2) continue;
+
+      // Zoek Kortingniveau cel
+      let korting = '';
+      for (let j = 3; j < row.length; j++) {
+        const cellLower = row[j].toLowerCase().trim();
+        if (arrangementPatterns.some(p => cellLower.includes(p))) {
+          if (cellLower.endsWith('en') || cellLower.endsWith('enten')) continue;
+          korting = row[j].trim();
+          break;
+        }
+      }
+
+      if (!korting && row.length >= 4) {
+        korting = row[row.length - 3] || '';
+      }
+
+      // Check of de VOLGENDE rij "Luxe" is (aparte vervolgregel)
+      let isLuxe = false;
+      if (i + 1 < rows.length) {
+        const nextRow = rows[i + 1];
+        if (nextRow.length === 1 && nextRow[0].trim().toLowerCase() === 'luxe') {
+          isLuxe = true;
+        }
+      }
+
+      // Bepaal het label
+      let parsed = parseKortingniveau(korting);
+      // Als volgende rij "Luxe" is en het is een Pauze/Normaal arrangement → Luxe
+      if (isLuxe && (parsed === 'Normaal' || korting.toLowerCase().includes('pauze'))) {
+        parsed = 'Luxe';
+      }
+
+      dataRows.push({
+        naam: naam.trim(),
+        korting: parsed
+      });
+    }
+
+    console.log('Datarijen gevonden:', dataRows.length);
+    if (dataRows.length > 0) {
+      console.log('Eerste 3:', dataRows.slice(0, 3));
+    }
+
+    // Groepeer per naam - bewaar PDF-volgorde
+    const groups = {};
+    const order = [];
+    dataRows.forEach(row => {
+      const key = row.naam;
+      if (!groups[key]) {
+        groups[key] = { naam: key, arrangements: [] };
+        order.push(key);
+      }
+      groups[key].arrangements.push(row.korting);
+    });
+
+    return order.map(key => {
+      const g = groups[key];
+      const label = determineLabel(g.arrangements);
+      return {
+        naam: g.naam,
+        aantalPersonen: g.arrangements.length,
+        label: label.label,
+        notities: label.notities,
+        arrangements: g.arrangements
+      };
+    });
+  }
+
+  // ===== XLSX PROCESSING (AFAS) =====
+  let xlsxAllDates = {};
+
+  // Voegt HTM-only boekingen toe aan xlsxAllDates zodat de date-picker
+  // en alle downstream-tellingen meteen het juiste totaal tonen.
+  // Idempotent: bestaande fromHtm-entries worden eerst gewist en opnieuw
+  // bijgevoegd, zodat herhaaldelijk aanroepen veilig is.
+  function mergeHtmIntoXlsx() {
+    if (!window._htmData || !window._htmData.byDate) return 0;
+    if (!xlsxAllDates || Object.keys(xlsxAllDates).length === 0) return 0;
+
+    // Stap 1: oude fromHtm-entries verwijderen voor idempotentie
+    for (const dk in xlsxAllDates) {
+      xlsxAllDates[dk].entries = xlsxAllDates[dk].entries.filter(e => !e.fromHtm);
+    }
+
+    // Stap 2: per HTM-datum kijken welke orders ontbreken in Excel en toevoegen
+    let totalAdded = 0;
+    const log = [];
+    for (const htmDate in window._htmData.byDate) {
+      const htmBucket = window._htmData.byDate[htmDate];
+      const htmPa = (htmBucket.entries || []).filter(e => e.type === 'pa');
+      if (htmPa.length === 0) continue;
+
+      const matchingKeys = Object.keys(xlsxAllDates).filter(k => xlsxAllDates[k].date === htmDate);
+      if (matchingKeys.length === 0) continue;  // datum bestaat niet in Excel — overslaan
+
+      // Verzamel alle Excel-orders voor deze datum (alle tijdslots)
+      const excelOrders = new Set();
+      for (const k of matchingKeys) {
+        xlsxAllDates[k].entries.forEach(e => { if (e.order) excelOrders.add(String(e.order)); });
+      }
+
+      // Doel-key: het tijdslot met de meeste entries (meestal de hoofd-show)
+      const targetKey = matchingKeys.sort((a, b) =>
+        xlsxAllDates[b].entries.length - xlsxAllDates[a].entries.length
+      )[0];
+
+      // Loop HTM-bookings; voeg onbekende orders toe als synthetische entries
+      for (const b of htmPa) {
+        if (!b.order) continue;
+        const ord = String(b.order);
+        if (excelOrders.has(ord)) continue;
+
+        // Naam converteren naar "Achternaam, Voornaam" (HTM is "Voornaam Achternaam")
+        const parts = (b.naam || '').trim().split(' ');
+        let formatted = b.naam;
+        if (parts.length >= 2) {
+          formatted = parts[parts.length - 1] + ', ' + parts.slice(0, -1).join(' ');
+        }
+
+        const lbl = b.label || parseKortingniveau(b.priceType);
+        for (let k = 0; k < b.qty; k++) {
+          xlsxAllDates[targetKey].entries.push({
+            naam: formatted,
+            label: lbl,
+            origNaam: b.naam,
+            order: ord,
+            fromHtm: true
+          });
+        }
+        excelOrders.add(ord);
+        totalAdded += b.qty;
+        log.push(htmDate + ': +' + b.qty + 'p ' + formatted + ' (#' + ord + ')');
+      }
+    }
+
+    if (totalAdded > 0) {
+      console.log('[MERGE] ' + totalAdded + ' personen uit HTM toegevoegd aan Excel-data:', log);
+    }
+    return totalAdded;
+  }
+
+  async function processXLSX(file) {
+    showStatus('loading', `Laden: "${file.name}"...`);
+    try {
+      const buf = await file.arrayBuffer();
+      const wb = XLSX.read(buf, { type: 'array' });
+      
+      // Zoek "AFAS - Pauze" sheet (primair, betrouwbare datums per persoon)
+      let ws = null;
+      let sheetType = 'afas';
+      for (const name of wb.SheetNames) {
+        if (name.toLowerCase().includes('afas') && name.toLowerCase().includes('pauze')) {
+          ws = wb.Sheets[name]; break;
+        }
+      }
+      if (!ws) {
+        // Fallback: "Accounting List Pauze"
+        for (const name of wb.SheetNames) {
+          if (name.toLowerCase().includes('pauze') && name.toLowerCase().includes('accounting')) {
+            ws = wb.Sheets[name]; sheetType = 'accounting'; break;
+          }
+        }
+      }
+      if (!ws) {
+        for (const name of wb.SheetNames) {
+          if (name.toLowerCase().includes('pauze')) { ws = wb.Sheets[name]; sheetType = 'accounting'; break; }
+        }
+      }
+      if (!ws) { showStatus('error', 'Geen Pauze sheet gevonden'); return; }
+
+      const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+      xlsxAllDates = {};
+
+      if (sheetType === 'afas') {
+        // AFAS - Pauze: arrangement → datum → ordernr → naam|count|prijs
+        let currentArrangement = null;
+        let currentDateKey = null;
+        let lastOrder = null;
+
+        for (let i = 0; i < rows.length; i++) {
+          const cellA = String(rows[i][0] || '').trim();
+          const cellB = rows[i][1];
+
+          // Skip lege rijen en pivot-headers
+          // Exact match voor maanden/jaartal/totaal-labels (om namen als "May Maes" / "Maya" / "August..." niet te skippen)
+          // Prefix match voor pivot-metadata die altijd zo begint
+          if (!cellA || cellA.match(/^(?:(?:January|February|March|April|May|June|July|August|September|October|November|December|2026|Arrangementen|Rijlabels|Grand Total|Eindtotaal)$|(?:Week|Q\d|IsTodayPlus|performancedate|productionname|articletypename|sourcelocation|sourceproduction))/i)) continue;
+
+          // Arrangement header
+          const arrMatch = cellA.match(/(?:_N\/A:\s*|^\d+:\s*)(.*)/i);
+          if (arrMatch && (cellB === '' || cellB === null || cellB === undefined || cellB === 0) && cellA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) {
+            currentArrangement = arrMatch[1].trim();
+            continue;
+          }
+
+          // Datum
+          const dateMatch = cellA.match(/^(\d{1,2}-\d{1,2}-\d{4})\s*(\d{1,2}:\d{2})?/);
+          if (dateMatch) {
+            if (dateMatch[1] === '1-1-1900') { currentDateKey = null; continue; }
+            const time = dateMatch[2] || '19:30';
+            currentDateKey = dateMatch[1] + ' ' + time;
+            if (!xlsxAllDates[currentDateKey]) {
+              xlsxAllDates[currentDateKey] = { date: dateMatch[1], time: time, entries: [] };
+            }
+            continue;
+          }
+
+          // Ordernummer (alleen cijfers) — onthouden voor de volgende naam-rij
+          if (cellA.match(/^\d+$/) && (cellB === '' || cellB === null || cellB === undefined)) {
+            lastOrder = cellA;
+            continue;
+          }
+
+          // Naam met count (tekst in A, getal in B)
+          if (currentArrangement && currentDateKey && cellA && cellB !== '' && cellB !== null && cellB !== undefined) {
+            const count = parseInt(cellB) || 0;
+            if (count <= 0) continue;
+            const label = parseKortingniveau(currentArrangement);
+            
+            const nameParts = cellA.split(' ');
+            let formatted = cellA;
+            if (nameParts.length >= 2) {
+              const tussenvoegsels = ['van', 'de', 'den', 'der', 'het', 'ter', 'ten', 'op', 'in'];
+              let achternaamStart = nameParts.length - 1;
+              for (let j = 1; j < nameParts.length; j++) {
+                if (tussenvoegsels.includes(nameParts[j].toLowerCase())) {
+                  achternaamStart = j; break;
+                }
+              }
+              if (achternaamStart === nameParts.length - 1) {
+                formatted = nameParts[nameParts.length - 1] + ', ' + nameParts.slice(0, -1).join(' ');
+              } else {
+                formatted = nameParts.slice(achternaamStart).join(' ') + ', ' + nameParts.slice(0, achternaamStart).join(' ');
+              }
+            }
+
+            for (let k = 0; k < count; k++) {
+              xlsxAllDates[currentDateKey].entries.push({
+                naam: formatted,
+                label: label,
+                origNaam: cellA,
+                order: lastOrder
+              });
+            }
+            lastOrder = null;  // verbruikt — vermijd dat een volgende naam zonder eigen order de vorige toegewezen krijgt
+          }
+        }
+      } else {
+        // Accounting List Pauze (fallback): datum → arrangement → naam → ordernr|count
+        let currentDate = null;
+        let currentArrangement = null;
+        let expectCount = false;
+        let lastName = '';
+
+        for (let i = 0; i < rows.length; i++) {
+          const cellA = String(rows[i][0] || '').trim();
+          const cellB = rows[i][1];
+
+          const dateMatch = cellA.match(/^(\d{1,2}-\d{1,2}-\d{4})\s*(\d{1,2}:\d{2})?/);
+          if (dateMatch) {
+            if (dateMatch[1] === '1-1-1900') { currentDate = null; currentArrangement = null; continue; }
+            const time = dateMatch[2] || '19:30';
+            currentDate = dateMatch[1] + ' ' + time;
+            if (!xlsxAllDates[currentDate]) {
+              xlsxAllDates[currentDate] = { date: dateMatch[1], time: time, entries: [] };
+            }
+            currentArrangement = null;
+            continue;
+          }
+
+          if (!currentDate) continue;
+
+          const arrMatch = cellA.match(/(?:_N\/A:\s*|^\d+:\s*)(.*)/i);
+          if (arrMatch && (cellB === '' || cellB === null || cellB === undefined) && cellA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) {
+            currentArrangement = arrMatch[1].trim();
+            expectCount = false; continue;
+          }
+
+          if (currentArrangement && cellA && !cellA.match(/^\d+$/) && (cellB === '' || cellB === null || cellB === undefined)) {
+            lastName = cellA; expectCount = true; continue;
+          }
+
+          if (expectCount && cellB !== '' && cellB !== null && cellB !== undefined) {
+            const count = parseInt(cellB) || 0;
+            if (count <= 0) { expectCount = false; continue; }
+            const label = parseKortingniveau(currentArrangement);
+            // In Accounting List staat het ordernummer op dezelfde rij als de count (cellA)
+            const order = cellA.match(/^\d+$/) ? cellA : null;
+            const nameParts = lastName.split(' ');
+            let formatted = lastName;
+            if (nameParts.length >= 2) {
+              const tussenvoegsels = ['van', 'de', 'den', 'der', 'het', 'ter', 'ten', 'op', 'in'];
+              let achternaamStart = nameParts.length - 1;
+              for (let j = 1; j < nameParts.length; j++) {
+                if (tussenvoegsels.includes(nameParts[j].toLowerCase())) { achternaamStart = j; break; }
+              }
+              if (achternaamStart === nameParts.length - 1) {
+                formatted = nameParts[nameParts.length - 1] + ', ' + nameParts.slice(0, -1).join(' ');
+              } else {
+                formatted = nameParts.slice(achternaamStart).join(' ') + ', ' + nameParts.slice(0, achternaamStart).join(' ');
+              }
+            }
+            for (let k = 0; k < count; k++) {
+              xlsxAllDates[currentDate].entries.push({ naam: formatted, label: label, origNaam: lastName, order: order });
+            }
+            expectCount = false;
+          }
+        }
+      }
+
+      // === MERGE: parse ook de andere sheet voor ontbrekende datums ===
+      let wsOther = null;
+      let otherType = null;
+      if (sheetType === 'afas') {
+        for (const name of wb.SheetNames) {
+          if (name.toLowerCase().includes('pauze') && name.toLowerCase().includes('accounting')) {
+            wsOther = wb.Sheets[name]; otherType = 'accounting'; break;
+          }
+        }
+      } else {
+        for (const name of wb.SheetNames) {
+          if (name.toLowerCase().includes('afas') && name.toLowerCase().includes('pauze')) {
+            wsOther = wb.Sheets[name]; otherType = 'afas'; break;
+          }
+        }
+      }
+
+      if (wsOther) {
+        const otherRows = XLSX.utils.sheet_to_json(wsOther, { header: 1, defval: '' });
+        const otherDates = {};
+
+        if (otherType === 'afas') {
+          // Parse AFAS - Pauze als fallback
+          let oArr = null, oKey = null, oLastOrder = null;
+          for (let i = 0; i < otherRows.length; i++) {
+            const cA = String(otherRows[i][0] || '').trim();
+            const cB = otherRows[i][1];
+            if (!cA) continue;
+            const am = cA.match(/(?:_N\/A:\s*|^\d+:\s*)(.*)/i);
+            if (am && (cB === '' || cB === null || cB === undefined || cB === 0) && cA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) { oArr = am[1].trim(); continue; }
+            const dm = cA.match(/^(\d{1,2}-\d{1,2}-\d{4})\s*(\d{1,2}:\d{2})?/);
+            if (dm) { if (dm[1]==='1-1-1900'){oKey=null;continue;} const t=dm[2]||'19:30'; oKey=dm[1]+' '+t; if(!otherDates[oKey])otherDates[oKey]={date:dm[1],time:t,entries:[]}; continue; }
+            if (cA.match(/^\d+$/) && (cB===''||cB===null||cB===undefined)) { oLastOrder = cA; continue; }
+            if (oArr && oKey && cA && cB !== '' && cB !== null && cB !== undefined) {
+              const cnt = parseInt(cB) || 0;
+              if (cnt > 0) { const lbl = parseKortingniveau(oArr); otherDates[oKey].entries.push({naam:cA,label:lbl,origNaam:cA,order:oLastOrder}); }
+              oLastOrder = null;
+            }
+          }
+        } else {
+          // Parse Accounting als fallback
+          let oDate = null, oArr = null, expCnt = false, oName = '';
+          for (let i = 0; i < otherRows.length; i++) {
+            const cA = String(otherRows[i][0] || '').trim();
+            const cB = otherRows[i][1];
+            const dm = cA.match(/^(\d{1,2}-\d{1,2}-\d{4})\s*(\d{1,2}:\d{2})?/);
+            if (dm) { if(dm[1]==='1-1-1900'){oDate=null;oArr=null;continue;} const t=dm[2]||'19:30'; oDate=dm[1]+' '+t; if(!otherDates[oDate])otherDates[oDate]={date:dm[1],time:t,entries:[]}; oArr=null; continue; }
+            if (!oDate) continue;
+            const am = cA.match(/(?:_N\/A:\s*|^\d+:\s*)(.*)/i);
+            if (am && (cB===''||cB===null||cB===undefined) && cA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) { oArr=am[1].trim(); expCnt=false; continue; }
+            if (oArr && cA && !cA.match(/^\d+$/) && (cB===''||cB===null||cB===undefined)) { oName=cA; expCnt=true; continue; }
+            if (expCnt && cB!==''&&cB!==null&&cB!==undefined) {
+              const cnt=parseInt(cB)||0;
+              if(cnt>0){
+                const lbl = parseKortingniveau(oArr);
+                const ord = cA.match(/^\d+$/) ? cA : null;
+                for(let k=0;k<cnt;k++) otherDates[oDate].entries.push({naam:oName,label:lbl,origNaam:oName,order:ord});
+              }
+              expCnt = false;
+            }
+          }
+        }
+
+        // Merge: voeg datums toe die niet in primaire sheet zitten
+        let added = 0;
+        for (const d in otherDates) {
+          if (!xlsxAllDates[d] && otherDates[d].entries.length > 0) {
+            // Formateer namen
+            otherDates[d].entries.forEach(e => {
+              const nameParts = e.origNaam.split(' ');
+              if (nameParts.length >= 2) {
+                const tussenvoegsels = ['van', 'de', 'den', 'der', 'het', 'ter', 'ten', 'op', 'in'];
+                let achternaamStart = nameParts.length - 1;
+                for (let j = 1; j < nameParts.length; j++) {
+                  if (tussenvoegsels.includes(nameParts[j].toLowerCase())) { achternaamStart = j; break; }
+                }
+                if (achternaamStart === nameParts.length - 1) {
+                  e.naam = nameParts[nameParts.length - 1] + ', ' + nameParts.slice(0, -1).join(' ');
+                } else {
+                  e.naam = nameParts.slice(achternaamStart).join(' ') + ', ' + nameParts.slice(0, achternaamStart).join(' ');
+                }
+              }
+            });
+            xlsxAllDates[d] = otherDates[d];
+            added++;
+          }
+        }
+        if (added > 0) console.log('[XLSX] ' + added + ' extra datums uit fallback sheet');
+      }
+
+      // Filter lege datums
+      for (const d in xlsxAllDates) {
+        if (xlsxAllDates[d].entries.length === 0) delete xlsxAllDates[d];
+      }
+
+      // Merge tijdsloten die bij dezelfde show horen
+      // (AFAS splitst soms 19:30 en 20:00 voor dezelfde voorstelling)
+      // Alleen apart houden als tijden > 2 uur verschil (echte matinee + avondshow)
+      const dateGroups = {};
+      for (const key in xlsxAllDates) {
+        const d = xlsxAllDates[key].date;
+        if (!dateGroups[d]) dateGroups[d] = [];
+        dateGroups[d].push(key);
+      }
+      for (const date in dateGroups) {
+        const keys = dateGroups[date];
+        if (keys.length <= 1) continue;
+        
+        // Parse tijden en sorteer
+        const parsed = keys.map(k => {
+          const t = xlsxAllDates[k].time.split(':');
+          return { key: k, minutes: parseInt(t[0]) * 60 + parseInt(t[1]) };
+        }).sort((a, b) => a.minutes - b.minutes);
+        
+        // Groepeer: tijden < 2 uur verschil = zelfde show
+        const groups = [[parsed[0]]];
+        for (let i = 1; i < parsed.length; i++) {
+          const lastGroup = groups[groups.length - 1];
+          const lastTime = lastGroup[lastGroup.length - 1].minutes;
+          if (parsed[i].minutes - lastTime < 120) {
+            lastGroup.push(parsed[i]);
+          } else {
+            groups.push([parsed[i]]);
+          }
+        }
+        
+        // Merge elke groep
+        for (const group of groups) {
+          if (group.length <= 1) continue;
+          // Gebruik het tijdslot met de MEESTE entries als hoofdtijd
+          let mainIdx = 0;
+          let maxEntries = 0;
+          for (let i = 0; i < group.length; i++) {
+            const count = xlsxAllDates[group[i].key].entries.length;
+            if (count > maxEntries) { maxEntries = count; mainIdx = i; }
+          }
+          const main = group[mainIdx].key;
+          for (let i = 0; i < group.length; i++) {
+            if (i === mainIdx) continue;
+            const mergeKey = group[i].key;
+            xlsxAllDates[main].entries.push(...xlsxAllDates[mergeKey].entries);
+            delete xlsxAllDates[mergeKey];
+            console.log('[XLSX] Merged ' + mergeKey + ' into ' + main);
+          }
+        }
+      }
+
+      // Voor de date-picker telt: merge eerst HTM-only orders erbij (als HTM al geladen is)
+      mergeHtmIntoXlsx();
+
+      const dates = Object.keys(xlsxAllDates);
+
+      // Filter verlopen datums
+      const today = new Date();
+      today.setHours(0,0,0,0);
+      const futureDates = dates.filter(d => {
+        const parts = xlsxAllDates[d].date.split('-');
+        const showDate = new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0]));
+        return showDate >= today;
+      });
+
+      if (dates.length === 0) {
+        showStatus('error', 'Geen pauze-arrangementen gevonden');
+        return;
+      }
+
+      showStatus('success', futureDates.length + ' aankomende shows gevonden (' + dates.length + ' totaal)');
+      document.getElementById('excelBadge').classList.remove('hidden');
+      if (window._htmData) renderHtmVerify();
+
+      // Maand namen
+      const maanden = ['','Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+      
+      // Vind alle unieke maanden (alleen toekomstige voor filterknoppen)
+      const futureMonths = new Set();
+      futureDates.forEach(d => {
+        const parts = xlsxAllDates[d].date.split('-');
+        futureMonths.add(parseInt(parts[1]));
+      });
+      const sortedMonths = [...futureMonths].sort((a,b) => a - b);
+
+      // Render maand-filters
+      const mf = document.getElementById('monthFilter');
+      mf.innerHTML = '<button class="month-btn" onclick="filterDates(\'all\')">Alles</button>' +
+        sortedMonths.map(m => '<button class="month-btn" onclick="filterDates(' + m + ')">' + maanden[m] + '</button>').join('');
+
+      // Render datumknoppen in weekkalender (Ma-Zo)
+      const picker = document.getElementById('datePicker');
+      
+      // Sorteer chronologisch
+      const sortedDates = dates.map(d => {
+        const info = xlsxAllDates[d];
+        const parts = info.date.split('-');
+        return { key: d, info: info, jsDate: new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0])) };
+      }).sort((a,b) => a.jsDate - b.jsDate);
+
+      // Sla data op voor dynamisch renderen
+      window._calendarData = { xlsxAllDates, sortedDates, byDate: {}, today };
+      
+      // Groepeer per kalenderdag
+      for (const item of sortedDates) {
+        const dateStr = item.info.date;
+        if (!window._calendarData.byDate[dateStr]) window._calendarData.byDate[dateStr] = [];
+        window._calendarData.byDate[dateStr].push(item);
+      }
+
+      fadeIn('datePickerWrap', 100);
+
+      // Auto-filter op huidige maand
+      const currentMonth = today.getMonth() + 1;
+      if (sortedMonths.includes(currentMonth)) {
+        filterDates(currentMonth);
+      } else {
+        filterDates('all');
+      }
+
+    } catch (err) {
+      showStatus('error', 'Fout bij lezen XLSX: ' + err.message);
+      console.error(err);
+    }
+  }
+
+  // ===== HTM PROCESSING (AudienceView "Daily PA & Dinner" rapport) =====
+  // Kolommen: Order Number | First Name | Last Name | Event Start Date/Time | Price Type | Quantity Sold
+  // Resto-reserveringen (Price Type bevat "menu") tellen NIET mee voor PA.
+  function htmIsResto(priceType) {
+    const l = (priceType || '').toLowerCase();
+    // Resto = elk diner/menu/voucher-product (Musicalmenu, Theatermenu, 3-gangen, à la carte, voucher, aanbetaling)
+    // Let op: check voucher/aanbetaling expliciet zodat "Reseat €10 voucher" niet als PA wordt gelezen
+    return l.includes('menu') || l.includes('gangen') || l.includes('carte') || l.includes('diner') || l.includes('voucher') || l.includes('aanbetaling');
+  }
+  function htmIsPA(priceType) {
+    const l = (priceType || '').toLowerCase();
+    if (htmIsResto(l)) return false;
+    return /pauze|arrangement|kids|kind|koffie|borrel|luxe|reseat/.test(l);
+  }
+  // "28-05-26" -> "28-5-2026"  (dag-maand-jaar zonder voorloopnullen, jaar 4-cijferig)
+  function htmNormDate(raw) {
+    const m = (raw || '').match(/(\d{1,2})-(\d{1,2})-(\d{2,4})/);
+    if (!m) return null;
+    let [_, d, mo, y] = m;
+    if (y.length === 2) y = '20' + y;
+    return parseInt(d) + '-' + parseInt(mo) + '-' + parseInt(y);
+  }
+  // "7:30p.m." -> "19:30", "4:30p.m." -> "16:30", "9:00a.m." -> "9:00"
+  function htmNormTime(raw) {
+    const m = (raw || '').match(/(\d{1,2}):(\d{2})\s*([ap])\.?m/i);
+    if (!m) return null;
+    let h = parseInt(m[1]); const min = m[2]; const ap = m[3].toLowerCase();
+    if (ap === 'p' && h !== 12) h += 12;
+    if (ap === 'a' && h === 12) h = 0;
+    return h + ':' + min;
+  }
+
+  async function processHTM(file) {
+    showStatus('loading', `Laden: "${file.name}"...`);
+    try {
+      const text = await file.text();
+      const doc = new DOMParser().parseFromString(text, 'text/html');
+      const trs = [...doc.querySelectorAll('tr')];
+
+      // Vind de header-rij om kolomindexen te bepalen (robuust tegen kolom-volgorde)
+      let idx = { order: 0, first: 1, last: 2, dt: 3, price: 4, qty: 5 };
+      for (const tr of trs) {
+        const cells = [...tr.querySelectorAll('td,th')].map(c => c.textContent.trim().toLowerCase());
+        if (cells.some(c => c.includes('price type')) && cells.some(c => c.includes('quantity'))) {
+          cells.forEach((c, i) => {
+            if (c.includes('order')) idx.order = i;
+            else if (c.includes('first')) idx.first = i;
+            else if (c.includes('last')) idx.last = i;
+            else if (c.includes('date')) idx.dt = i;
+            else if (c.includes('price')) idx.price = i;
+            else if (c.includes('quantity')) idx.qty = i;
+          });
+          break;
+        }
+      }
+
+      const byDate = {};   // "28-5-2026" -> { pa: {Normaal:n,Luxe:n,...}, paTotal, resto, restoTotal, times:Set, entries:[] }
+      let totalRows = 0;
+      // Diagnostiek: tel rijen die stil worden overgeslagen
+      const skipped = { fewCells: 0, badQty: 0, noPriceType: 0, badDate: 0, headerlike: 0, samples: [] };
+
+      for (const tr of trs) {
+        const cells = [...tr.querySelectorAll('td')].map(c => c.textContent.trim());
+        if (cells.length === 0) continue;  // geen <td>'s = header/spacer, niet meetellen
+        if (cells.length < 6) {
+          // Sla over, maar log alleen als de rij data lijkt te bevatten (niet een spacer/totaal-rij)
+          if (cells.some(c => c && c.length > 0)) {
+            skipped.fewCells++;
+            if (skipped.samples.length < 5) skipped.samples.push({ reden: 'te weinig kolommen (' + cells.length + ')', rij: cells.join(' | ') });
+          }
+          continue;
+        }
+        const rawQty = cells[idx.qty];
+        const qty = parseInt(rawQty);
+        if (!Number.isFinite(qty) || qty <= 0) {
+          // Skip header-achtige rijen stil; log andere voor onderzoek
+          const isHeaderLike = /^(quantity|qty|aantal)/i.test(rawQty || '');
+          if (isHeaderLike) { skipped.headerlike++; continue; }
+          skipped.badQty++;
+          if (skipped.samples.length < 5) skipped.samples.push({ reden: 'qty niet leesbaar: "' + rawQty + '"', rij: cells.join(' | ') });
+          continue;
+        }
+        const priceType = cells[idx.price];
+        if (!priceType) {
+          skipped.noPriceType++;
+          if (skipped.samples.length < 5) skipped.samples.push({ reden: 'lege price type', rij: cells.join(' | ') });
+          continue;
+        }
+        const date = htmNormDate(cells[idx.dt]);
+        const time = htmNormTime(cells[idx.dt]);
+        if (!date) {
+          skipped.badDate++;
+          if (skipped.samples.length < 5) skipped.samples.push({ reden: 'datum niet leesbaar: "' + cells[idx.dt] + '"', rij: cells.join(' | ') });
+          continue;
+        }
+        totalRows++;
+
+        if (!byDate[date]) byDate[date] = { pa: {}, paTotal: 0, restoTotal: 0, times: new Set(), entries: [] };
+        const bucket = byDate[date];
+        if (time) bucket.times.add(time);
+
+        if (htmIsResto(priceType)) {
+          bucket.restoTotal += qty;
+          bucket.entries.push({ order: cells[idx.order], naam: (cells[idx.first] + ' ' + cells[idx.last]).trim(), priceType, qty, time, type: 'resto' });
+        } else if (htmIsPA(priceType)) {
+          const lbl = parseKortingniveau(priceType);
+          bucket.pa[lbl] = (bucket.pa[lbl] || 0) + qty;
+          bucket.paTotal += qty;
+          bucket.entries.push({ order: cells[idx.order], naam: (cells[idx.first] + ' ' + cells[idx.last]).trim(), priceType, qty, time, type: 'pa', label: lbl });
+        } else {
+          // onbekend type — markeer apart zodat het niet stilletjes verdwijnt
+          bucket.entries.push({ order: cells[idx.order], naam: (cells[idx.first] + ' ' + cells[idx.last]).trim(), priceType, qty, time, type: 'onbekend' });
+        }
+      }
+
+      if (totalRows === 0) {
+        showStatus('error', 'Geen geldige rijen gevonden in de .htm (check of het het AudienceView-rapport is)');
+        return;
+      }
+
+      // Diagnostiek: rapporteer overgeslagen rijen in console + bewaar voor UI
+      const skippedTotal = skipped.fewCells + skipped.badQty + skipped.noPriceType + skipped.badDate;
+      if (skippedTotal > 0) {
+        console.warn('[HTM] ' + skippedTotal + ' rijen overgeslagen:',
+          'te weinig kolommen=' + skipped.fewCells,
+          '· qty onleesbaar=' + skipped.badQty,
+          '· lege price type=' + skipped.noPriceType,
+          '· datum onleesbaar=' + skipped.badDate);
+        skipped.samples.forEach(s => console.warn('  voorbeeld - ' + s.reden + ':', s.rij));
+      }
+
+      window._htmData = { byDate, fileName: file.name, skipped: { total: skippedTotal, ...skipped } };
+      document.getElementById('htmBadge').classList.remove('hidden');
+
+      // Als Excel al geladen is: merge HTM-only orders meteen erbij en herteken de date-picker
+      if (xlsxAllDates && Object.keys(xlsxAllDates).length > 0) {
+        const added = mergeHtmIntoXlsx();
+        if (added > 0 && window._calendarData) {
+          // Rebuild _calendarData met de bijgewerkte xlsxAllDates en herteken huidige filter
+          const sortedDates = Object.keys(xlsxAllDates).map(d => {
+            const info = xlsxAllDates[d];
+            const parts = info.date.split('-');
+            return { key: d, info: info, jsDate: new Date(parseInt(parts[2]), parseInt(parts[1])-1, parseInt(parts[0])) };
+          }).sort((a,b) => a.jsDate - b.jsDate);
+          const byDateCal = {};
+          for (const item of sortedDates) {
+            const ds = item.info.date;
+            if (!byDateCal[ds]) byDateCal[ds] = [];
+            byDateCal[ds].push(item);
+          }
+          window._calendarData = { xlsxAllDates, sortedDates, byDate: byDateCal, today: window._calendarData.today };
+          // Trigger re-render via huidige actieve filter
+          const activeBtn = document.querySelector('.month-btn.active');
+          if (activeBtn) {
+            const txt = activeBtn.textContent;
+            if (txt === 'Alles') filterDates('all');
+            else {
+              const maanden = ['','Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+              const m = maanden.indexOf(txt);
+              if (m > 0) filterDates(m);
+            }
+          }
+        }
+      }
+
+      renderHtmVerify();
+    } catch (err) {
+      showStatus('error', 'Fout bij lezen .htm: ' + err.message);
+      console.error(err);
+    }
+  }
+
+  // Tel PA-personen uit de Excel (xlsxAllDates) per kalenderdatum (alle tijdslots samen)
+  function excelPaPerDate() {
+    const out = {};
+    for (const key in xlsxAllDates) {
+      const d = xlsxAllDates[key];
+      if (!d || !d.date) continue;
+      out[d.date] = (out[d.date] || 0) + (d.entries ? d.entries.length : 0);
+    }
+    return out;
+  }
+
+  function renderHtmVerify() {
+    const wrap = document.getElementById('htmVerify');
+    if (!window._htmData) { wrap.classList.add('hidden'); return; }
+    const { byDate } = window._htmData;
+    const excelByDate = excelPaPerDate();
+    const hasExcel = Object.keys(excelByDate).length > 0;
+
+    const dates = Object.keys(byDate).sort((a, b) => {
+      const pa = a.split('-').map(Number), pb = b.split('-').map(Number);
+      return new Date(pa[2], pa[1]-1, pa[0]) - new Date(pb[2], pb[1]-1, pb[0]);
+    });
+
+    let html = '<div style="background:rgba(0,0,0,0.25);border:1px solid var(--glass-border);border-radius:12px;padding:14px 16px;">';
+    html += '<div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px;">';
+    html += '<span style="color:var(--teal);">⊕</span> AudienceView controle' + (hasExcel ? ' vs. Excel' : '') + '</div>';
+
+    // Waarschuwing over overgeslagen rijen (laat geen mensen stilletjes uit de telling vallen)
+    const sk = window._htmData.skipped;
+    if (sk && sk.total > 0) {
+      const redenen = [];
+      if (sk.fewCells)    redenen.push(sk.fewCells + 'x te weinig kolommen');
+      if (sk.badQty)      redenen.push(sk.badQty + 'x qty onleesbaar');
+      if (sk.noPriceType) redenen.push(sk.noPriceType + 'x lege price type');
+      if (sk.badDate)     redenen.push(sk.badDate + 'x datum onleesbaar');
+      html += '<div style="background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.35);border-radius:8px;padding:9px 12px;margin-bottom:10px;font-size:12px;color:var(--red);">';
+      html += '<div style="font-weight:700;margin-bottom:3px;">⚠ ' + sk.total + ' rijen uit .htm overgeslagen</div>';
+      html += '<div style="font-size:11px;color:var(--text2);">' + redenen.join(' · ') + ' — kijk in de console (F12) voor voorbeelden</div>';
+      html += '</div>';
+    }
+
+    for (const date of dates) {
+      const h = byDate[date];
+      const labels = Object.entries(h.pa).map(([k, v]) => k + ': ' + v).join(' · ');
+      const timesArr = [...h.times].sort();
+
+      html += '<div style="padding:10px 0;border-top:1px solid rgba(255,255,255,0.06);">';
+      html += '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;">';
+      html += '<span style="font-size:13px;font-weight:700;color:var(--text);">' + date + (timesArr.length ? ' <span style="color:var(--text3);font-weight:500;">(' + timesArr.join(', ') + ')</span>' : '') + '</span>';
+
+      // Vergelijk met Excel als beschikbaar
+      if (hasExcel) {
+        const ex = excelByDate[date];
+        if (ex === undefined) {
+          html += '<span style="font-size:12px;font-weight:700;color:var(--yellow);">⚠ niet in Excel</span>';
+        } else if (ex === h.paTotal) {
+          html += '<span style="font-size:12px;font-weight:700;color:var(--teal);">✓ ' + h.paTotal + ' PA — match</span>';
+        } else {
+          html += '<span style="font-size:12px;font-weight:700;color:var(--red);">⚠ Excel ' + ex + ' · HTM ' + h.paTotal + ' (verschil ' + (h.paTotal - ex > 0 ? '+' : '') + (h.paTotal - ex) + ')</span>';
+        }
+      } else {
+        html += '<span style="font-size:12px;font-weight:700;color:var(--accent);">' + h.paTotal + ' PA</span>';
+      }
+      html += '</div>';
+
+      html += '<div style="font-size:11px;color:var(--text3);margin-top:4px;">' + (labels || 'geen PA') + '</div>';
+      if (h.restoTotal > 0) {
+        html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">🍽️ ' + h.restoTotal + ' resto (niet meegeteld)</div>';
+      }
+      const onbekend = h.entries.filter(e => e.type === 'onbekend');
+      if (onbekend.length) {
+        html += '<div style="font-size:11px;color:var(--yellow);margin-top:2px;">? ' + onbekend.reduce((s,e)=>s+e.qty,0) + ' onbekend type: ' + [...new Set(onbekend.map(e=>e.priceType))].join(', ') + '</div>';
+      }
+      html += '</div>';
+    }
+
+    if (!hasExcel) {
+      html += '<div style="font-size:11px;color:var(--text3);margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">Upload ook de Excel om PA-aantallen te vergelijken.</div>';
+    }
+    html += '</div>';
+    wrap.innerHTML = html;
+    wrap.classList.remove('hidden');
+  }
+
+  function filterDates(month) {
+    const cd = window._calendarData;
+    if (!cd) return;
+    const { byDate, today } = cd;
+
+    // Filter dates for this month
+    const filteredDates = {};
+    for (const dateStr in byDate) {
+      const shows = byDate[dateStr];
+      for (const show of shows) {
+        const m = parseInt(show.info.date.split('-')[1]);
+        const isPast = show.jsDate < today;
+        if (month === 'all' || m === month) {
+          if (month !== 'all' && isPast) continue;
+          if (!filteredDates[dateStr]) filteredDates[dateStr] = [];
+          filteredDates[dateStr].push(show);
+        }
+      }
+    }
+
+    // Build calendar grid
+    const allDates = Object.keys(filteredDates).map(d => {
+      const p = d.split('-');
+      return { dateStr: d, jsDate: new Date(parseInt(p[2]), parseInt(p[1])-1, parseInt(p[0])) };
+    }).sort((a,b) => a.jsDate - b.jsDate);
+
+    let html = '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;">';
+    html += ['Ma','Di','Wo','Do','Vr','Za','Zo'].map(d => 
+      '<div style="text-align:center;font-size:11px;font-weight:600;color:var(--text3);padding:4px 0;">' + d + '</div>'
+    ).join('');
+
+    if (allDates.length > 0) {
+      const first = allDates[0].jsDate;
+      const firstDow = first.getDay() === 0 ? 6 : first.getDay() - 1;
+      const startMon = new Date(first);
+      startMon.setDate(startMon.getDate() - firstDow);
+
+      const last = allDates[allDates.length - 1].jsDate;
+      const lastDow = last.getDay() === 0 ? 6 : last.getDay() - 1;
+      const endSun = new Date(last);
+      endSun.setDate(endSun.getDate() + (6 - lastDow));
+
+      const cursor = new Date(startMon);
+      while (cursor <= endSun) {
+        const dateStr = cursor.getDate() + '-' + (cursor.getMonth()+1) + '-' + cursor.getFullYear();
+        const shows = filteredDates[dateStr];
+        
+        if (shows && shows.length > 0) {
+          html += '<div style="display:flex;flex-direction:column;gap:4px;">';
+          for (const show of shows) {
+            const e = show.info.entries.length;
+            const isPast = show.jsDate < today;
+            html += '<button class="date-btn" onclick="selectXLSXDate(\'' + show.key + '\')" style="text-align:center;width:100%;padding:10px 4px;' + (isPast ? 'opacity:0.4;' : '') + '">' +
+              '<div style="font-size:13px;font-weight:700;">' + show.info.date + '</div>' +
+              '<div style="font-size:12px;font-weight:600;color:var(--accent);margin-top:2px;">' + show.info.time + '</div>' +
+              '<div style="font-size:10px;color:var(--text3);font-weight:400;margin-top:3px;">' + e + ' arr.' + (isPast ? ' · verl.' : '') + '</div></button>';
+          }
+          html += '</div>';
+        } else {
+          html += '<div></div>';
+        }
+        cursor.setDate(cursor.getDate() + 1);
+      }
+    }
+    html += '</div>';
+    document.getElementById('datePicker').innerHTML = html;
+
+    // Update active month button
+    document.querySelectorAll('.month-btn').forEach(b => {
+      const maanden = ['','Januari','Februari','Maart','April','Mei','Juni','Juli','Augustus','September','Oktober','November','December'];
+      const isActive = (month === 'all' && b.textContent === 'Alles') || b.textContent === maanden[month];
+      b.classList.toggle('active', isActive);
+    });
+
+    // Week overview: totaal gasten per dag
+    const wo = document.getElementById('weekOverview');
+    if (wo && Object.keys(filteredDates).length > 0) {
+      const dagTotalen = {};
+      const dagen = ['Zo','Ma','Di','Wo','Do','Vr','Za'];
+      for (const dateStr in filteredDates) {
+        const shows = filteredDates[dateStr];
+        const total = shows.reduce((s, sh) => s + sh.info.entries.length, 0);
+        const p = dateStr.split('-');
+        const d = new Date(parseInt(p[2]), parseInt(p[1])-1, parseInt(p[0]));
+        dagTotalen[dateStr] = { total, dag: dagen[d.getDay()], date: d };
+      }
+      const maxGasten = Math.max(...Object.values(dagTotalen).map(d => d.total), 1);
+      
+      let woHtml = '<div style="padding:14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;">';
+      woHtml += '<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px;">Weekoverzicht — totaal gasten per dag</div>';
+      woHtml += '<div style="display:flex;align-items:flex-end;gap:4px;height:60px;">';
+      const sorted = Object.entries(dagTotalen).sort((a,b) => a[1].date - b[1].date);
+      sorted.forEach(([dateStr, info]) => {
+        const pct = Math.max((info.total / maxGasten) * 100, 8);
+        const kleur = info.total > 60 ? 'var(--accent)' : info.total > 30 ? '#eab308' : 'var(--green)';
+        woHtml += '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;">';
+        woHtml += '<div style="font-size:10px;font-weight:700;color:var(--text);">' + info.total + '</div>';
+        woHtml += '<div style="width:100%;height:' + pct + '%;min-height:4px;background:' + kleur + ';border-radius:4px 4px 0 0;transition:height 0.3s;"></div>';
+        woHtml += '<div style="font-size:9px;color:var(--text3);">' + info.dag + ' ' + dateStr.split('-')[0] + '</div>';
+        woHtml += '</div>';
+      });
+      woHtml += '</div></div>';
+      wo.innerHTML = woHtml;
+    } else if (wo) {
+      wo.innerHTML = '';
+    }
+  }
+
+  function selectXLSXDate(date) {
+    const data = xlsxAllDates[date];
+    if (!data) return;
+
+    // Verberg Jarvis greeting
+    const jarvis = document.getElementById('jarvisGreeting');
+    if (jarvis) { jarvis.style.transition = 'opacity 0.5s,transform 0.5s'; jarvis.style.opacity = '0'; jarvis.style.transform = 'translateY(-10px)'; setTimeout(() => jarvis.style.display = 'none', 500); }
+
+    // Vergelijking met vorige data (als er al eerder een sheet was geladen)
+    const prevKey = 'pam_prev_' + date;
+    let changes = null;
+    try {
+      const prevData = window._previousData && window._previousData[date];
+      if (prevData) {
+        const prevNames = new Set(prevData.map(e => e.naam.toLowerCase()));
+        const newNames = new Set(data.entries.map(e => (e.origNaam || e.naam).toLowerCase()));
+        const added = [...newNames].filter(n => !prevNames.has(n));
+        const removed = [...prevNames].filter(n => !newNames.has(n));
+        if (added.length > 0 || removed.length > 0) {
+          changes = { added, removed };
+        }
+      }
+    } catch(e) {}
+    // Sla huidige data op voor volgende vergelijking
+    if (!window._previousData) window._previousData = {};
+    window._previousData[date] = data.entries.map(e => ({ naam: e.origNaam || e.naam }));
+
+    pdfStartTime = data.time;
+    window._selectedDate = data.date + ' ' + data.time;
+    window._lastChanges = changes;
+
+    // Groepeer per persoon — Na Borrel ALTIJD apart (ander tijdslot)
+    const groups = {};
+    data.entries.forEach(e => {
+      const key = e.naam;
+      if (!groups[key]) groups[key] = { naam: e.naam, arrangements: [], naborrel: 0, orders: [] };
+      if (e.order && !groups[key].orders.includes(String(e.order))) groups[key].orders.push(String(e.order));
+      if (e.label === 'Na Borrel') {
+        groups[key].naborrel++;
+      } else {
+        groups[key].arrangements.push(e.label);
+      }
+    });
+
+    allReservations = [];
+    Object.values(groups).forEach(g => {
+      // Reguliere arrangementen
+      if (g.arrangements.length > 0) {
+        const label = determineLabel(g.arrangements);
+        allReservations.push({
+          naam: g.naam,
+          aantalPersonen: g.arrangements.length,
+          label: label.label,
+          notities: label.notities,
+          arrangements: g.arrangements,
+          orders: g.orders
+        });
+      }
+      // Na Borrel apart
+      if (g.naborrel > 0) {
+        allReservations.push({
+          naam: g.naam,
+          aantalPersonen: g.naborrel,
+          label: 'Na Borrel',
+          notities: '',
+          arrangements: Array(g.naborrel).fill('Na Borrel'),
+          timeOffset: 60,
+          orders: g.orders
+        });
+      }
+    });
+
+    // Sorteer alfabetisch op achternaam
+    allReservations.sort((a, b) => a.naam.localeCompare(b.naam, 'nl'));
+
+    // Tel hoeveel reserveringen uit HTM-merge komen (info voor de status-balk)
+    const htmAddedCount = data.entries.filter(e => e.fromHtm).length;
+
+    document.getElementById('datePickerWrap').classList.add('hidden');
+    const statusBase = allReservations.length + ' reserveringen voor ' + data.date + ' ' + data.time + ' (' + data.entries.length + ' gasten)';
+    const statusExtra = htmAddedCount > 0 ? '  ·  waarvan ' + htmAddedCount + ' uit AudienceView' : '';
+    showStatus('success', statusBase + statusExtra);
+    renderResults();
+  }
+
+  // Parse kortingniveau: na merge kan dit "Pauze-arrangement Luxe" zijn
+  // Logica:
+  // - "Pauze-arrangement" (zonder Luxe) → Normaal
+  // - "Pauze-arrangement Luxe" → Luxe  
+  // - "Koffie-arrangement" → Koffie arrangement
+  // - "Kids-arrangement" → Kind
+  // - "Na Borrel" → Na Borrel
+  function parseKortingniveau(raw) {
+    if (!raw) return 'Normaal';
+    const l = raw.toLowerCase().trim();
+    
+    if (l.includes('kids') || l.includes('kind')) return 'Kind';
+    if (l.includes('koffie')) return 'Koffie arrangement';
+    // AFAS exporteert soms 'Naborel-Arrangement' met één r — dus check beide spellingen
+    if (l.includes('borrel') || l.includes('naborel')) return 'Na Borrel';
+    if (l.includes('pauze') && l.includes('luxe')) return 'Luxe';
+    if (l.includes('pauze')) return 'Normaal';
+    if (l.includes('luxe')) return 'Luxe';
+    
+    return 'Normaal';
+  }
+
+  function determineLabel(arrangements) {
+    if (!arrangements.length) return { label: 'Normaal', notities: '' };
+
+    // arrangements zijn al door parseKortingniveau gehaald
+    // mogelijke waarden: Normaal, Luxe, Koffie arrangement, Kind, Na Borrel
+    const unique = [...new Set(arrangements)];
+    
+    if (unique.length === 1) return { label: unique[0], notities: '' };
+
+    // Mix = Combi + breakdown in notities
+    const counts = {};
+    arrangements.forEach(a => counts[a] = (counts[a] || 0) + 1);
+    const breakdown = Object.entries(counts).map(([k, v]) => `${v}x ${k}`).join(', ');
+    return { label: 'Combi', notities: breakdown };
+  }
+
+
+  // ===== RENDER =====
+  let selectedMainLocation = 'Theaterrestaurant';
+
+  // Tafeldata per locatie: {nummer: stoelen}
+  // Naburige tafels die samengevoegd kunnen worden staan in adjacency lists
+  const venueData = {
+    'Theaterrestaurant': {
+      tafels: {
+        101:2, 102:2, 103:2, 104:2, 105:2, 106:4, 107:3,
+        108:2, 109:2, 110:4, 111:2, 112:4, 113:2, 114:4,
+        115:2, 116:2, 117:4, 118:4, 119:2,
+        120:4, 121:2, 122:4,
+        123:2, 124:2, 125:3, 126:3, 127:2, 128:4,
+        129:4, 130:2, 131:2, 132:4, 133:2, 134:2, 135:4, 136:2, 137:2, 138:4, 139:2, 140:2,
+        141:6, 142:4,
+        143:2, 144:2, 145:2, 146:2,
+        147:4, 148:4, 149:6, 150:2, 151:2, 152:7
+      },
+      // Tafels die naast elkaar staan (kunnen samengevoegd) — afgeleid uit floorplan
+      // Alleen tafels die fysiek tegen elkaar aan staan (horizontaal of verticaal, geen diagonaal)
+      neighbors: {
+        // Koppelgroepen zoals ze echt staan (juli 2026, aangeleverd door Kevin)
+        // 101 t/m 105 zijn een rij, 106 en 107 staan los
+        101:[102],102:[101,103],103:[102,104],104:[103,105],105:[104],
+        106:[],107:[],
+        // Paren
+        108:[109],109:[108],
+        110:[111],111:[110],
+        112:[113],113:[112],
+        114:[115],115:[114],
+        118:[119],119:[118],
+        120:[121],121:[120],
+        122:[123],123:[122],
+        127:[128],128:[127],
+        143:[144],144:[143],
+        145:[146],146:[145],
+        147:[150],150:[147],
+        148:[149],149:[148],
+        // Rij van drie: 116-117-124
+        116:[117],117:[116,124],124:[117],
+        // Booth-rijen van drie
+        129:[130],130:[129,131],131:[130],
+        132:[133],133:[132,134],134:[133],
+        135:[136],136:[135,137],137:[136],
+        138:[139],139:[138,140],140:[139],
+        // Losse tafels
+        125:[],126:[],141:[],142:[],151:[],152:[]
+      }
+    },
+    'Le Cirque': {
+      tafels: {
+        1:4, 2:4, 3:4, 4:4, 5:2,
+        6:2, 7:2, 8:2, 9:2, 10:2, 11:2, 12:2, 13:2, 14:2,
+        15:2, 16:2, 17:2, 18:2, 19:2, 20:2,
+        21:2, 22:2, 23:2,
+        24:4, 25:4, 26:4, 27:4,
+        28:2, 29:2, 30:2, 31:2, 32:2, 33:2,
+        34:4, 35:4, 36:4,
+        37:2, 38:2, 39:2, 40:4
+      },
+      neighbors: {
+        // Koppelgroepen zoals ze echt staan (juli 2026, aangeleverd door Kevin)
+        1:[2],2:[1],
+        3:[4],4:[3],
+        5:[6],6:[5],
+        7:[],8:[],9:[],10:[],11:[],12:[],13:[],
+        14:[15],15:[14],
+        16:[17],17:[16],
+        18:[19],19:[18,20],20:[19],
+        21:[22],22:[21,23],23:[22],
+        24:[],25:[],26:[],27:[],
+        28:[29],29:[28],
+        30:[31],31:[30,32],32:[31,33],33:[32],
+        34:[],35:[],36:[],
+        37:[38],38:[37,39],39:[38],
+        40:[]
+      }
+    },
+    'Circusbar': {
+      tafels: {
+        201:4, 202:4, 203:4, 204:4,
+        205:3, 206:4, 207:4, 208:3,
+        209:3, 210:3, 211:3, 212:4,
+        214:3, 215:3, 216:4, 217:3
+      },
+      neighbors: {
+        201:[],202:[],203:[],204:[],
+        205:[206],206:[205,207],207:[206,208],208:[207],
+        209:[210],210:[209,211],211:[210,212],212:[211],
+        214:[],
+        215:[216],216:[215,217],217:[216]
+      }
+    }
+  };
+
+  // Geblokkeerde tafels per locatie
+  const blockedTafels = {
+    'Theaterrestaurant': new Set(),
+    'Le Cirque': new Set([1,2,3,4,5,6,7,8,9,10,11,12,13]), // Serre standaard geblokkeerd
+    'Circusbar': new Set()
+  };
+
+  function toggleBlock(venue, nr, el) {
+    if (blockedTafels[venue].has(nr)) {
+      blockedTafels[venue].delete(nr);
+      el.style.opacity = '1';
+      el.style.background = 'var(--surface2)';
+    } else {
+      blockedTafels[venue].add(nr);
+      el.style.opacity = '0.35';
+      el.style.background = 'rgba(251,113,133,0.1)';
+    }
+  }
+
+  function updateTafel(inp) {
+    const venue = inp.dataset.venue;
+    const nr = parseInt(inp.dataset.tafel);
+    const val = parseInt(inp.value) || 2;
+    venueData[venue].tafels[nr] = val;
+  }
+
+
+  function renderTafelGrids() {
+    let html = '';
+    for (const [venue, data] of Object.entries(venueData)) {
+      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
+      html += '<div style="margin-top:14px;">';
+      html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">';
+      html += '<span style="font-size:14px;font-weight:700;color:var(--text);">' + emoji + ' ' + venue + '</span>';
+      if (venue === 'Circusbar') {
+        html += '<button onclick="blokkeerHelftCB()" style="padding:3px 10px;border-radius:6px;border:1px solid rgba(37,99,235,0.3);background:rgba(37,99,235,0.06);color:var(--accent);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Blokkeer helft</button>';
+      }
+      html += '<button onclick="toggleAllTafels(\'' + venue + '\',true)" style="padding:3px 10px;border-radius:6px;border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.06);color:var(--red);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Blokkeer alles</button>';
+      html += '<button onclick="toggleAllTafels(\'' + venue + '\',false)" style="padding:3px 10px;border-radius:6px;border:1px solid var(--glass-border);background:var(--glass);color:var(--text3);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Deblokkeer alles</button>';
+      html += '</div>';
+      html += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
+      const tafels = Object.entries(data.tafels).sort((a,b) => Number(a[0]) - Number(b[0]));
+      for (const [nr, stoelen] of tafels) {
+        const isBlocked = blockedTafels[venue] && blockedTafels[venue].has(Number(nr));
+        html += '<div class="tg-cell' + (isBlocked ? ' tg-blocked' : '') + '" onclick="toggleBlockGrid(\'' + venue + '\',' + nr + ',this)">';
+        html += '<span class="tg-nr">' + nr + '</span>';
+        html += '<span class="tg-seats">' + stoelen + '</span>';
+        html += '</div>';
+      }
+      html += '</div>';
+      if (venue === 'Le Cirque') {
+        html += '<div style="font-size:11px;color:var(--text3);margin-top:5px;">🔴 Rood/dim = geblokkeerd (serre 1-13). Klik om te (de)blokkeren.</div>';
+      } else {
+        html += '<div style="font-size:11px;color:var(--text3);margin-top:5px;">Klik op een tafel om te blokkeren/deblokkeren.</div>';
+      }
+      html += '</div>';
+    }
+    document.getElementById('tafelGrids').innerHTML = html;
+  }
+
+  function blokkeerHelftCB() {
+    const data = venueData['Circusbar'];
+    if (!data) return;
+    const nrs = Object.keys(data.tafels).map(Number).sort((a,b) => a - b);
+    const half = Math.ceil(nrs.length / 2);
+    blockedTafels['Circusbar'] = new Set();
+    nrs.slice(half).forEach(nr => blockedTafels['Circusbar'].add(nr));
+    renderTafelGrids();
+  }
+
+  function toggleAllTafels(venue, block) {
+    const data = venueData[venue];
+    if (!data) return;
+    Object.keys(data.tafels).forEach(nr => {
+      const n = Number(nr);
+      if (block) {
+        blockedTafels[venue].add(n);
+      } else {
+        blockedTafels[venue].delete(n);
+      }
+    });
+    renderTafelGrids();
+  }
+
+  function toggleBlockGrid(venue, nr, el) {
+    if (blockedTafels[venue].has(nr)) {
+      blockedTafels[venue].delete(nr);
+      el.classList.remove('tg-blocked');
+    } else {
+      blockedTafels[venue].add(nr);
+      el.classList.add('tg-blocked');
+    }
+  }
+
+
+  // Slimme tafeltoewijzing
+  function assignAllTafels(reservations) {
+    const mainLoc = selectedMainLocation;
+    const cbData = venueData['Circusbar'];
+    const mainData = venueData[mainLoc];
+    if (!cbData || !mainData) return;
+
+    // Reset alleen niet-gepinde reserveringen; pre-vul `used` met gepinde tafels
+    reservations.forEach(r => { if (!r.tafelPinned) r.tafelNr = ''; });
+
+    // Bouw tafellijsten (gesorteerd op nummer, zonder geblokkeerde)
+    function makeTafels(data, venue) {
+      return Object.entries(data.tafels)
+        .filter(([nr]) => !blockedTafels[venue].has(Number(nr)))
+        .map(([nr, s]) => ({ nr: parseInt(nr), stoelen: s }))
+        .sort((a,b) => a.nr - b.nr);
+    }
+    const cbAll = makeTafels(cbData, 'Circusbar');
+    const mainAll = makeTafels(mainData, mainLoc);
+
+    // ÉÉN ENKELE SET voor gebruikte tafels — dit voorkomt ELKE dubbeling
+    const used = new Set();
+    // Gepinde tafels uit handmatig-toegevoegde reserveringen direct als bezet markeren
+    reservations.forEach(r => {
+      if (r.tafelPinned && r.tafelNr) {
+        r.tafelNr.split('+').forEach(n => used.add(parseInt(n)));
+      }
+    });
+
+    // Helpers
+    // Zoek de neighbors map voor een venue
+    function getNeighbors(tafels) {
+      // Bepaal welke venue dit is op basis van tafelnummers
+      for (const [venue, data] of Object.entries(venueData)) {
+        if (tafels.length > 0 && data.tafels[tafels[0].nr] !== undefined) {
+          return data.neighbors || {};
+        }
+      }
+      return {};
+    }
+
+    function grab(tafels, needed, extraFilter) {
+      const neighbors = getNeighbors(tafels);
+      const available = tafels.filter(t => !used.has(t.nr) && (!extraFilter || extraFilter(t)));
+      if (available.length === 0) return [];
+
+      // Proximity: hoe dicht bij al bezette tafels (0=naast, 1=2 stappen, 100+=ver)
+      function proximity(nr) {
+        if (used.size === 0) return nr;
+        const nbs = neighbors[nr] || [];
+        for (const nb of nbs) { if (used.has(nb)) return 0; }
+        for (const nb of nbs) { for (const nb2 of (neighbors[nb] || [])) { if (used.has(nb2)) return 1; } }
+        for (const nb of nbs) { for (const nb2 of (neighbors[nb] || [])) { for (const nb3 of (neighbors[nb2] || [])) { if (used.has(nb3)) return 2; } } }
+        return 100 + nr;
+      }
+
+      // Score: proximity eerst (bij elkaar houden), waste als tiebreaker
+      // Max 2 stoelen waste is al de hard limit
+      function score(waste, prox) {
+        return prox * 100 + waste;
+      }
+
+      // === Optie A: Zoek BESTE adjacent cluster ===
+      let bestCluster = null;
+      let bestClusterScore = Infinity;
+      for (const startTafel of available) {
+        const cluster = [startTafel.nr];
+        const clusterSet = new Set(cluster);
+        let seats = startTafel.stoelen;
+        while (seats < needed) {
+          let bestNext = null;
+          let bestNextS = Infinity;
+          for (const nr of [...clusterSet]) {
+            for (const nbNr of (neighbors[nr] || [])) {
+              if (clusterSet.has(nbNr) || used.has(nbNr)) continue;
+              const nbTafel = available.find(t => t.nr === nbNr);
+              if (!nbTafel) continue;
+              const w = (seats + nbTafel.stoelen) - needed;
+              const s = w >= 0 ? w : 1000 + Math.abs(w);
+              if (s < bestNextS) { bestNext = nbTafel; bestNextS = s; }
+            }
+          }
+          if (!bestNext) break;
+          cluster.push(bestNext.nr);
+          clusterSet.add(bestNext.nr);
+          seats += bestNext.stoelen;
+        }
+        if (seats >= needed) {
+          const waste = seats - needed;
+          if (waste <= 2) {
+            const prox = Math.min(...cluster.map(nr => proximity(nr)));
+            const s = score(waste, prox);
+            if (s < bestClusterScore) {
+              bestCluster = cluster;
+              bestClusterScore = s;
+            }
+          }
+        }
+      }
+
+      // === Optie B: Zoek BESTE enkele tafel ===
+      let bestSingle = null;
+      let bestSingleScore = Infinity;
+      let fallbackSingle = null;
+      let fallbackSingleWaste = Infinity;
+      for (const t of available) {
+        if (t.stoelen >= needed) {
+          const waste = t.stoelen - needed;
+          const prox = proximity(t.nr);
+          if (waste <= 2) {
+            const s = score(waste, prox);
+            if (s < bestSingleScore) {
+              bestSingle = t;
+              bestSingleScore = s;
+            }
+          } else if (waste < fallbackSingleWaste) {
+            fallbackSingle = t;
+            fallbackSingleWaste = waste;
+          }
+        }
+      }
+
+      // === Kies beste optie (laagste score wint) ===
+      if (bestCluster && bestSingle) {
+        if (bestSingleScore <= bestClusterScore) {
+          used.add(bestSingle.nr);
+          return [bestSingle.nr];
+        }
+        bestCluster.forEach(nr => used.add(nr));
+        return bestCluster;
+      }
+      if (bestSingle) {
+        used.add(bestSingle.nr);
+        return [bestSingle.nr];
+      }
+      if (bestCluster) {
+        bestCluster.forEach(nr => used.add(nr));
+        return bestCluster;
+      }
+
+      // === Optie C: Relaxed adjacent cluster (geen waste-limiet) ===
+      // Voor groepen die geen waste≤2 cluster vinden (bijv. Le Cirque met Serre dicht).
+      // Probeer opnieuw, neem cluster met minste waste ook als waste > 2.
+      let relaxCluster = null;
+      let relaxClusterWaste = Infinity;
+      for (const startTafel of available) {
+        const cluster = [startTafel.nr];
+        const clusterSet = new Set(cluster);
+        let seats = startTafel.stoelen;
+        while (seats < needed) {
+          let bestNext = null;
+          let bestNextS = Infinity;
+          for (const nr of [...clusterSet]) {
+            for (const nbNr of (neighbors[nr] || [])) {
+              if (clusterSet.has(nbNr) || used.has(nbNr)) continue;
+              const nbTafel = available.find(t => t.nr === nbNr);
+              if (!nbTafel) continue;
+              const w = (seats + nbTafel.stoelen) - needed;
+              const s = w >= 0 ? w : 1000 + Math.abs(w);
+              if (s < bestNextS) { bestNext = nbTafel; bestNextS = s; }
+            }
+          }
+          if (!bestNext) break;
+          cluster.push(bestNext.nr);
+          clusterSet.add(bestNext.nr);
+          seats += bestNext.stoelen;
+        }
+        if (seats >= needed && (seats - needed) < relaxClusterWaste) {
+          relaxCluster = cluster;
+          relaxClusterWaste = seats - needed;
+        }
+      }
+      if (relaxCluster) {
+        console.warn('[TAFEL] Relaxed cluster (waste ' + relaxClusterWaste + ') voor ' + needed + 'p: ' + relaxCluster.join('+'));
+        relaxCluster.forEach(nr => used.add(nr));
+        return relaxCluster;
+      }
+
+      // === Optie D: Te grote enkele tafel (waste > 2) ===
+      if (fallbackSingle) {
+        console.warn('[TAFEL] Te grote enkele tafel voor ' + needed + 'p: ' + fallbackSingle.nr + ' (' + fallbackSingle.stoelen + 'st, waste ' + fallbackSingleWaste + ')');
+        used.add(fallbackSingle.nr);
+        return [fallbackSingle.nr];
+      }
+
+      // === Optie E: Niet-aangrenzend combineren (grootste eerst, tot ≥ needed) ===
+      // Vangt het Le Cirque 16-pers scenario: geen keten haalt 16, maar 4 losse 4-tops samen wel.
+      const byCapacity = [...available].sort((a, b) => b.stoelen - a.stoelen || a.nr - b.nr);
+      const collected = [];
+      let collectedSeats = 0;
+      for (const t of byCapacity) {
+        if (collectedSeats >= needed) break;
+        collected.push(t.nr);
+        collectedSeats += t.stoelen;
+      }
+      if (collectedSeats >= needed) {
+        console.warn('[TAFEL] Niet-aangrenzende combinatie voor ' + needed + 'p: ' + collected.join('+') + ' (' + collectedSeats + ' stoelen)');
+        collected.forEach(nr => used.add(nr));
+        return collected;
+      }
+
+      // === Optie F: Onvoldoende capaciteit — pak alles, log error ===
+      // Beter een "onvoldoende" lijst met meerdere tafels dan stilletjes 1 tafel die te klein is.
+      // Maar: bij filtered grab (bijv. Luxe-blok) heeft de caller een fallback naar unfiltered grab,
+      // dus dan is dit géén echte fout — alleen een hint dat de caller moet uitbreiden.
+      if (collected.length > 0) {
+        if (extraFilter) {
+          console.warn('[TAFEL] Pool te klein voor ' + needed + 'p (' + collectedSeats + ' stoelen) — caller zoekt verder');
+        } else {
+          console.error('[TAFEL] ⚠️ ONVOLDOENDE CAPACITEIT voor ' + needed + 'p! Slechts ' + collectedSeats + ' stoelen beschikbaar: ' + collected.join('+'));
+        }
+        collected.forEach(nr => used.add(nr));
+        return collected;
+      }
+      return [];
+    }
+
+    const isLuxe = r => r.label === 'Luxe' || (r.label === 'Combi' && r.notities && r.notities.toLowerCase().includes('luxe'));
+    const isKoffie = r => r.label === 'Koffie arrangement' || (r.label === 'Combi' && r.notities && r.notities.toLowerCase().includes('koffie'));
+    const isNaBorrel = r => r.timeOffset > 0;
+    const isNormaalOrKid = r => !isLuxe(r) && !isKoffie(r) && !isNaBorrel(r);
+
+    // Gepinde reserveringen niet opnieuw plaatsen — die houden hun eigen tafel
+    const unpinned = reservations.filter(r => !r.tafelPinned);
+    const activeRes = unpinned.filter(r => !isNaBorrel(r));
+    const koffieRes = activeRes.filter(isKoffie).sort((a,b) => b.aantalPersonen - a.aantalPersonen);
+    const normaalKidRes = activeRes.filter(isNormaalOrKid).sort((a,b) => b.aantalPersonen - a.aantalPersonen);
+    const luxeRes = activeRes.filter(isLuxe).sort((a,b) => b.aantalPersonen - a.aantalPersonen);
+    const borrelRes = unpinned.filter(isNaBorrel).sort((a,b) => b.aantalPersonen - a.aantalPersonen);
+
+    // CB tafels: rand (niet 215-217) en midden (215-217)
+    const cbMiddenNrs = new Set([215, 216, 217]);
+    const cbRand = cbAll.filter(t => !cbMiddenNrs.has(t.nr));
+    const cbMidden = cbAll.filter(t => cbMiddenNrs.has(t.nr));
+
+    function cbVrij(lijst) { return lijst.filter(t => !used.has(t.nr)).reduce((s,t) => s + t.stoelen, 0); }
+    function mainVrij(filter) { return mainAll.filter(t => !used.has(t.nr) && (!filter || filter(t))).reduce((s,t) => s + t.stoelen, 0); }
+
+    // Helper: hoeveel stoelen heeft het grootste aaneengesloten cluster in deze pool (rekenend met `used`)
+    // Gebruikt om te bepalen of een groep nog netjes in CB past — zo niet, doorsturen naar mainLoc
+    const cbN = (venueData['Circusbar'].neighbors) || {};
+    function chainCapMax(pool) {
+      const tSet = new Map(pool.filter(t => !used.has(t.nr)).map(t => [t.nr, t.stoelen]));
+      const seen = new Set();
+      let maxCap = 0;
+      for (const [startNr] of tSet) {
+        if (seen.has(startNr)) continue;
+        let cap = 0;
+        const q = [startNr];
+        while (q.length) {
+          const cur = q.shift();
+          if (seen.has(cur)) continue;
+          seen.add(cur);
+          cap += tSet.get(cur);
+          for (const nb of (cbN[cur] || [])) {
+            if (tSet.has(nb) && !seen.has(nb)) q.push(nb);
+          }
+        }
+        if (cap > maxCap) maxCap = cap;
+      }
+      return maxCap;
+    }
+
+    // === STAP 1: Vul Circusbar ===
+    const cbOverflow = [];
+
+    // Koffie → CB rand, dan midden als nodig
+    // Alleen plaatsen als de groep in een aaneengesloten cluster past (anders → mainLoc)
+    for (const res of koffieRes) {
+      const n = res.aantalPersonen;
+      const randCap = chainCapMax(cbRand);
+      const middenCap = chainCapMax(cbMidden);
+      if (n <= randCap && cbVrij(cbRand) >= n) {
+        const a = grab(cbRand, n);
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+      } else if (n <= middenCap && cbVrij(cbMidden) >= n) {
+        const a = grab(cbMidden, n);
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+      } else {
+        // Past niet aaneengesloten in CB — doorsturen naar mainLoc
+        cbOverflow.push(res);
+      }
+    }
+
+    // Normaal/kids → CB rand ALLEEN (nooit midden)
+    // Idem: alleen plaatsen als groep aaneengesloten in cbRand past
+    for (const res of normaalKidRes) {
+      const n = res.aantalPersonen;
+      const randCap = chainCapMax(cbRand);
+      if (n <= randCap && cbVrij(cbRand) >= n) {
+        const a = grab(cbRand, n);
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+      } else {
+        cbOverflow.push(res);
+      }
+    }
+
+    // === STAP 2: Hoofdlocatie ===
+    // Bereken welke tafels voor luxe gereserveerd moeten worden
+    const luxeNrs = new Set();
+    let luxeSimNeeded = 0;
+    for (const res of luxeRes) luxeSimNeeded += res.aantalPersonen;
+    for (const t of mainAll) {
+      if (luxeSimNeeded <= 0) break;
+      if (used.has(t.nr)) continue;
+      luxeNrs.add(t.nr);
+      luxeSimNeeded -= t.stoelen;
+    }
+
+    // Luxe toewijzen
+    for (const res of luxeRes) {
+      const a = grab(mainAll, res.aantalPersonen, t => luxeNrs.has(t.nr));
+      const seatSum = arr => arr.reduce((s,nr) => { const t = mainAll.find(x=>x.nr===nr); return s + (t ? t.stoelen : 0); }, 0);
+      // Fallback als luxe-blok niet genoeg is — pak buiten het blok bij
+      if (seatSum(a) < res.aantalPersonen) {
+        const extra = grab(mainAll, res.aantalPersonen - seatSum(a));
+        a.push(...extra);
+      }
+      // Pas hier loggen als ook de unfiltered fallback onvoldoende was
+      if (seatSum(a) < res.aantalPersonen) {
+        console.error('[TAFEL] ⚠️ Luxe ' + res.aantalPersonen + 'p (' + res.naam + ') alleen ' + seatSum(a) + ' stoelen toegewezen');
+      }
+      res.zaal = mainLoc; res.tafelNr = a.join('+');
+    }
+
+    // Overflow uit CB → hoofdlocatie (bij elkaar)
+    for (const res of cbOverflow) {
+      const a = grab(mainAll, res.aantalPersonen);
+      res.zaal = mainLoc; res.tafelNr = a.join('+');
+    }
+
+    // === STAP 3: Na Borrel — hergebruik tafels (ander tijdslot, altijd Circusbar) ===
+    const usedBorrel = new Set();
+    const cbAllUnblocked = Object.entries(cbData.tafels)
+      .map(([nr, s]) => ({ nr: parseInt(nr), stoelen: s }))
+      .sort((a,b) => a.nr - b.nr);
+    for (const res of borrelRes) {
+      res.zaal = 'Circusbar';
+      const assigned = [];
+      let needed = res.aantalPersonen;
+      for (const t of cbAllUnblocked) {
+        if (needed <= 0) break;
+        if (usedBorrel.has(t.nr)) continue;
+        usedBorrel.add(t.nr);
+        assigned.push(t.nr);
+        needed -= t.stoelen;
+      }
+      res.tafelNr = assigned.join('+');
+    }
+
+    // === VALIDATIE: check op dubbelen ===
+    const allAssigned = {};
+    reservations.filter(r => !isNaBorrel(r) && r.tafelNr).forEach(r => {
+      r.tafelNr.split('+').forEach(nr => {
+        if (allAssigned[nr]) {
+          console.error('[BUG] Dubbele tafel ' + nr + ': ' + allAssigned[nr] + ' EN ' + r.naam);
+        }
+        allAssigned[nr] = r.naam;
+      });
+    });
+  }
+
+  function renderResults() {
+    fadeIn('step2', 100);
+    updateLocationSummary();
+    renderTafelGrids();
+  }
+
+  function pickLocation(btn) {
+    document.querySelectorAll('.loc-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    btn.classList.add('active');
+    selectedMainLocation = btn.dataset.loc;
+    updateLocationSummary();
+  }
+
+  function updateLocationSummary() {
+    const koffie = allReservations.filter(r => r.label === 'Koffie arrangement' || (r.label === 'Combi' && r.notities && r.notities.toLowerCase().includes('koffie')));
+    const naBorrel = allReservations.filter(r => r.label === 'Na Borrel');
+    const rest = allReservations.filter(r => r.label !== 'Koffie arrangement' && r.label !== 'Na Borrel' && !(r.label === 'Combi' && r.notities && r.notities.toLowerCase().includes('koffie')));
+
+    const koffieGasten = koffie.reduce((s, r) => s + r.aantalPersonen, 0);
+    const restGasten = rest.reduce((s, r) => s + r.aantalPersonen, 0);
+    const borrelGasten = naBorrel.reduce((s, r) => s + r.aantalPersonen, 0);
+
+    function card(iconHtml, title, res, gasten, sub) {
+      return '<div style="padding:16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;display:flex;align-items:center;gap:14px;">' +
+        iconHtml +
+        '<div><div style="font-size:14px;font-weight:700;color:var(--text);">' + title + '</div>' +
+        '<div style="font-size:12px;color:var(--text2);margin-top:2px;"><strong>' + res + '</strong> res. · <strong>' + gasten + '</strong> gasten</div>' +
+        '<div style="font-size:11px;color:var(--text3);margin-top:1px;">' + sub + '</div></div></div>';
+    }
+
+    function iconBox(letter, color) {
+      return '<div style="width:40px;height:40px;border-radius:10px;background:' + color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:800;font-family:DM Sans,sans-serif;">' + letter + '</div>';
+    }
+
+    let html = '<div style="display:grid;grid-template-columns:1fr 1fr' + (borrelGasten > 0 ? ' 1fr' : '') + ';gap:10px;">';
+    html += card(iconBox('CB', 'rgba(166,124,82,0.15);color:#a67c52'), 'Circusbar', koffie.length, koffieGasten, 'Koffie + overige gasten');
+    html += card(iconBox(selectedMainLocation === 'Le Cirque' ? 'LC' : 'TR', 'rgba(37,99,235,0.12);color:var(--accent)'), selectedMainLocation, rest.length, restGasten, 'Normaal, Luxe, Kind, Combi');
+    if (borrelGasten > 0) {
+      html += card(iconBox('NB', 'rgba(96,165,250,0.12);color:#60a5fa'), 'Na Borrel', naBorrel.length, borrelGasten, 'Circusbar · +1 uur');
+    }
+    html += '</div>';
+    document.getElementById('locationSummary').innerHTML = html;
+  }
+
+  function confirmLocations(skipAssign) {
+    if (!skipAssign) {
+    // Initieel zaal toewijzen (wordt mogelijk overschreven door assignAllTafels)
+    allReservations.forEach(function(r) {
+      if (r.tafelPinned) return;  // handmatig gepinde tafel/zaal niet overschrijven
+      if (r.label === 'Koffie arrangement' || (r.label === 'Combi' && r.notities && r.notities.toLowerCase().includes('koffie'))) {
+        r.zaal = 'Circusbar';
+        r.timeOffset = 0;
+      } else if (r.label === 'Na Borrel') {
+        r.zaal = 'Circusbar';
+        r.timeOffset = 60;
+      } else {
+        r.zaal = selectedMainLocation;
+        r.timeOffset = 0;
+      }
+    });
+
+    // Slimme tafeltoewijzing: CB eerst vullen, overflow naar hoofdlocatie
+    assignAllTafels(allReservations);
+    }
+
+    const totalGuests = allReservations.reduce((s, r) => s + r.aantalPersonen, 0);
+    // Tel gasten per arrangement type
+    const guestsPerLabel = {};
+    allReservations.forEach(r => {
+      // Voor Combi: tel individuele arrangements
+      if (r.label === 'Combi' && r.arrangements) {
+        r.arrangements.forEach(a => { guestsPerLabel[a] = (guestsPerLabel[a] || 0) + 1; });
+      } else {
+        guestsPerLabel[r.label] = (guestsPerLabel[r.label] || 0) + r.aantalPersonen;
+      }
+    });
+
+    const cardStyle = 'background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:12px;padding:14px 18px;min-width:85px;text-align:center;';
+    document.getElementById('summaryStats').innerHTML =
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;justify-content:center;">' +
+      '<div style="' + cardStyle + '"><div class="stat-value">' + totalGuests + '</div><div class="stat-label">Totaal gasten</div></div>' +
+      '<div style="' + cardStyle + '"><div class="stat-value">' + allReservations.length + '</div><div class="stat-label">Reserveringen</div></div>' +
+      '<div style="' + cardStyle + '"><div class="stat-value">' + (pdfStartTime || '—') + '</div><div class="stat-label">Begintijd</div></div>' +
+      '</div>' +
+      '<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">' +
+      Object.entries(guestsPerLabel).map(function(e) { return '<div style="' + cardStyle + '"><div class="stat-value">' + e[1] + '</div><div class="stat-label">' + e[0] + '</div></div>'; }).join('') +
+      '</div>';
+
+    // Toon wijzigingen als er een vorige dataset was
+    if (window._lastChanges) {
+      const c = window._lastChanges;
+      let changeHtml = '<div style="margin-top:10px;padding:12px;background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15);border-radius:8px;font-size:12px;">';
+      changeHtml += '<div style="font-weight:700;color:var(--accent);margin-bottom:6px;">📋 Wijzigingen t.o.v. vorige upload:</div>';
+      if (c.added.length > 0) changeHtml += '<div style="color:var(--green);">+ Nieuw: ' + c.added.join(', ') + '</div>';
+      if (c.removed.length > 0) changeHtml += '<div style="color:var(--red);">− Verwijderd: ' + c.removed.join(', ') + '</div>';
+      changeHtml += '</div>';
+      document.getElementById('summaryStats').innerHTML += changeHtml;
+    }
+
+    // Hapjesberekening per locatie
+    const hapjes = {
+      'Normaal': { 'Bitterbal': 2, 'Loempia': 1, 'Bakje nootjes': 1, 'Mosterd': 0.5, 'Chili': 0.5 },
+      'Luxe': { 'Bitterbal': 2, 'Loempia': 2, 'Bakje nootjes': 1, 'Brownie': 1, 'Macaron': 1, 'Mosterd': 1, 'Chili': 1 },
+      'Kind': { 'Bakje fruit': 1, 'Bakje jelly beans': 1, 'Kipnuggets': 2 },
+      'Koffie arrangement': { 'Mini muffin': 1, 'Brownie': 1, 'Macaron': 1 },
+      'Na Borrel': { 'Bitterbal': 2, 'Mini kaassoufflé': 1, 'Bakje nootjes': 1, 'Mosterd': 1 }
+    };
+
+    // Groepeer gasten per locatie (Na Borrel altijd Circusbar - ander tijdstip)
+    const locaties = {};
+    allReservations.forEach(r => {
+      const loc = r.label === 'Na Borrel' ? 'Circusbar' : (r.zaal || 'Onbekend');
+      
+      if (!locaties[loc]) locaties[loc] = {};
+      if (r.label === 'Combi' && r.arrangements) {
+        r.arrangements.forEach(a => { locaties[loc][a] = (locaties[loc][a] || 0) + 1; });
+      } else {
+        locaties[loc][r.label] = (locaties[loc][r.label] || 0) + r.aantalPersonen;
+      }
+    });
+
+    const totaalHapjes = {};
+    let hapjesHtml = '';
+
+    const locEmoji = { 'Circusbar': '☕', 'Theaterrestaurant': '🍽️', 'Le Cirque': '🎪' };
+    for (const [loc, labels] of Object.entries(locaties)) {
+      const locHapjes = {};
+      let hasItems = false;
+      hapjesHtml += '<div style="margin-bottom:16px;padding:14px;background:rgba(0,0,0,0.2);border-radius:10px;">';
+      hapjesHtml += '<div style="font-weight:700;font-size:14px;margin-bottom:10px;color:' + (loc === 'Circusbar' ? '#fbbf24' : 'var(--accent)') + ';">' + (locEmoji[loc] || '📍') + ' ' + loc + '</div>';
+      for (const [label, items] of Object.entries(hapjes)) {
+        const count = labels[label] || 0;
+        if (count === 0) continue;
+        hasItems = true;
+        hapjesHtml += '<div style="margin-bottom:8px;">';
+        hapjesHtml += '<div style="font-weight:600;font-size:12px;color:var(--text2);margin-bottom:2px;">' + label + ' — ' + count + ' gasten</div>';
+        for (const [item, pp] of Object.entries(items)) {
+          const total = Math.ceil(pp * count);
+          locHapjes[item] = (locHapjes[item] || 0) + total;
+          totaalHapjes[item] = (totaalHapjes[item] || 0) + total;
+          const ppLabel = pp === 0.5 ? '1 per 2p' : pp + ' p.p.';
+          hapjesHtml += '<div style="font-size:13px;color:var(--text2);padding-left:12px;">' + item + ' — ' + ppLabel + ' = <strong style="color:var(--text);">' + total + '</strong></div>';
+        }
+        hapjesHtml += '</div>';
+      }
+      if (!hasItems) {
+        hapjesHtml += '<div style="font-size:12px;color:var(--text2);">Geen hapjes</div>';
+      } else {
+        hapjesHtml += '<div style="border-top:1px solid var(--border);padding-top:8px;margin-top:4px;">';
+        hapjesHtml += '<div style="font-weight:600;font-size:12px;color:var(--text2);margin-bottom:2px;">Subtotaal ' + loc + ':</div>';
+        for (const [item, count] of Object.entries(locHapjes).sort((a,b) => a[0].localeCompare(b[0]))) {
+          hapjesHtml += '<div style="display:flex;justify-content:space-between;font-size:13px;padding:1px 0;">';
+          hapjesHtml += '<span>' + item + '</span><strong style="font-family:JetBrains Mono,monospace;">' + count + 'x</strong>';
+          hapjesHtml += '</div>';
+        }
+        hapjesHtml += '</div>';
+      }
+      hapjesHtml += '</div>';
+    }
+
+    hapjesHtml += '<div style="display:flex;gap:8px;margin-top:16px;">';
+    hapjesHtml += '<button onclick="copyHapjes()" style="flex:1;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;" onmouseover="this.style.background=\'var(--accent-hover)\'" onmouseout="this.style.background=\'var(--accent)\'">📋 Kopieer hapjeslijst naar klembord</button>';
+    hapjesHtml += '<button onclick="printOverview()" style="padding:14px 20px;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--glass-border)\'">🖨️</button>';
+    hapjesHtml += '</div>';
+
+    const startTime = pdfStartTime || '19:00';
+    
+    // Sorteer op zaal: Circusbar eerst, dan hoofdlocatie, dan Na Borrel
+    const zaalOrder = { 'Circusbar': 0, 'Theaterrestaurant': 1, 'Le Cirque': 1 };
+    const sorted = allReservations.map((r, i) => ({ r, i })).sort((a, b) => {
+      const za = a.r.label === 'Na Borrel' ? 2 : (zaalOrder[a.r.zaal] || 1);
+      const zb = b.r.label === 'Na Borrel' ? 2 : (zaalOrder[b.r.zaal] || 1);
+      if (za !== zb) return za - zb;
+      return a.r.naam.localeCompare(b.r.naam);
+    });
+
+    let lastZaal = '';
+    document.getElementById('resTable').innerHTML =
+      '<table><thead><tr><th>#</th><th>Naam</th><th>Pers.</th><th>Label</th><th>Zaal</th><th>Tafel</th><th>Tijd</th><th>Notities</th></tr></thead><tbody>' +
+      sorted.map(function(item, idx) {
+        const r = item.r;
+        const i = item.i;
+        const lc = r.label.toLowerCase().replace(/\s/g, '').replace('arrangement', '');
+        let displayTime = startTime;
+        if (r.timeOffset) {
+          const p = startTime.split(':').map(Number);
+          displayTime = String((p[0] + Math.floor(r.timeOffset / 60)) % 24).padStart(2, '0') + ':' + String(p[1]).padStart(2, '0');
+        }
+        const zaalColor = r.zaal === 'Circusbar' ? '#e8c840' : r.zaal === 'Le Cirque' ? '#c084fc' : '#4a80f0';
+        let separator = '';
+        const currentZaal = r.label === 'Na Borrel' ? 'Na Borrel' : r.zaal;
+        if (currentZaal !== lastZaal && lastZaal !== '') {
+          separator = '<tr><td colspan="8" style="padding:4px 0;border:none;"><div style="border-top:1px solid var(--glass-border);"></div></td></tr>';
+        }
+        lastZaal = currentZaal;
+        const statusClass = r.tafelNr && r.zaal ? 'status-ok' : r.zaal ? 'status-warn' : 'status-err';
+        return separator + '<tr><td style="white-space:nowrap;"><span class="status-dot ' + statusClass + '" style="vertical-align:middle;"></span>' + (idx + 1) + '</td><td><strong>' + esc(r.naam) + '</strong></td><td>' + r.aantalPersonen + '</td>' +
+          '<td><span class="label-badge label-' + lc + '">' + esc(r.label) + '</span></td>' +
+          '<td style="color:' + zaalColor + ';font-weight:600;font-size:12px;">' + esc(r.zaal) + '</td>' +
+          '<td style="font-family:JetBrains Mono,monospace;font-size:12px;font-weight:600;cursor:pointer;color:var(--accent);" onclick="swapTafel(' + i + ')" title="Klik om tafel te wijzigen">' + (r.tafelNr || '-') + ' ✏️</td>' +
+          '<td>' + displayTime + '</td><td class="notes-cell">' + esc(r.notities || '-') + '</td></tr>';
+      }).join('') +
+      '</tbody></table>';
+
+    document.getElementById('hapjesContent').innerHTML = hapjesHtml;
+    fadeIn('step3', 100);
+    fadeIn('stepHapjes', 300);
+    
+    fadeIn('step4', 500);
+    document.getElementById('step3').scrollIntoView({ behavior: 'smooth' });
+    updateFreeTables();
+    updateNavInfo();
+    generateScript();
+  }
+
+  function swapTafel(resIndex) {
+    const res = allReservations[resIndex];
+    if (!res) return;
+
+    // Verzamel alle bezette tafels (behalve deze reservering)
+    const bezet = new Set();
+    allReservations.forEach((r, i) => {
+      if (i === resIndex || r.label === 'Na Borrel') return;
+      if (r.tafelNr) r.tafelNr.split('+').forEach(nr => bezet.add(parseInt(nr)));
+    });
+
+    // Bepaal welke locaties beschikbaar zijn
+    const venues = ['Circusbar', selectedMainLocation];
+    if (selectedMainLocation !== 'Le Cirque') venues.push('Le Cirque');
+
+    // Bouw popup
+    const overlay = document.createElement('div');
+    overlay.id = 'tafelSwapOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);';
+    overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+
+    let popupHtml = '<div style="background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;padding:24px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.4);" class="popup-animated">';
+    popupHtml += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">';
+    popupHtml += '<div><div style="font-size:16px;font-weight:700;">' + esc(res.naam) + '</div>';
+    popupHtml += '<div style="font-size:12px;color:var(--text3);margin-top:2px;">' + res.aantalPersonen + ' personen · huidige tafel: ' + (res.tafelNr || 'geen') + '</div></div>';
+    popupHtml += '<button onclick="document.getElementById(\'tafelSwapOverlay\').remove()" style="background:none;border:none;color:var(--text3);font-size:20px;cursor:pointer;">✕</button>';
+    popupHtml += '</div>';
+
+    for (const venue of venues) {
+      const data = venueData[venue];
+      if (!data) continue;
+      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
+      const isCurrentVenue = venue === res.zaal;
+      popupHtml += '<div style="margin-bottom:12px;' + (isCurrentVenue ? 'padding:10px;background:rgba(37,99,235,0.04);border:1px solid rgba(37,99,235,0.15);border-radius:10px;' : '') + '">';
+      popupHtml += '<div style="font-size:12px;font-weight:700;color:' + (isCurrentVenue ? 'var(--accent)' : 'var(--text2)') + ';margin-bottom:6px;">' + emoji + ' ' + venue + (isCurrentVenue ? ' — huidige locatie' : '') + '</div>';
+      popupHtml += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
+
+      const tafels = Object.entries(data.tafels).sort((a,b) => Number(a[0]) - Number(b[0]));
+      for (const [nr, stoelen] of tafels) {
+        const nrInt = parseInt(nr);
+        const isBlocked = blockedTafels[venue] && blockedTafels[venue].has(nrInt);
+        const isBezet = bezet.has(nrInt);
+        const isCurrent = res.tafelNr && res.tafelNr.split('+').includes(nr);
+
+        let bg = 'var(--glass)';
+        let border = 'var(--glass-border)';
+        let color = 'var(--text)';
+        let cursor = 'pointer';
+        let opacity = '1';
+        let onclick = 'selectNewTafel(' + resIndex + ',' + nrInt + ',\'' + venue + '\')';
+
+        if (isCurrent) {
+          bg = 'rgba(37,99,235,0.15)'; border = 'var(--accent)'; color = 'var(--accent)';
+        } else if (isBlocked || isBezet) {
+          opacity = '0.2'; cursor = 'default'; onclick = '';
+        }
+
+        popupHtml += '<div onclick="' + onclick + '" style="width:48px;height:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:' + bg + ';border:1px solid ' + border + ';border-radius:8px;cursor:' + cursor + ';opacity:' + opacity + ';transition:all 0.1s;" ' + (onclick ? 'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'' + border + '\'"' : '') + '>';
+        popupHtml += '<span style="font-size:11px;font-weight:700;color:' + color + ';">' + nr + '</span>';
+        popupHtml += '<span style="font-size:9px;color:var(--text3);">' + stoelen + 'p</span>';
+        popupHtml += '</div>';
+      }
+      popupHtml += '</div></div>';
+    }
+    popupHtml += '</div>';
+
+    overlay.innerHTML = popupHtml;
+    document.body.appendChild(overlay);
+  }
+
+  function selectNewTafel(resIndex, tafelNr, venue) {
+    const res = allReservations[resIndex];
+    if (!res) return;
+
+    // Verwijder oude tafel uit used set (als die er is)
+    // Update reservering
+    res.tafelNr = String(tafelNr);
+    res.zaal = venue;
+
+    // Sluit popup
+    var ov=document.getElementById('tafelSwapOverlay');if(ov)ov.remove();
+
+    // Herrender zonder tafels opnieuw toe te wijzen
+    confirmLocations(true);
+  }
+
+  // ===== GENERATE DISH SCRIPT =====
+  function generateScript() {
+    const cleanData = allReservations.map(r => ({
+      naam: r.naam,
+      aantalPersonen: r.aantalPersonen,
+      label: r.label,
+      notities: r.notities,
+      zaal: r.zaal || 'Theaterrestaurant',
+      timeOffset: r.timeOffset || 0,
+      tafelNr: r.tafelNr || ''
+    }));
+
+    const startTime = pdfStartTime || '19:00';
+    const [sh, sm] = startTime.split(':').map(Number);
+    const endTime = String((sh + 3) % 24).padStart(2, '0') + ':' + String(sm).padStart(2, '0');
+
+    // Build script as array of lines to avoid template literal escaping issues
+    const L = [];
+    L.push('// EVENTIM → DISH AUTO-INVULLER');
+    L.push('// ' + allReservations.length + ' reserveringen | Begintijd: ' + startTime);
+    L.push('(async function() {');
+    L.push('');
+    L.push('var DATA = ' + JSON.stringify(cleanData) + ';');
+    L.push('var START_TIME = "' + startTime + '";');
+    L.push('var END_TIME = "' + endTime + '";');
+    L.push('var DELAY = 200;');
+    L.push('');
+    L.push('function sleep(ms) { return new Promise(function(r) { setTimeout(r, ms); }); }');
+    L.push('');
+    L.push('function vueSet(el, value) {');
+    L.push('  if (!el) return;');
+    L.push('  var proto = el.tagName === "TEXTAREA" ? HTMLTextAreaElement.prototype : HTMLInputElement.prototype;');
+    L.push('  var desc = Object.getOwnPropertyDescriptor(proto, "value");');
+    L.push('  if (desc && desc.set) desc.set.call(el, value);');
+    L.push('  else el.value = value;');
+    L.push('  el.dispatchEvent(new Event("input", { bubbles: true }));');
+    L.push('  el.dispatchEvent(new Event("change", { bubbles: true }));');
+    L.push('  el.dispatchEvent(new Event("blur", { bubbles: true }));');
+    L.push('}');
+    L.push('');
+    // clickFAB
+    L.push('async function clickFAB() {');
+    L.push('  var btns = document.querySelectorAll(".v-btn");');
+    L.push('  for (var i = 0; i < btns.length; i++) {');
+    L.push('    var b = btns[i];');
+    L.push('    var icon = b.querySelector(".v-icon");');
+    L.push('    if (icon && icon.className.indexOf("mdi-plus") >= 0) {');
+    L.push('      b.click(); console.log("[DISH] FAB + geklikt"); return true;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  for (var i = 0; i < btns.length; i++) {');
+    L.push('    var b = btns[i];');
+    L.push('    if (!b.classList.contains("v-btn--round") && !b.classList.contains("v-btn--fab")) continue;');
+    L.push('    var rect = b.getBoundingClientRect();');
+    L.push('    if (rect.bottom > window.innerHeight - 200) {');
+    L.push('      var icon = b.querySelector(".v-icon");');
+    L.push('      if (icon && icon.className.indexOf("chevron") < 0 && icon.className.indexOf("filter") < 0) {');
+    L.push('        b.click(); console.log("[DISH] FAB geklikt (fallback)"); return true;');
+    L.push('      }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  console.error("[DISH] FAB niet gevonden!"); return false;');
+    L.push('}');
+    L.push('');
+    // waitForForm
+    L.push('async function waitForForm() {');
+    L.push('  for (var i = 0; i < 20; i++) {');
+    L.push('    var nf = document.getElementById("acContact");');
+    L.push('    if (nf && nf.offsetParent !== null) { console.log("[DISH] Formulier open"); return true; }');
+    L.push('    await sleep(100);');
+    L.push('  }');
+    L.push('  console.error("[DISH] Formulier niet geopend"); return false;');
+    L.push('}');
+    L.push('');
+    // setPersonen - meerdere methodes om personen in te stellen
+    L.push('async function setPersonen(count) {');
+    L.push('  console.log("[DISH] Instellen personen:", count);');
+    L.push('');
+    L.push('  // Methode 1: Zoek Vue component met numberOfGuests/guests data');
+    L.push('  try {');
+    L.push('    var app = document.querySelector("#app").__vue__;');
+    L.push('    var q = [app]; var seen = new Set();');
+    L.push('    while (q.length) {');
+    L.push('      var vm = q.shift();');
+    L.push('      if (!vm || seen.has(vm)) continue;');
+    L.push('      seen.add(vm);');
+    L.push('      if (vm.$data) {');
+    L.push('        if (typeof vm.$data.numberOfGuests === "number") { vm.numberOfGuests = count; console.log("[DISH] Vue numberOfGuests=" + count); }');
+    L.push('        if (typeof vm.$data.guests === "number") { vm.guests = count; console.log("[DISH] Vue guests=" + count); }');
+    L.push('        if (typeof vm.$data.partySize === "number") { vm.partySize = count; console.log("[DISH] Vue partySize=" + count); }');
+    L.push('        if (typeof vm.$data.covers === "number") { vm.covers = count; console.log("[DISH] Vue covers=" + count); }');
+    L.push('      }');
+    L.push('      if (vm.$children) q = q.concat(vm.$children);');
+    L.push('    }');
+    L.push('  } catch(e) { console.log("[DISH] Vue scan fout:", e); }');
+    L.push('');
+    L.push('  // Methode 2: Klik op personen-knop (1-5) of MEER (6+)');
+    L.push('  var personBtns = [];');
+    L.push('  var allEls = document.querySelectorAll("*");');
+    L.push('  for (var el of allEls) {');
+    L.push('    if (el.children.length === 0 && el.textContent.trim() === "Aantal personen") {');
+    L.push('      var container = el.parentElement;');
+    L.push('      for (var up = 0; up < 5 && container; up++) {');
+    L.push('        var btns = container.querySelectorAll(".v-btn");');
+    L.push('        if (btns.length >= 3) { personBtns = Array.from(btns); break; }');
+    L.push('        container = container.parentElement;');
+    L.push('      }');
+    L.push('      break;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  if (personBtns.length === 0) personBtns = Array.from(document.querySelectorAll(".v-btn-toggle .v-btn"));');
+    L.push('');
+    L.push('  if (count >= 1 && count <= 5) {');
+    L.push('    for (var b of personBtns) {');
+    L.push('      if (b.textContent.trim() === String(count)) { b.click(); console.log("[DISH] Personen knop:", count); return; }');
+    L.push('    }');
+    L.push('  }');
+    L.push('');
+    L.push('  // 6+ of knop niet gevonden: klik MEER');
+    L.push('  var meerClicked = false;');
+    L.push('  for (var b of personBtns) {');
+    L.push('    var txt = b.textContent.trim().toUpperCase();');
+    L.push('    if (txt === "MEER" || txt === "MORE" || txt === "+") { b.click(); meerClicked = true; await sleep(150); break; }');
+    L.push('  }');
+    L.push('');
+    L.push('  // Zoek number input met retry');
+    L.push('  if (meerClicked) {');
+    L.push('    for (var attempt = 0; attempt < 10; attempt++) {');
+    L.push('      var inputs = document.querySelectorAll("input");');
+    L.push('      for (var inp of inputs) {');
+    L.push('        if (inp.type === "number" || (inp.inputMode === "numeric") || (inp.closest && inp.closest(".v-text-field") && !inp.type.match(/hidden|checkbox|radio|time|date/))) {');
+    L.push('          vueSet(inp, String(count));');
+    L.push('          console.log("[DISH] Personen input:", count);');
+    L.push('          return;');
+    L.push('        }');
+    L.push('      }');
+    L.push('      await sleep(100);');
+    L.push('    }');
+    L.push('    console.error("[DISH] Kan personen input niet vinden voor " + count + "p!");');
+    L.push('  }');
+    L.push('}');
+    L.push('');
+    // setBeginTime - set Vue component data then click to trigger UI sync
+    L.push('async function setBeginTime(time) {');
+    L.push('  var parts = time.split(":").map(Number);');
+    L.push('  var endH = (parts[0] + 3) % 24;');
+    L.push('  var endTime = String(endH).padStart(2, "0") + ":" + String(parts[1]).padStart(2, "0");');
+    L.push('');
+    L.push('  // Stap 1: Zoek en zet timeBegin/timeEnd op de parent component');
+    L.push('  var app = document.querySelector("#app").__vue__;');
+    L.push('  var q = [app]; var seen = new Set();');
+    L.push('  while (q.length) {');
+    L.push('    var vm = q.shift();');
+    L.push('    if (!vm || seen.has(vm)) continue;');
+    L.push('    seen.add(vm);');
+    L.push('    if (vm.$data && typeof vm.$data.timeBegin === "string") {');
+    L.push('      vm.timeBegin = time;');
+    L.push('      if (typeof vm.$data.timeEnd === "string") vm.timeEnd = endTime;');
+    L.push('      console.log("[DISH] timeBegin=" + time + ", timeEnd=" + endTime);');
+    L.push('    }');
+    L.push('    if (vm.$data && typeof vm.$data.time === "string" && (vm.$options.name === "TimePickerField" || vm.$options._componentTag === "TimePickerField")) {');
+    L.push('      vm.time = time;');
+    L.push('      console.log("[DISH] TimePickerField.time=" + time);');
+    L.push('    }');
+    L.push('    if (vm.$children) q = q.concat(vm.$children);');
+    L.push('  }');
+    L.push('');
+    L.push('  // Stap 2: Klik op het tijdveld om de UI te synchroniseren');
+    L.push('  var allInputs = document.querySelectorAll("input");');
+    L.push('  var timeRe = /^[0-9]{2}:[0-9]{2}$/;');
+    L.push('  for (var inp of allInputs) {');
+    L.push('    if (inp.value && timeRe.test(inp.value)) {');
+    L.push('      inp.click();');
+    L.push('      await sleep(80);');
+    L.push('      document.body.click();');
+    L.push('      await sleep(80);');
+    L.push('      break;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  console.log("[DISH] Tijd gezet: " + time + " - " + endTime);');
+    L.push('}');
+    L.push('');
+    // setZaal - selecteer de Zaal dropdown
+    L.push('async function setZaal(zaalName) {');
+    L.push('  var allSlots = document.querySelectorAll(".v-select .v-input__slot");');
+    L.push('  var zaalSlot = null;');
+    L.push('  for (var s of allSlots) {');
+    L.push('    var pTxt = s.closest(".v-input") ? s.closest(".v-input").textContent : "";');
+    L.push('    if (pTxt.indexOf("Zaal") >= 0 || pTxt.indexOf("zaal") >= 0) { zaalSlot = s; break; }');
+    L.push('  }');
+    L.push('  if (!zaalSlot) {');
+    L.push('    var labels = document.querySelectorAll(".v-label");');
+    L.push('    for (var lbl of labels) {');
+    L.push('      if (lbl.textContent.trim() === "Zaal") { zaalSlot = lbl.closest(".v-input__slot"); break; }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  if (!zaalSlot) { console.warn("[DISH] Zaal dropdown niet gevonden"); return false; }');
+    L.push('  zaalSlot.click();');
+    L.push('  var menu = null;');
+    L.push('  for (var w = 0; w < 15; w++) {');
+    L.push('    await sleep(50);');
+    L.push('    menu = document.querySelector(".menuable__content__active");');
+    L.push('    if (menu && menu.querySelectorAll(".v-list-item").length > 0) break;');
+    L.push('  }');
+    L.push('  if (!menu) {');
+    L.push('    var menus = document.querySelectorAll(".v-menu__content");');
+    L.push('    for (var m of menus) { if (m.style.display !== "none" && m.offsetParent !== null) { menu = m; break; } }');
+    L.push('  }');
+    L.push('  if (menu) {');
+    L.push('    var items = menu.querySelectorAll(".v-list-item");');
+    L.push('    for (var item of items) { if (item.textContent.trim() === zaalName) { item.click(); console.log("[DISH] Zaal:", zaalName); return true; } }');
+    L.push('    for (var item of items) { if (item.textContent.trim().toLowerCase().indexOf(zaalName.toLowerCase()) >= 0) { item.click(); console.log("[DISH] Zaal (partial):", zaalName); return true; } }');
+    L.push('  }');
+    L.push('  document.body.click();');
+    L.push('  console.warn("[DISH] Zaal niet gevonden:", zaalName);');
+    L.push('  return false;');
+    L.push('}');
+    L.push('');
+    // uncheckAutomatisch - vink "Automatisch" uit bij tafelselectie
+    L.push('async function uncheckAutomatisch() {');
+    L.push('  var allInputs = document.querySelectorAll(".v-input");');
+    L.push('  for (var inp of allInputs) {');
+    L.push('    if (inp.textContent.indexOf("Tafel") >= 0) {');
+    L.push('      // Zoek de Automatisch checkbox erboven/erin');
+    L.push('      var container = inp.closest(".v-card") || inp.closest(".v-form") || inp.parentElement;');
+    L.push('      if (!container) continue;');
+    L.push('      var checkboxes = container.querySelectorAll(".v-input--checkbox, .v-input--switch");');
+    L.push('      for (var cb of checkboxes) {');
+    L.push('        if (cb.textContent.indexOf("Automatisch") >= 0) {');
+    L.push('          var isChecked = cb.classList.contains("v-input--is-dirty") || cb.querySelector(".v-icon.mdi-checkbox-marked") || cb.querySelector("input[aria-checked=true]");');
+    L.push('          if (isChecked) {');
+    L.push('            var clickTarget = cb.querySelector(".v-input--selection-controls__input") || cb.querySelector("input") || cb;');
+    L.push('            clickTarget.click();');
+    L.push('            console.log("[DISH] Automatisch uitgevinkt");');
+    L.push('            await sleep(150);');
+    L.push('          }');
+    L.push('          break;');
+    L.push('        }');
+    L.push('      }');
+    L.push('      break;');
+    L.push('    }');
+    L.push('  }');
+    L.push('}');
+    L.push('');
+    // setTafel - selecteer tafelnummer uit het Tafel dropdown
+    L.push('async function setTafel(tafelNr) {');
+    L.push('  if (!tafelNr) return;');
+    L.push('  // Eerst Automatisch uitvinken');
+    L.push('  await uncheckAutomatisch();');
+    L.push('  // Tafel veld zoeken en klikken');
+    L.push('  var allInputs = document.querySelectorAll(".v-input");');
+    L.push('  var tafelInput = null;');
+    L.push('  for (var inp of allInputs) {');
+    L.push('    if (inp.textContent.indexOf("Tafel") >= 0 && inp.querySelector("input")) {');
+    L.push('      tafelInput = inp; break;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  if (!tafelInput) { console.warn("[DISH] Tafel veld niet gevonden"); return; }');
+    L.push('  var inp = tafelInput.querySelector("input");');
+    L.push('  if (inp) {');
+    L.push('    inp.click();');
+    L.push('    for (var w = 0; w < 15; w++) {');
+    L.push('      await sleep(50);');
+    L.push('      var m = document.querySelector(".menuable__content__active");');
+    L.push('      if (m && m.querySelectorAll(".v-list-item").length > 0) break;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  var menu = document.querySelector(".menuable__content__active");');
+    L.push('  if (!menu) {');
+    L.push('    var menus = document.querySelectorAll(".v-menu__content");');
+    L.push('    for (var m of menus) { if (m.style.display !== "none" && m.offsetParent !== null) { menu = m; break; } }');
+    L.push('  }');
+    L.push('  if (menu) {');
+    L.push('    var nrs = tafelNr.split("+");');
+    L.push('    var items = menu.querySelectorAll(".v-list-item");');
+    L.push('    for (var nr of nrs) {');
+    L.push('      for (var item of items) {');
+    L.push('        var txt = item.textContent.trim();');
+    L.push('        if (txt.indexOf(nr.trim()) === 0) {');
+    L.push('          item.click(); await sleep(60);');
+    L.push('          console.log("[DISH] Tafel geselecteerd:", nr.trim());');
+    L.push('          break;');
+    L.push('        }');
+    L.push('      }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  document.body.click();');
+    L.push('  await sleep(200);');
+    L.push('}');
+    L.push('');
+    // setNaam
+    L.push('async function setNaam(naam) {');
+    L.push('  var el = document.getElementById("acContact");');
+    L.push('  if (el) { vueSet(el, naam); console.log("[DISH] Naam:", naam); }');
+    L.push('}');
+    L.push('');
+    // setNotities
+    L.push('async function setNotities(text) {');
+    L.push('  if (!text) return;');
+    L.push('  var ta = document.querySelector("textarea");');
+    L.push('  if (ta) { vueSet(ta, text); console.log("[DISH] Notities:", text); }');
+    L.push('}');
+    L.push('');
+    // setLabel
+    L.push('async function setLabel(labelName) {');
+    L.push('  var labelSlot = null;');
+    L.push('  var allSlots = document.querySelectorAll(".v-select .v-input__slot");');
+    L.push('  for (var s of allSlots) {');
+    L.push('    var txt = s.textContent.trim();');
+    L.push('    if (txt === "Label" || txt.indexOf("Label") === 0) {');
+    L.push('      var pTxt = s.closest(".v-input") ? s.closest(".v-input").textContent : "";');
+    L.push('      if (pTxt.indexOf("Status") < 0 && pTxt.indexOf("Zaal") < 0) { labelSlot = s; break; }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  if (!labelSlot) {');
+    L.push('    var labels = document.querySelectorAll(".v-label");');
+    L.push('    for (var lbl of labels) {');
+    L.push('      if (lbl.textContent.trim() === "Label") {');
+    L.push('        labelSlot = lbl.closest(".v-input__slot") || lbl.closest(".v-select"); break;');
+    L.push('      }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  if (!labelSlot) { console.warn("[DISH] Label dropdown niet gevonden"); return false; }');
+    L.push('  labelSlot.click();');
+    L.push('  var menu = null;');
+    L.push('  for (var w = 0; w < 15; w++) {');
+    L.push('    await sleep(50);');
+    L.push('    menu = document.querySelector(".menuable__content__active");');
+    L.push('    if (menu && menu.querySelectorAll(".v-list-item").length > 0) break;');
+    L.push('  }');
+    L.push('  if (!menu) {');
+    L.push('    var menus = document.querySelectorAll(".v-menu__content");');
+    L.push('    for (var m of menus) { if (m.style.display !== "none" && m.offsetParent !== null) { menu = m; break; } }');
+    L.push('  }');
+    L.push('  if (menu) {');
+    L.push('    var items = menu.querySelectorAll(".v-list-item");');
+    L.push('    for (var item of items) { if (item.textContent.trim() === labelName) { item.click(); console.log("[DISH] Label:", labelName); return true; } }');
+    L.push('    for (var item of items) { if (item.textContent.trim().toLowerCase().indexOf(labelName.toLowerCase()) >= 0) { item.click(); console.log("[DISH] Label (partial):", labelName); return true; } }');
+    L.push('  }');
+    L.push('  document.body.click();');
+    L.push('  console.warn("[DISH] Label niet gevonden:", labelName);');
+    L.push('  return false;');
+    L.push('}');
+    L.push('');
+    // clickSave
+    L.push('async function clickSave() {');
+    L.push('  var btns = document.querySelectorAll(".v-btn");');
+    L.push('  for (var b of btns) {');
+    L.push('    var icon = b.querySelector(".v-icon");');
+    L.push('    if (!icon) continue;');
+    L.push('    if (icon.className.indexOf("mdi-check") >= 0) {');
+    L.push('      var bg = window.getComputedStyle(b).backgroundColor;');
+    L.push('      if (bg.indexOf("76, 175") >= 0 || bg.indexOf("0, 200") >= 0 || bg.indexOf("56, 142") >= 0 || bg.indexOf("67, 160") >= 0 || b.classList.contains("success") || b.classList.contains("green")) {');
+    L.push('        b.click(); console.log("[DISH] Opgeslagen"); return true;');
+    L.push('      }');
+    L.push('    }');
+    L.push('  }');
+    L.push('  for (var b of btns) {');
+    L.push('    if (b.innerHTML.indexOf("mdi-check") >= 0 && b.innerHTML.indexOf("checkbox") < 0) {');
+    L.push('      b.click(); console.log("[DISH] Opgeslagen (fallback)"); return true;');
+    L.push('    }');
+    L.push('  }');
+    L.push('  console.warn("[DISH] Opslaan niet gevonden"); return false;');
+    L.push('}');
+    L.push('');
+    // clickGaDoor
+    L.push('async function clickGaDoor() {');
+    L.push('  for (var attempt = 0; attempt < 10; attempt++) {');
+    L.push('    var btns = document.querySelectorAll(".v-dialog--active .v-btn, .v-dialog .v-btn");');
+    L.push('    for (var b of btns) {');
+    L.push('      var txt = b.textContent.trim().toUpperCase();');
+    L.push('      if (txt === "GA DOOR" || txt === "DOORGAAN" || txt === "BEVESTIGEN") {');
+    L.push('        b.click(); console.log("[DISH] GA DOOR"); await sleep(50); return true;');
+    L.push('      }');
+    L.push('    }');
+    L.push('    await sleep(100);');
+    L.push('  }');
+    L.push('  return false;');
+    L.push('}');
+    L.push('');
+    // waitForClose
+    L.push('async function waitForClose() {');
+    L.push('  for (var attempt = 0; attempt < 20; attempt++) {');
+    L.push('    var btns = document.querySelectorAll(".v-btn");');
+    L.push('    for (var b of btns) {');
+    L.push('      var icon = b.querySelector(".v-icon");');
+    L.push('      if (icon && icon.className.indexOf("mdi-plus") >= 0 && b.offsetParent !== null) {');
+    L.push('        var rect = b.getBoundingClientRect();');
+    L.push('        if (rect.width > 0) { console.log("[DISH] FAB zichtbaar"); await sleep(50); return; }');
+    L.push('      }');
+    L.push('    }');
+    L.push('    await sleep(100);');
+    L.push('  }');
+    L.push('  console.warn("[DISH] Timeout wachten"); await sleep(200);');
+    L.push('}');
+    L.push('');
+    // fillOne
+    L.push('async function fillOne(res, index) {');
+    L.push('  console.log("[DISH] === " + (index+1) + "/" + DATA.length + ": " + res.naam + " (" + res.aantalPersonen + "p, " + res.label + ", " + res.zaal + ") ===");');
+    L.push('  var opened = await clickFAB();');
+    L.push('  if (!opened) return false;');
+    L.push('  var ready = await waitForForm();');
+    L.push('  if (!ready) return false;');
+    L.push('  await sleep(60);');
+    L.push('  await setPersonen(res.aantalPersonen);');
+    L.push('  await sleep(40);');
+    L.push('  // Bereken tijd met offset voor Na Borrel');
+    L.push('  var useTime = START_TIME;');
+    L.push('  if (res.timeOffset > 0) {');
+    L.push('    var p = START_TIME.split(":").map(Number);');
+    L.push('    var h = (p[0] + Math.floor(res.timeOffset / 60)) % 24;');
+    L.push('    useTime = String(h).padStart(2, "0") + ":" + String(p[1]).padStart(2, "0");');
+    L.push('  }');
+    L.push('  await setBeginTime(useTime);');
+    L.push('  await sleep(40);');
+    L.push('  await setNaam(res.naam);');
+    L.push('  await sleep(30);');
+    L.push('  if (res.notities) { await setNotities(res.notities); await sleep(30); }');
+    L.push('  await setZaal(res.zaal);');
+    L.push('  await sleep(40);');
+    L.push('  if (res.tafelNr) { await setTafel(res.tafelNr); await sleep(40); }');
+    L.push('  await setLabel(res.label);');
+    L.push('  await sleep(40);');
+    L.push('  await clickSave();');
+    L.push('  await sleep(40);');
+    L.push('  await clickGaDoor();');
+    L.push('  await waitForClose();');
+    L.push('  return true;');
+    L.push('}');
+    L.push('');
+    // Main loop with overlay
+    L.push('var ov = document.createElement("div");');
+    L.push('ov.id = "ev-overlay";');
+    L.push('ov.style.cssText = "position:fixed;top:0;left:0;right:0;z-index:999999;background:#1a1d27;color:#e4e6ef;padding:14px 24px;font-family:sans-serif;display:flex;align-items:center;gap:14px;box-shadow:0 4px 24px rgba(0,0,0,0.6);border-bottom:2px solid #4ade80;";');
+    L.push('ov.innerHTML = \'<div style="font-size:20px">🎭</div><div id="ev-st" style="flex:1;font-size:14px">Starten...</div><button id="ev-p" style="background:#7ca6f5;color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold">Pauzeer</button><button id="ev-s" style="background:#f87171;color:#000;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:bold">Stop</button>\';');
+    L.push('document.body.appendChild(ov);');
+    L.push('var paused=false, stopped=false;');
+    L.push('document.getElementById("ev-p").onclick=function(){ paused=!paused; this.textContent=paused?"Hervat":"Pauzeer"; this.style.background=paused?"#4ade80":"#7ca6f5"; };');
+    L.push('document.getElementById("ev-s").onclick=function(){ stopped=true; };');
+    L.push('var completed=0;');
+    L.push('for(var i=0;i<DATA.length;i++){');
+    L.push('  while(paused&&!stopped){await sleep(300);}');
+    L.push('  if(stopped)break;');
+    L.push('  document.getElementById("ev-st").innerHTML="<strong>"+(i+1)+"/"+DATA.length+"</strong> | "+DATA[i].naam+" | "+DATA[i].aantalPersonen+"p | "+DATA[i].label+" | "+DATA[i].zaal+(DATA[i].tafelNr?" | T"+DATA[i].tafelNr:"");');
+    L.push('  var ok=await fillOne(DATA[i],i);');
+    L.push('  if(ok){completed++;}else{if(!confirm("Fout bij "+(i+1)+". Doorgaan?")){break;}}');
+    L.push('}');
+    L.push('document.getElementById("ev-st").innerHTML=stopped?"<strong>Gestopt</strong> "+completed+"/"+DATA.length:"<strong>Klaar!</strong> "+completed+" reserveringen";');
+    L.push('document.getElementById("ev-p").style.display="none";');
+    L.push('document.getElementById("ev-s").textContent="Sluiten";');
+    L.push('document.getElementById("ev-s").style.background="#4ade80";');
+    L.push('document.getElementById("ev-s").onclick=function(){ov.remove();};');
+    L.push('})();');
+
+    const script = L.join('\n');
+    window._dishScript = script;
+    generateBookmarklet();
+    generateCTExport();
+  }
+
+  function generateBookmarklet() {
+    const script = window._dishScript;
+    if (!script) return;
+    const encoded = 'javascript:' + encodeURIComponent('(function(){' + script + '})();void(0);');
+    document.getElementById('bookmarkletLink').href = encoded;
+  }
+
+  // ============ CT TAFELS EXPORT ============
+  function buildCTData() {
+    const start = pdfStartTime || '19:00';
+    const [sh, sm] = start.split(':').map(Number);
+    // Datum uit de gekozen Excel-datum (d-m-jjjj) naar ISO
+    let iso = '';
+    try {
+      const d = (window._selectedDate || '').split(' ')[0].split('-');
+      if (d.length === 3) iso = d[2] + '-' + String(d[1]).padStart(2, '0') + '-' + String(d[0]).padStart(2, '0');
+    } catch (e) {}
+    const reserveringen = allReservations.map(r => {
+      const off = r.timeOffset || 0;
+      const h = (sh + Math.floor(off / 60)) % 24;
+      const tijd = String(h).padStart(2, '0') + ':' + String(sm).padStart(2, '0');
+      return {
+        naam: r.naam,
+        pax: r.aantalPersonen,
+        tijd: tijd,
+        // Normale PA: 60 min (tot de Na Borrel begint). Na Borrel: vanaf +60 tot begintijd +3 uur.
+        duur: off > 0 ? Math.max(60, 180 - off) : 60,
+        loc: r.label === 'Na Borrel' ? 'Circusbar' : (r.zaal || 'Theaterrestaurant'),
+        tafels: r.tafelNr ? String(r.tafelNr).split(/[+,;\s]+/).filter(Boolean) : [],
+        arr: r.label,
+        notitie: r.notities || '',
+        orders: r.orders || []
+      };
+    });
+    return { datum: iso, reserveringen: reserveringen };
+  }
+
+  function generateCTExport() {
+    const data = buildCTData();
+    window._ctData = data;
+    const json = JSON.stringify(data);
+    const script = 'if(window.ctImport){window.ctImport(' + json + ');}else{alert("Open eerst CT_Tafels.html in dit tabblad en klik dan op deze bladwijzer.");}';
+    const a = document.getElementById('ctBookmarkletLink');
+    if (a) a.href = 'javascript:' + encodeURIComponent('(function(){' + script + '})();void(0);');
+  }
+
+  function copyCTExport() {
+    const data = window._ctData || buildCTData();
+    const txt = JSON.stringify(data);
+    const btn = document.getElementById('ctCopyBtn');
+    const klaar = () => {
+      if (!btn) return;
+      const oud = btn.textContent;
+      btn.textContent = '✓ Gekopieerd — plak in CT Tafels';
+      setTimeout(() => { btn.textContent = oud; }, 2500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(klaar).catch(() => { window.prompt('Kopieer handmatig:', txt); });
+    } else {
+      window.prompt('Kopieer handmatig:', txt);
+    }
+  }
+
+  function copyHapjes() {
+    const hapjes = {
+      'Normaal': { 'Bitterbal': 2, 'Loempia': 1, 'Bakje nootjes': 1, 'Mosterd': 0.5, 'Chili': 0.5 },
+      'Luxe': { 'Bitterbal': 2, 'Loempia': 2, 'Bakje nootjes': 1, 'Brownie': 1, 'Macaron': 1, 'Mosterd': 1, 'Chili': 1 },
+      'Kind': { 'Bakje fruit': 1, 'Bakje jelly beans': 1, 'Kipnuggets': 2 },
+      'Koffie arrangement': { 'Mini muffin': 1, 'Brownie': 1, 'Macaron': 1 },
+      'Na Borrel': { 'Bitterbal': 2, 'Mini kaassoufflé': 1, 'Bakje nootjes': 1, 'Mosterd': 1 }
+    };
+    const locaties = {};
+    allReservations.forEach(r => {
+      const loc = r.label === 'Na Borrel' ? 'Circusbar' : (r.zaal || 'Onbekend');
+      
+      if (!locaties[loc]) locaties[loc] = {};
+      if (r.label === 'Combi' && r.arrangements) {
+        r.arrangements.forEach(a => { locaties[loc][a] = (locaties[loc][a] || 0) + 1; });
+      } else {
+        locaties[loc][r.label] = (locaties[loc][r.label] || 0) + r.aantalPersonen;
+      }
+    });
+    let txt = '';
+    for (const [loc, labels] of Object.entries(locaties)) {
+      const locTotaal = {};
+      let hasItems = false;
+      txt += '📍 ' + loc.toUpperCase() + '\n';
+      txt += '─────────────────────────\n';
+      for (const [label, items] of Object.entries(hapjes)) {
+        const count = labels[label] || 0;
+        if (count === 0) continue;
+        hasItems = true;
+        txt += label + ' (' + count + ' gasten)\n';
+        for (const [item, pp] of Object.entries(items)) {
+          const t = Math.ceil(pp * count);
+          locTotaal[item] = (locTotaal[item] || 0) + t;
+          const ppLabel = pp === 0.5 ? '1 per 2p' : pp + ' p.p.';
+          txt += '  ' + item + ' — ' + ppLabel + ' = ' + t + '\n';
+        }
+      }
+      if (hasItems) {
+        txt += '\nSubtotaal ' + loc + ':\n';
+        for (const [item, count] of Object.entries(locTotaal).sort((a,b) => a[0].localeCompare(b[0]))) {
+          txt += '  ' + item + ': ' + count + 'x\n';
+        }
+      }
+      txt += '\n';
+    }
+    const btn = document.querySelector('[onclick="copyHapjes()"]');
+    navigator.clipboard.writeText(txt.trim()).then(() => {
+      if (btn) {
+        btn.textContent = '✅ Hapjeslijst is gekopieerd!';
+        btn.style.background = '#22c55e';
+        btn.onmouseover = null;
+        btn.onmouseout = null;
+        setTimeout(() => {
+          btn.textContent = '📋 Kopieer hapjeslijst naar klembord';
+          btn.style.background = 'var(--accent)';
+          btn.onmouseover = function() { this.style.background = 'var(--accent-hover)'; };
+          btn.onmouseout = function() { this.style.background = 'var(--accent)'; };
+        }, 2500);
+      }
+    });
+  }
+
+  function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // === NAVBAR INFO ===
+  function updateNavInfo() {
+    const nav = document.getElementById('navInfo');
+    const logo = document.getElementById('navLogo');
+    if (!nav) return;
+    const total = allReservations.reduce((s, r) => s + r.aantalPersonen, 0);
+    if (total > 0 && window._selectedDate) {
+      document.getElementById('navDate').textContent = window._selectedDate;
+      document.getElementById('navGuests').textContent = total + ' gasten · ' + allReservations.length + ' res.';
+      // Logo naar links
+      if (logo) { logo.style.margin = '0'; logo.style.marginRight = 'auto'; }
+      // Info verschijnt rechts
+      nav.style.display = '';
+      setTimeout(function() { nav.style.opacity = '1'; }, 400);
+    }
+  }
+
+  // === ZOEKFUNCTIE ===
+  function filterReservations() {
+    const q = (document.getElementById('searchRes').value || '').toLowerCase();
+    const rows = document.querySelectorAll('#resTable tbody tr');
+    rows.forEach(tr => {
+      if (tr.querySelector('td[colspan]')) return; // separator
+      const naam = (tr.querySelector('td:nth-child(2)') || {}).textContent || '';
+      tr.style.display = naam.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+
+  // === WALK-IN TOEVOEGEN ===
+  function addWalkIn() {
+    // Reset picker-state telkens als popup opent
+    window._wiSelectedTafels = new Set();
+    window._wiSelectedVenue = 'main';
+
+    // Vergrendel body-scroll terwijl popup open is (anders scrollt de achtergrond mee)
+    window._wiPrevOverflow = document.body.style.overflow || '';
+    document.body.style.overflow = 'hidden';
+
+    const overlay = document.createElement('div');
+    overlay.id = 'walkInOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:100;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);padding:16px;';
+    overlay.onclick = (e) => { if (e.target === overlay) wiClose(); };
+
+    // Hulpfunctie voor één teller-rij — leesbaar genoeg om aan te klikken op donker thema
+    const row = (id, lbl, hint) =>
+      '<div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:9px;">' +
+        '<div style="display:flex;flex-direction:column;gap:2px;">' +
+          '<span style="font-size:13px;font-weight:600;color:var(--text);">' + lbl + '</span>' +
+          (hint ? '<span style="font-size:10px;color:var(--text3);">' + hint + '</span>' : '') +
+        '</div>' +
+        '<div style="display:flex;align-items:center;gap:6px;">' +
+          '<button type="button" onclick="wiStep(\'' + id + '\',-1)" style="width:32px;height:32px;border-radius:7px;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);font-size:18px;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;">−</button>' +
+          '<input type="number" id="' + id + '" value="0" min="0" oninput="wiUpdateTotal()" class="wi-num" style="width:44px;text-align:center;padding:6px 0;background:rgba(255,255,255,0.06);border:1.5px solid var(--glass-border);border-radius:6px;color:var(--text);font-size:14px;font-weight:700;font-family:DM Sans,sans-serif;outline:none;">' +
+          '<button type="button" onclick="wiStep(\'' + id + '\',1)" style="width:32px;height:32px;border-radius:7px;background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);color:var(--accent);font-size:18px;font-weight:700;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;">+</button>' +
+        '</div>' +
+      '</div>';
+
+    overlay.innerHTML =
+      '<div style="background:var(--surface);border:1px solid var(--glass-border);border-radius:16px;padding:22px;max-width:420px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);max-height:90vh;overflow-y:auto;" class="popup-animated">' +
+        '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">' +
+          '<div style="font-size:17px;font-weight:700;color:var(--text);">Gast toevoegen</div>' +
+          '<button type="button" onclick="wiClose()" style="background:none;border:none;color:var(--text3);font-size:22px;cursor:pointer;line-height:1;padding:0;width:28px;height:28px;">✕</button>' +
+        '</div>' +
+        '<input type="text" id="wiNaam" placeholder="Achternaam, Voornaam" oninput="this.style.borderColor=\'var(--glass-border)\'" style="width:100%;padding:11px 14px;background:rgba(255,255,255,0.06);border:1.5px solid var(--glass-border);border-radius:9px;color:var(--text);font-size:14px;font-family:DM Sans,sans-serif;outline:none;margin-bottom:16px;box-sizing:border-box;">' +
+        '<div style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.6px;">Arrangementen (combineer wat je wil)</div>' +
+        '<div style="display:flex;flex-direction:column;gap:7px;">' +
+          row('wiPN', 'Pauze normaal', '') +
+          row('wiPL', 'Pauze luxe', '') +
+          row('wiK', 'Kind', '') +
+          row('wiKf', 'Koffie arrangement', '') +
+          row('wiNB', 'Na Borrel', 'aparte reservering, +60 min') +
+        '</div>' +
+        '<div style="margin-top:14px;padding:11px 14px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.3);border-radius:9px;font-size:13px;display:flex;justify-content:space-between;align-items:center;">' +
+          '<span style="color:var(--text2);">Totaal</span>' +
+          '<span style="color:var(--accent);font-weight:700;font-size:15px;"><span id="wiTotal">0</span> personen</span>' +
+        '</div>' +
+        // === Tafel-picker ===
+        '<div style="border-top:1px solid var(--glass-border);margin-top:16px;padding-top:14px;">' +
+          '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">' +
+            '<span style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;">Tafel kiezen (optioneel)</span>' +
+            '<button type="button" onclick="wiClearTafels()" style="font-size:11px;color:var(--text3);background:none;border:none;cursor:pointer;text-decoration:underline;padding:0;">wissen</button>' +
+          '</div>' +
+          '<div style="display:flex;gap:6px;margin-bottom:10px;">' +
+            '<button type="button" id="wiVenMain" onclick="wiSelectVenue(\'main\')" style="flex:1;padding:8px;background:rgba(37,99,235,0.15);border:1px solid var(--accent);border-radius:7px;color:var(--accent);font-size:12px;font-weight:700;cursor:pointer;">' + selectedMainLocation + '</button>' +
+            '<button type="button" id="wiVenCb" onclick="wiSelectVenue(\'cb\')" style="flex:1;padding:8px;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:7px;color:var(--text2);font-size:12px;font-weight:700;cursor:pointer;">Circusbar</button>' +
+          '</div>' +
+          '<div id="wiTafelGrid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:4px;"></div>' +
+          '<div id="wiTafelSel" style="margin-top:10px;font-size:12px;color:var(--text3);">Geen tafel gekozen — automatisch</div>' +
+        '</div>' +
+        '<button type="button" onclick="submitWalkIn()" style="margin-top:14px;width:100%;padding:13px;background:var(--accent);color:#fff;border:none;border-radius:9px;font-weight:700;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;">Toevoegen</button>' +
+      '</div>';
+
+    document.body.appendChild(overlay);
+    setTimeout(() => { document.getElementById('wiNaam').focus(); wiRenderTafelGrid(); }, 100);
+  }
+
+  // Sluit popup en geef body-scroll weer vrij
+  function wiClose() {
+    const ov = document.getElementById('walkInOverlay');
+    if (ov) ov.remove();
+    document.body.style.overflow = window._wiPrevOverflow || '';
+  }
+
+  // Stap teller +/- voor add-popup
+  function wiStep(id, delta) {
+    const inp = document.getElementById(id);
+    if (!inp) return;
+    const v = Math.max(0, (parseInt(inp.value) || 0) + delta);
+    inp.value = v;
+    wiUpdateTotal();
+  }
+  function wiUpdateTotal() {
+    const total = ['wiPN','wiPL','wiK','wiKf','wiNB'].reduce((s, id) => {
+      const el = document.getElementById(id);
+      return s + (parseInt(el && el.value) || 0);
+    }, 0);
+    const t = document.getElementById('wiTotal');
+    if (t) t.textContent = total;
+    wiUpdateSelection();
+  }
+
+  // === Tafel-picker helpers ===
+  function wiSelectVenue(v) {
+    if (window._wiSelectedVenue === v) return;
+    window._wiSelectedVenue = v;
+    window._wiSelectedTafels = new Set();
+    const main = document.getElementById('wiVenMain');
+    const cb = document.getElementById('wiVenCb');
+    if (v === 'main') {
+      main.style.background = 'rgba(37,99,235,0.15)'; main.style.borderColor = 'var(--accent)'; main.style.color = 'var(--accent)';
+      cb.style.background = 'rgba(255,255,255,0.04)'; cb.style.borderColor = 'var(--glass-border)'; cb.style.color = 'var(--text2)';
+    } else {
+      cb.style.background = 'rgba(37,99,235,0.15)'; cb.style.borderColor = 'var(--accent)'; cb.style.color = 'var(--accent)';
+      main.style.background = 'rgba(255,255,255,0.04)'; main.style.borderColor = 'var(--glass-border)'; main.style.color = 'var(--text2)';
+    }
+    wiRenderTafelGrid();
+    wiUpdateSelection();
+  }
+  function wiRenderTafelGrid() {
+    const venue = window._wiSelectedVenue === 'cb' ? 'Circusbar' : selectedMainLocation;
+    const data = venueData[venue];
+    const grid = document.getElementById('wiTafelGrid');
+    if (!grid || !data) return;
+    const bezet = new Set();
+    allReservations.forEach(r => {
+      if (r.tafelNr && r.zaal === venue) r.tafelNr.split('+').forEach(n => bezet.add(parseInt(n)));
+    });
+    const nrs = Object.keys(data.tafels).map(Number).sort((a,b) => a - b);
+    let html = '';
+    for (const nr of nrs) {
+      const stoelen = data.tafels[nr];
+      const blocked = blockedTafels[venue] && blockedTafels[venue].has(nr);
+      const used = bezet.has(nr);
+      const sel = window._wiSelectedTafels.has(nr);
+      const dis = blocked || used;
+      const base = 'aspect-ratio:1;border-radius:6px;font-size:11px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;line-height:1.1;';
+      let style;
+      if (sel) {
+        style = base + 'background:var(--accent);border:1.5px solid var(--accent);color:#fff;cursor:pointer;';
+      } else if (dis) {
+        style = base + 'background:rgba(248,113,113,0.06);border:1px solid rgba(248,113,113,0.25);color:var(--text3);opacity:0.45;cursor:not-allowed;';
+      } else {
+        style = base + 'background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);color:var(--text);cursor:pointer;';
+      }
+      const click = dis ? '' : ' onclick="wiToggleTafel(' + nr + ')"';
+      const title = blocked ? 'Geblokkeerd' : used ? 'Al bezet' : stoelen + ' stoelen';
+      html += '<button type="button"' + click + ' title="' + title + '" style="' + style + '">' +
+              '<span>' + nr + '</span><span style="font-size:9px;opacity:0.75;">' + stoelen + 'st</span></button>';
+    }
+    grid.innerHTML = html;
+  }
+  function wiToggleTafel(nr) {
+    if (window._wiSelectedTafels.has(nr)) window._wiSelectedTafels.delete(nr);
+    else window._wiSelectedTafels.add(nr);
+    wiRenderTafelGrid();
+    wiUpdateSelection();
+  }
+  function wiClearTafels() {
+    window._wiSelectedTafels = new Set();
+    wiRenderTafelGrid();
+    wiUpdateSelection();
+  }
+  function wiUpdateSelection() {
+    const el = document.getElementById('wiTafelSel');
+    if (!el) return;
+    const sel = [...(window._wiSelectedTafels || [])].sort((a,b) => a - b);
+    if (sel.length === 0) {
+      el.innerHTML = '<span style="color:var(--text3);">Geen tafel gekozen — automatisch</span>';
+      return;
+    }
+    const venue = window._wiSelectedVenue === 'cb' ? 'Circusbar' : selectedMainLocation;
+    const data = venueData[venue];
+    const stoelenTotaal = sel.reduce((s, nr) => s + (data.tafels[nr] || 0), 0);
+    const persTotaal = parseInt(document.getElementById('wiTotal').textContent) || 0;
+    let warn = '', color = 'var(--accent)';
+    if (persTotaal > 0 && stoelenTotaal < persTotaal) { warn = ' ⚠ te weinig stoelen voor ' + persTotaal + 'p'; color = 'var(--yellow)'; }
+    else if (persTotaal > 0 && stoelenTotaal > persTotaal + 2) { warn = ' (veel waste)'; color = 'var(--text2)'; }
+    el.innerHTML = '<span style="color:' + color + ';font-weight:600;">Tafel ' + sel.join(' + ') + ' · ' + stoelenTotaal + ' stoelen' + warn + '</span>';
+  }
+
+  function submitWalkIn() {
+    const naam = (document.getElementById('wiNaam').value || '').trim();
+    if (!naam) { document.getElementById('wiNaam').style.borderColor = 'var(--red)'; return; }
+
+    const counts = {
+      'Normaal':            parseInt(document.getElementById('wiPN').value) || 0,
+      'Luxe':               parseInt(document.getElementById('wiPL').value) || 0,
+      'Kind':               parseInt(document.getElementById('wiK').value)  || 0,
+      'Koffie arrangement': parseInt(document.getElementById('wiKf').value) || 0
+    };
+    const naborrel = parseInt(document.getElementById('wiNB').value) || 0;
+
+    // Bouw arrangement-array (één entry per persoon) — exclusief Na Borrel
+    const arrangements = [];
+    for (const [lbl, n] of Object.entries(counts)) {
+      for (let i = 0; i < n; i++) arrangements.push(lbl);
+    }
+
+    if (arrangements.length === 0 && naborrel === 0) {
+      // Niets ingevoerd — flash de teller-sectie
+      document.getElementById('wiTotal').style.color = 'var(--red)';
+      setTimeout(() => { const t = document.getElementById('wiTotal'); if (t) t.style.color = ''; }, 800);
+      return;
+    }
+
+    // Pinned tafel-info uit picker (alleen toepassen op reguliere reservering, niet Na Borrel)
+    const pinnedTafels = [...(window._wiSelectedTafels || [])].sort((a,b) => a - b);
+    const pinnedVenue = window._wiSelectedVenue === 'cb' ? 'Circusbar' : selectedMainLocation;
+
+    // Reguliere reservering (combineert alle non-NaBorrel arrangementen)
+    if (arrangements.length > 0) {
+      const info = determineLabel(arrangements);
+      const res = {
+        naam: naam,
+        aantalPersonen: arrangements.length,
+        label: info.label,
+        notities: info.notities ? info.notities + ' — handmatig' : 'Handmatig toegevoegd',
+        arrangements: arrangements,
+        origNaam: naam,
+        zaal: pinnedTafels.length > 0 ? pinnedVenue : '',
+        tafelNr: pinnedTafels.length > 0 ? pinnedTafels.join('+') : '',
+        timeOffset: 0
+      };
+      if (pinnedTafels.length > 0) res.tafelPinned = true;
+      allReservations.push(res);
+    }
+
+    // Na Borrel apart (eigen tijdslot)
+    if (naborrel > 0) {
+      allReservations.push({
+        naam: naam,
+        aantalPersonen: naborrel,
+        label: 'Na Borrel',
+        notities: 'Handmatig toegevoegd',
+        arrangements: Array(naborrel).fill('Na Borrel'),
+        origNaam: naam,
+        zaal: '',
+        tafelNr: '',
+        timeOffset: 60
+      });
+    }
+
+    wiClose();
+    confirmLocations();
+  }
+
+  // === VRIJE TAFELS COUNTER ===
+  function updateFreeTables() {
+    const el = document.getElementById('freeTablesInfo');
+    if (!el) return;
+    
+    const bezet = new Set();
+    allReservations.forEach(r => {
+      if (r.tafelNr && r.label !== 'Na Borrel') {
+        r.tafelNr.split('+').forEach(nr => bezet.add(parseInt(nr)));
+      }
+    });
+
+    let html = '<div style="display:flex;gap:12px;flex-wrap:wrap;">';
+    for (const [venue, data] of Object.entries(venueData)) {
+      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
+      const allNrs = Object.keys(data.tafels).map(Number);
+      const blocked = blockedTafels[venue] || new Set();
+      const vrij = allNrs.filter(nr => !bezet.has(nr) && !blocked.has(nr));
+      const vrijStoelen = vrij.reduce((s, nr) => s + (data.tafels[nr] || 0), 0);
+      const color = vrij.length === 0 ? 'var(--red)' : vrij.length <= 3 ? '#eab308' : 'var(--green)';
+      html += '<div style="font-size:12px;color:var(--text2);">' + emoji + ' ' + venue + ': <strong style="color:' + color + ';">' + vrij.length + ' tafels vrij</strong> (' + vrijStoelen + ' stoelen)</div>';
+    }
+    html += '</div>';
+    el.innerHTML = html;
+  }
+
+  // === PRINT OVERZICHT ===
+  function printOverview() {
+    const startTime = pdfStartTime || '19:00';
+    const totalGuests = allReservations.reduce((s, r) => s + r.aantalPersonen, 0);
+    
+    let html = '<!DOCTYPE html><html><head><title>P.A.M. — ' + (window._selectedDate || 'Overzicht') + '</title><style>';
+    html += 'body{font-family:Arial,sans-serif;font-size:12px;color:#000;padding:20px;}';
+    html += 'h1{font-size:18px;margin-bottom:4px;}h2{font-size:14px;margin:16px 0 6px;border-bottom:2px solid #000;padding-bottom:4px;}';
+    html += 'table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px;}';
+    html += 'th{text-align:left;padding:4px 8px;border-bottom:2px solid #333;font-size:10px;text-transform:uppercase;}';
+    html += 'td{padding:4px 8px;border-bottom:1px solid #ddd;}';
+    html += '.label{font-weight:bold;padding:2px 6px;border-radius:3px;font-size:10px;}';
+    html += '.section{page-break-inside:avoid;margin-bottom:20px;}';
+    html += '@media print{body{padding:0;}}';
+    html += '</style></head><body>';
+    
+    html += '<h1>Pauze Arrangementen — ' + (window._selectedDate || '') + '</h1>';
+    html += '<p>' + totalGuests + ' gasten · ' + allReservations.length + ' reserveringen · Begintijd: ' + startTime + '</p>';
+    
+    // Per zaal
+    const zalen = {};
+    allReservations.forEach(r => {
+      const z = r.label === 'Na Borrel' ? 'Na Borrel (Circusbar)' : r.zaal;
+      if (!zalen[z]) zalen[z] = [];
+      zalen[z].push(r);
+    });
+    
+    for (const [zaal, res] of Object.entries(zalen)) {
+      html += '<div class="section"><h2>' + zaal + ' (' + res.length + ' reserveringen)</h2>';
+      html += '<table><tr><th>Naam</th><th>Pers.</th><th>Tafel</th><th>Label</th><th>Notities</th></tr>';
+      res.forEach(r => {
+        html += '<tr><td><strong>' + r.naam + '</strong></td><td>' + r.aantalPersonen + '</td><td>' + (r.tafelNr || '-') + '</td><td>' + r.label + '</td><td>' + (r.notities || '-') + '</td></tr>';
+      });
+      html += '</table></div>';
+    }
+    
+    // Hapjes per locatie
+    const hapjes = {
+      'Normaal': { 'Bitterbal': 2, 'Loempia': 1, 'Bakje nootjes': 1, 'Mosterd': 0.5, 'Chili': 0.5 },
+      'Luxe': { 'Bitterbal': 2, 'Loempia': 2, 'Bakje nootjes': 1, 'Brownie': 1, 'Macaron': 1, 'Mosterd': 1, 'Chili': 1 },
+      'Kind': { 'Bakje fruit': 1, 'Bakje jelly beans': 1, 'Kipnuggets': 2 },
+      'Koffie arrangement': { 'Mini muffin': 1, 'Brownie': 1, 'Macaron': 1 },
+      'Na Borrel': { 'Bitterbal': 2, 'Mini kaassoufflé': 1, 'Bakje nootjes': 1, 'Mosterd': 1 }
+    };
+    const locaties = {};
+    allReservations.forEach(r => {
+      const loc = r.label === 'Na Borrel' ? 'Circusbar' : (r.zaal || 'Onbekend');
+      if (!locaties[loc]) locaties[loc] = {};
+      if (r.label === 'Combi' && r.arrangements) {
+        r.arrangements.forEach(a => { locaties[loc][a] = (locaties[loc][a] || 0) + 1; });
+      } else {
+        locaties[loc][r.label] = (locaties[loc][r.label] || 0) + r.aantalPersonen;
+      }
+    });
+    
+    html += '<div class="section"><h2>Hapjeslijst</h2>';
+    for (const [loc, labels] of Object.entries(locaties)) {
+      const locTotaal = {};
+      html += '<h3 style="font-size:12px;margin:10px 0 4px;">' + loc + '</h3>';
+      for (const [label, items] of Object.entries(hapjes)) {
+        const count = labels[label] || 0;
+        if (count === 0) continue;
+        for (const [item, pp] of Object.entries(items)) {
+          const total = Math.ceil(pp * count);
+          locTotaal[item] = (locTotaal[item] || 0) + total;
+        }
+      }
+      html += '<table><tr><th>Item</th><th>Aantal</th></tr>';
+      for (const [item, count] of Object.entries(locTotaal).sort((a,b) => a[0].localeCompare(b[0]))) {
+        html += '<tr><td>' + item + '</td><td><strong>' + count + 'x</strong></td></tr>';
+      }
+      html += '</table>';
+    }
+    html += '</div>';
+    
+    html += '<p style="font-size:10px;color:#999;margin-top:20px;">Gegenereerd door P.A.M. — ' + new Date().toLocaleString('nl-NL') + '</p>';
+    html += '</body></html>';
+    
+    const w = window.open('', '_blank');
+    w.document.write(html);
+    w.document.close();
+    w.print();
+  }
+
+  function fadeIn(el, delay) {
+    if (typeof el === 'string') el = document.getElementById(el);
+    if (!el) return;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    el.classList.remove('hidden');
+    setTimeout(function() {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, delay || 50);
+  }
+
+  // === JARVIS GREETING ===
+  // === JARVIS SYSTEM ===
+  // Pre-fetch weer op achtergrond
+  window._weerData = null;
+  (function fetchWeer() {
+    function weerBeschrijving(code) {
+      const codes = {
+        0:'helder ☀️', 1:'licht bewolkt 🌤️', 2:'half bewolkt ⛅', 3:'bewolkt ☁️',
+        45:'mistig 🌫️', 48:'ijsmist 🌫️',
+        51:'lichte motregen 🌦️', 53:'motregen 🌧️', 55:'dichte motregen 🌧️',
+        61:'lichte regen 🌦️', 63:'regen 🌧️', 65:'zware regen 🌧️',
+        71:'lichte sneeuw 🌨️', 73:'sneeuw 🌨️', 75:'zware sneeuw 🌨️',
+        80:'lichte buien 🌦️', 81:'buien 🌧️', 82:'zware buien ⛈️',
+        95:'onweer ⛈️', 96:'onweer met hagel ⛈️', 99:'zwaar onweer ⛈️'
+      };
+      return codes[code] || 'onbekend';
+    }
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=52.1103&longitude=4.2830&current=temperature_2m,weather_code,wind_speed_10m&daily=precipitation_probability_max&timezone=Europe/Amsterdam&forecast_days=1')
+      .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(data => {
+        const temp = Math.round(data.current.temperature_2m);
+        const code = data.current.weather_code;
+        const wind = Math.round(data.current.wind_speed_10m);
+        const regenKans = data.daily && data.daily.precipitation_probability_max ? data.daily.precipitation_probability_max[0] : null;
+        let txt = temp + '°C, ' + weerBeschrijving(code);
+        if (wind > 0) txt += ', wind ' + wind + ' km/u';
+        if (regenKans !== null) txt += ', ' + regenKans + '% kans op regen';
+        window._weerData = txt;
+        window._weerCode = code;
+      })
+      .catch(() => {
+        fetch('https://wttr.in/52.1103,4.2830?format=%t')
+          .then(r => r.text())
+          .then(t => { const m = t.match(/[+-]?\d+/); if (m) window._weerData = m[0] + '°C'; })
+          .catch(() => {});
+      });
+  })();
+
+  function startJarvis(naam) {
+    document.getElementById('jarvisNameSelect').style.display = 'none';
+    const el = document.getElementById('jarvisText');
+    el.style.display = '';
+    el.innerHTML = '<div style="color:var(--text3);font-size:13px;">Laden...</div>';
+
+    // Wacht max 1.5s op weer data, render dan
+    let checks = 0;
+    function tryRender() {
+      if (window._weerData || checks >= 15) {
+        renderJarvis(naam);
+      } else {
+        checks++;
+        setTimeout(tryRender, 100);
+      }
+    }
+    tryRender();
+  }
+
+  function renderJarvis(naam) {
+    const el = document.getElementById('jarvisText');
+
+    const now = new Date();
+    const uur = now.getHours();
+    const minuten = String(now.getMinutes()).padStart(2, '0');
+    const dagen = ['zondag','maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag'];
+    const maanden = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+    
+    let begroeting = 'Goedemorgen';
+    if (uur >= 12 && uur < 18) begroeting = 'Goedemiddag';
+    else if (uur >= 18) begroeting = 'Goedenavond';
+
+    // Dynamische tips/quotes
+
+    // Weer-gebaseerde opmerking
+    let weerOpmerking = '';
+    if (window._weerCode !== undefined) {
+      const c = window._weerCode;
+      const t = window._weerData ? parseInt(window._weerData) : 15;
+      if (c === 0 && t > 20) weerOpmerking = 'Heerlijk weer buiten! ☀️';
+      else if (c === 0) weerOpmerking = 'Mooi helder, fris weer vandaag.';
+      else if (c >= 61 && c <= 82) weerOpmerking = 'Regenachtig — fijn dat de gasten lekker binnen zitten!';
+      else if (c >= 95) weerOpmerking = 'Onweer buiten — gezellig binnen!';
+      else if (c >= 71 && c <= 75) weerOpmerking = 'Sneeuw! Magisch buiten. ❄️';
+      else if (t < 5) weerOpmerking = 'Koud vandaag — warm onthaal voor de gasten!';
+    }
+
+    const lines = [];
+    lines.push('<span style="color:var(--accent);font-weight:700;font-size:18px;">' + begroeting + ', ' + naam + '.</span>');
+    lines.push('Het is <strong style="color:var(--text);">' + dagen[now.getDay()] + ' ' + now.getDate() + ' ' + maanden[now.getMonth()] + ' ' + now.getFullYear() + '</strong>, <strong style="color:var(--text);">' + uur + ':' + minuten + '</strong> uur.');
+    
+    if (window._weerData) {
+      lines.push('<span style="display:inline-flex;align-items:center;gap:6px;">' + getWeerIcon(window._weerCode) + ' <strong style="color:var(--text);">' + window._weerData + '</strong>' + (weerOpmerking ? ' <span style="color:var(--text3);font-size:12px;margin-left:4px;">— ' + weerOpmerking + '</span>' : '') + '</span>');
+    }
+    lines.push('<span style="color:var(--text3);font-size:12px;">Fijne werkdag, ' + naam + ' — P.A.M. staat voor je klaar.</span>');
+
+    let html = '';
+    lines.forEach(function(line, i) {
+      html += '<div style="opacity:0;transform:translateY(8px);transition:opacity 0.5s ease ' + (i * 0.2) + 's, transform 0.5s ease ' + (i * 0.2) + 's;" class="jarvis-line">' + line + '</div>';
+    });
+    el.innerHTML = html;
+
+    // Trigger fade-in
+    requestAnimationFrame(function() {
+      document.querySelectorAll('.jarvis-line').forEach(function(line) {
+        line.style.opacity = '1';
+        line.style.transform = 'translateY(0)';
+      });
+    });
+
+    // Toon step1 na alle lines
+    setTimeout(function() {
+      var s1 = document.getElementById('step1');
+      if (s1) { s1.style.opacity = '1'; s1.style.transform = 'translateY(0)'; }
+    }, lines.length * 200 + 400);
+  }
+
+  // Animated weer icoon SVG
+  function getWeerIcon(code) {
+    if (code === undefined || code === null) return '';
+    // Zon
+    if (code === 0) return '<svg width="20" height="20" viewBox="0 0 24 24" style="animation:spin 8s linear infinite;"><circle cx="12" cy="12" r="5" fill="#eab308"/><g stroke="#eab308" stroke-width="2"><line x1="12" y1="1" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="23"/><line x1="1" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="23" y2="12"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></g></svg>';
+    // Half bewolkt
+    if (code >= 1 && code <= 2) return '<svg width="22" height="20" viewBox="0 0 28 22"><circle cx="10" cy="8" r="4" fill="#eab308" style="animation:pulse 3s ease infinite;"/><g stroke="#eab308" stroke-width="1.5"><line x1="10" y1="1" x2="10" y2="3"/><line x1="3" y1="8" x2="5" y2="8"/><line x1="15" y1="8" x2="17" y2="8"/><line x1="5.2" y1="3.2" x2="6.8" y2="4.8"/><line x1="13.2" y1="3.2" x2="14.8" y2="4.8"/></g><path d="M8 18c0-3.3 2.7-6 6-6 2.5 0 4.6 1.5 5.5 3.6.3-.1.6-.1 1-.1 2.2 0 4 1.8 4 4s-1.8 4-4 4H10c-2.8 0-5-2.2-5-5 0-.2 0-.3 0-.5" fill="rgba(255,255,255,0.7)" style="animation:float 4s ease-in-out infinite;"/></svg>';
+    // Bewolkt
+    if (code === 3) return '<svg width="22" height="18" viewBox="0 0 26 20"><path d="M6 16c0-3.3 2.7-6 6-6 2.5 0 4.6 1.5 5.5 3.6.3-.1.6-.1 1-.1 2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.8 0-5-2.2-5-5 0-.2 0-.3 0-.5" fill="rgba(255,255,255,0.5)" style="animation:float 5s ease-in-out infinite;"/><path d="M10 12c0-2.8 2.2-5 5-5 2 0 3.8 1.2 4.5 3 .2 0 .3 0 .5 0 1.9 0 3.5 1.6 3.5 3.5S21.9 17 20 17" fill="rgba(255,255,255,0.3)" style="animation:float 4s ease-in-out infinite 0.5s;"/></svg>';
+    // Mist
+    if (code >= 45 && code <= 48) return '<svg width="22" height="16" viewBox="0 0 24 16"><line x1="2" y1="4" x2="22" y2="4" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round" style="animation:fogLine 3s ease-in-out infinite;"/><line x1="4" y1="8" x2="20" y2="8" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round" style="animation:fogLine 3s ease-in-out infinite 0.5s;"/><line x1="3" y1="12" x2="21" y2="12" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round" style="animation:fogLine 3s ease-in-out infinite 1s;"/></svg>';
+    // Regen
+    if ((code >= 51 && code <= 65) || (code >= 80 && code <= 82)) return '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 14c0-3.3 2.7-6 6-6 2.5 0 4.6 1.5 5.5 3.6.3-.1.6-.1 1-.1 2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.8 0-5-2.2-5-5 0-.2 0-.3 0-.5" fill="rgba(255,255,255,0.4)"/><line x1="8" y1="19" x2="7" y2="23" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" style="animation:rain 1s linear infinite;"/><line x1="12" y1="19" x2="11" y2="23" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" style="animation:rain 1s linear infinite 0.3s;"/><line x1="16" y1="19" x2="15" y2="23" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round" style="animation:rain 1s linear infinite 0.6s;"/></svg>';
+    // Sneeuw
+    if (code >= 71 && code <= 75) return '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 14c0-3.3 2.7-6 6-6 2.5 0 4.6 1.5 5.5 3.6.3-.1.6-.1 1-.1 2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.8 0-5-2.2-5-5 0-.2 0-.3 0-.5" fill="rgba(255,255,255,0.4)"/><circle cx="8" cy="21" r="1.5" fill="#fff" style="animation:snow 2s linear infinite;"/><circle cx="13" cy="20" r="1.5" fill="#fff" style="animation:snow 2s linear infinite 0.7s;"/><circle cx="17" cy="21" r="1.5" fill="#fff" style="animation:snow 2s linear infinite 1.3s;"/></svg>';
+    // Onweer
+    if (code >= 95) return '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M6 12c0-3.3 2.7-6 6-6 2.5 0 4.6 1.5 5.5 3.6.3-.1.6-.1 1-.1 2.2 0 4 1.8 4 4s-1.8 4-4 4H8c-2.8 0-5-2.2-5-5 0-.2 0-.3 0-.5" fill="rgba(255,255,255,0.35)"/><polygon points="13,14 10,19 12,19 11,23 16,17 13,17 15,14" fill="#eab308" style="animation:flash 2s ease infinite;"/></svg>';
+    return '';
+  }
+</script>
+</body>
+</html>
