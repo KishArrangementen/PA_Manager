@@ -3042,8 +3042,9 @@
         naam: r.naam,
         pax: r.aantalPersonen,
         tijd: tijd,
-        // Normale PA: 60 min (tot de Na Borrel begint). Na Borrel: vanaf +60 tot begintijd +3 uur.
-        duur: off > 0 ? Math.max(60, 180 - off) : 60,
+        // Normale PA: 90 min (bijv. 19:30 tot 21:00), zodat alle lijnen op de tijdlijn even lang zijn.
+        // Na Borrel: pas na de show, een uur later en dan 60 min (bijv. 20:30 tot 21:30).
+        duur: off > 0 ? 60 : 90,
         loc: r.label === 'Na Borrel' ? 'Circusbar' : (r.zaal || 'Theaterrestaurant'),
         tafels: r.tafelNr ? String(r.tafelNr).split(/[+,;\s]+/).filter(Boolean) : [],
         arr: r.label,
