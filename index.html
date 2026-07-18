@@ -1968,7 +1968,7 @@
         const cluster = [startTafel.nr];
         const clusterSet = new Set(cluster);
         let seats = startTafel.stoelen;
-        if (seats === needed - 1) {
+        if (needed >= 7 && seats === needed - 1) {
           const prox = proximity(startTafel.nr);
           const s = score(2.5, prox);
           if (s < bestStoelScore) { bestStoelCluster = [...cluster]; bestStoelScore = s; }
@@ -1990,7 +1990,7 @@
           cluster.push(bestNext.nr);
           clusterSet.add(bestNext.nr);
           seats += bestNext.stoelen;
-          if (seats === needed - 1) {
+          if (needed >= 7 && seats === needed - 1) {
             const prox = Math.min(...cluster.map(nr => proximity(nr)));
             const s = score(2.5, prox);
             if (s < bestStoelScore) { bestStoelCluster = [...cluster]; bestStoelScore = s; }
@@ -2033,7 +2033,7 @@
 
       // === Hoekstoel-optie: enkele tafel die exact 1 stoel tekortkomt ===
       for (const t of available) {
-        if (t.stoelen === needed - 1) {
+        if (needed >= 7 && t.stoelen === needed - 1) {
           const s = score(2.5, proximity(t.nr));
           if (s < bestStoelScore) { bestStoelCluster = [t.nr]; bestStoelScore = s; }
         }
