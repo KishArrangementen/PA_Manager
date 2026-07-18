@@ -1788,9 +1788,13 @@
         214:3, 215:3, 216:4, 217:3
       },
       neighbors: {
-        201:[],202:[],203:[],204:[],
-        205:[206],206:[205,207],207:[206,208],208:[207],
-        209:[210],210:[209,211],211:[210,212],212:[211],
+        // Echte opstelling (Kevin, 18 juli 2026):
+        // 201/202 hoog en los, 203 laag en los, 214 los
+        // 204-205-206 staan naast elkaar, 207 t/m 212 is een aaneengesloten rij
+        // 215-217 hoge tafels, alleen als het echt moet (staan als laatste redmiddel in de midden-pool)
+        201:[],202:[],203:[],
+        204:[205],205:[204,206],206:[205],
+        207:[208],208:[207,209],209:[208,210],210:[209,211],211:[210,212],212:[211],
         214:[],
         215:[216],216:[215,217],217:[216]
       }
@@ -1934,6 +1938,7 @@
     }
 
     function grab(tafels, needed, extraFilter) {
+      grab.stoelErbij = false; // wordt true als de gekozen optie een losse stoel op de hoek nodig heeft
       const neighbors = getNeighbors(tafels);
       const available = tafels.filter(t => !used.has(t.nr) && (!extraFilter || extraFilter(t)));
       if (available.length === 0) return [];
@@ -1957,10 +1962,17 @@
       // === Optie A: Zoek BESTE adjacent cluster ===
       let bestCluster = null;
       let bestClusterScore = Infinity;
+      let bestStoelCluster = null; // cluster dat 1 stoel tekortkomt (hoekstoel-optie)
+      let bestStoelScore = Infinity;
       for (const startTafel of available) {
         const cluster = [startTafel.nr];
         const clusterSet = new Set(cluster);
         let seats = startTafel.stoelen;
+        if (seats === needed - 1) {
+          const prox = proximity(startTafel.nr);
+          const s = score(2.5, prox);
+          if (s < bestStoelScore) { bestStoelCluster = [...cluster]; bestStoelScore = s; }
+        }
         while (seats < needed) {
           let bestNext = null;
           let bestNextS = Infinity;
@@ -1978,6 +1990,11 @@
           cluster.push(bestNext.nr);
           clusterSet.add(bestNext.nr);
           seats += bestNext.stoelen;
+          if (seats === needed - 1) {
+            const prox = Math.min(...cluster.map(nr => proximity(nr)));
+            const s = score(2.5, prox);
+            if (s < bestStoelScore) { bestStoelCluster = [...cluster]; bestStoelScore = s; }
+          }
         }
         if (seats >= needed) {
           const waste = seats - needed;
@@ -2014,22 +2031,25 @@
         }
       }
 
-      // === Kies beste optie (laagste score wint) ===
-      if (bestCluster && bestSingle) {
-        if (bestSingleScore <= bestClusterScore) {
-          used.add(bestSingle.nr);
-          return [bestSingle.nr];
+      // === Hoekstoel-optie: enkele tafel die exact 1 stoel tekortkomt ===
+      for (const t of available) {
+        if (t.stoelen === needed - 1) {
+          const s = score(2.5, proximity(t.nr));
+          if (s < bestStoelScore) { bestStoelCluster = [t.nr]; bestStoelScore = s; }
         }
-        bestCluster.forEach(nr => used.add(nr));
-        return bestCluster;
       }
-      if (bestSingle) {
-        used.add(bestSingle.nr);
-        return [bestSingle.nr];
-      }
-      if (bestCluster) {
-        bestCluster.forEach(nr => used.add(nr));
-        return bestCluster;
+
+      // === Kies beste optie (laagste score wint) ===
+      const opties = [];
+      if (bestCluster) opties.push({ nrs: bestCluster, s: bestClusterScore, stoel: false });
+      if (bestSingle) opties.push({ nrs: [bestSingle.nr], s: bestSingleScore, stoel: false });
+      if (bestStoelCluster) opties.push({ nrs: bestStoelCluster, s: bestStoelScore, stoel: true });
+      if (opties.length) {
+        opties.sort((a,b) => a.s - b.s);
+        const win = opties[0];
+        grab.stoelErbij = win.stoel;
+        win.nrs.forEach(nr => used.add(nr));
+        return win.nrs;
       }
 
       // === Optie C: Relaxed adjacent cluster (geen waste-limiet) ===
@@ -2127,6 +2147,11 @@
     const cbRand = cbAll.filter(t => !cbMiddenNrs.has(t.nr));
     const cbMidden = cbAll.filter(t => cbMiddenNrs.has(t.nr));
 
+    function metStoelNotitie(res) {
+      if (grab.stoelErbij && !(res.notities || '').toLowerCase().includes('stoel erbij')) {
+        res.notities = (res.notities ? res.notities + ' \u00b7 ' : '') + '1x stoel erbij';
+      }
+    }
     function cbVrij(lijst) { return lijst.filter(t => !used.has(t.nr)).reduce((s,t) => s + t.stoelen, 0); }
     function mainVrij(filter) { return mainAll.filter(t => !used.has(t.nr) && (!filter || filter(t))).reduce((s,t) => s + t.stoelen, 0); }
 
@@ -2166,10 +2191,10 @@
       const middenCap = chainCapMax(cbMidden);
       if (n <= randCap && cbVrij(cbRand) >= n) {
         const a = grab(cbRand, n);
-        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+'); metStoelNotitie(res);
       } else if (n <= middenCap && cbVrij(cbMidden) >= n) {
         const a = grab(cbMidden, n);
-        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+'); metStoelNotitie(res);
       } else {
         // Past niet aaneengesloten in CB — doorsturen naar mainLoc
         cbOverflow.push(res);
@@ -2183,7 +2208,7 @@
       const randCap = chainCapMax(cbRand);
       if (n <= randCap && cbVrij(cbRand) >= n) {
         const a = grab(cbRand, n);
-        res.zaal = 'Circusbar'; res.tafelNr = a.join('+');
+        res.zaal = 'Circusbar'; res.tafelNr = a.join('+'); metStoelNotitie(res);
       } else {
         cbOverflow.push(res);
       }
@@ -2214,13 +2239,13 @@
       if (seatSum(a) < res.aantalPersonen) {
         console.error('[TAFEL] ⚠️ Luxe ' + res.aantalPersonen + 'p (' + res.naam + ') alleen ' + seatSum(a) + ' stoelen toegewezen');
       }
-      res.zaal = mainLoc; res.tafelNr = a.join('+');
+      res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
     }
 
     // Overflow uit CB → hoofdlocatie (bij elkaar)
     for (const res of cbOverflow) {
       const a = grab(mainAll, res.aantalPersonen);
-      res.zaal = mainLoc; res.tafelNr = a.join('+');
+      res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
     }
 
     // === STAP 3: Na Borrel — hergebruik tafels (ander tijdslot, altijd Circusbar) ===
