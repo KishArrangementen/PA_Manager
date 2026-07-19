@@ -371,8 +371,8 @@
 
 <!-- STAP 2: Locatie kiezen -->
 <div class="step hidden" id="step2">
-  <div class="step-header">
-    
+  <div class="step-header" style="position:relative;">
+    <button onclick="terugNaarShowkeuze()" title="Andere show uit dezelfde Excel kiezen" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);padding:7px 12px;border-radius:8px;border:1.5px solid var(--glass-border2);background:transparent;color:var(--text2);font-size:12.5px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;">&#8249; Andere show</button>
     <span class="step-title" style="width:100%;text-align:center;">Locatie-indeling</span>
   </div>
   <div class="step-body">
@@ -1470,6 +1470,13 @@
     wrap.classList.remove('hidden');
   }
 
+  function terugNaarShowkeuze() {
+    // Showkeuze weer openen zodat show 2 direct klaargezet kan worden, zonder opnieuw te uploaden
+    if (!window._calendarData) { showStatus('error', 'Upload eerst een Excel'); return; }
+    fadeIn('datePickerWrap', 50);
+    document.getElementById('step1').scrollIntoView({ behavior: 'smooth' });
+  }
+
   function filterDates(month) {
     const cd = window._calendarData;
     if (!cd) return;
@@ -2443,7 +2450,6 @@
 
     hapjesHtml += '<div style="display:flex;gap:8px;margin-top:16px;">';
     hapjesHtml += '<button onclick="copyHapjes()" style="flex:1;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;" onmouseover="this.style.background=\'var(--accent-hover)\'" onmouseout="this.style.background=\'var(--accent)\'">📋 Kopieer hapjeslijst naar klembord</button>';
-    hapjesHtml += '<button onclick="printOverview()" style="padding:14px 20px;background:var(--glass);border:1px solid var(--glass-border);color:var(--text);border-radius:10px;font-weight:600;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;" onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'var(--glass-border)\'">🖨️</button>';
     hapjesHtml += '</div>';
 
     const startTime = pdfStartTime || '19:00';
