@@ -774,33 +774,26 @@
       const htmPa = (htmBucket.entries || []).filter(e => e.type === 'pa');
       if (htmPa.length === 0) continue;
 
-      let matchingKeys = Object.keys(xlsxAllDates).filter(k => xlsxAllDates[k].date === htmDate);
-      if (matchingKeys.length === 0) {
-        // Datum staat niet in Excel: dag volledig uit de HTM opbouwen
-        const tijd = (htmBucket.times && htmBucket.times.size ? [...htmBucket.times].sort()[0] : '19:30');
-        const nieuweKey = htmDate + ' ' + tijd;
-        if (!xlsxAllDates[nieuweKey]) xlsxAllDates[nieuweKey] = { date: htmDate, time: tijd, entries: [] };
-        matchingKeys = [nieuweKey];
-      }
+      const excelKeys = Object.keys(xlsxAllDates).filter(k => xlsxAllDates[k].date === htmDate);
 
-      // Verzamel alle Excel-orders voor deze datum (alle tijdslots)
+      // Verzamel alle Excel-orders voor deze datum (alle tijdslots samen, voor ontdubbeling)
       const excelOrders = new Set();
-      for (const k of matchingKeys) {
+      for (const k of excelKeys) {
         xlsxAllDates[k].entries.forEach(e => { if (e.order) excelOrders.add(String(e.order) + '|' + (e.label || '')); });
       }
 
-      // Doel-key: het tijdslot met de meeste entries (meestal de hoofd-show)
-      const targetKey = matchingKeys.sort((a, b) =>
-        xlsxAllDates[b].entries.length - xlsxAllDates[a].entries.length
-      )[0];
-
-      // Loop HTM-bookings; voeg onbekende orders toe als synthetische entries
+      // Loop HTM-bookings; plaats elke gast in het tijdslot van ZIJN EIGEN show
       for (const b of htmPa) {
         if (!b.order) continue;
         const lblCheck = b.label || parseKortingniveau(b.priceType);
         const ord = String(b.order);
         const dedup = ord + '|' + lblCheck;
         if (excelOrders.has(dedup)) continue;
+
+        // Tijd van deze gast bepaalt in welke show hij hoort
+        const gastTijd = b.time || (htmBucket.times && htmBucket.times.size ? [...htmBucket.times].sort()[0] : '19:30');
+        const showKey = htmDate + ' ' + gastTijd;
+        if (!xlsxAllDates[showKey]) xlsxAllDates[showKey] = { date: htmDate, time: gastTijd, entries: [] };
 
         // Naam converteren naar "Achternaam, Voornaam" (HTM is "Voornaam Achternaam")
         const parts = (b.naam || '').trim().split(' ');
@@ -811,7 +804,7 @@
 
         const lbl = b.label || parseKortingniveau(b.priceType);
         for (let k = 0; k < b.qty; k++) {
-          xlsxAllDates[targetKey].entries.push({
+          xlsxAllDates[showKey].entries.push({
             naam: formatted,
             label: lbl,
             origNaam: b.naam,
@@ -821,7 +814,7 @@
         }
         excelOrders.add(dedup);
         totalAdded += b.qty;
-        log.push(htmDate + ': +' + b.qty + 'p ' + formatted + ' (#' + ord + ')');
+        log.push(htmDate + ' ' + gastTijd + ': +' + b.qty + 'p ' + formatted + ' (#' + ord + ')');
       }
     }
 
