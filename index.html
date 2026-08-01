@@ -872,7 +872,7 @@
 
           // Arrangement header
           const arrMatch = cellA.match(/(?:_N\/A:\s*|^\d+:\s*)(.*)/i);
-          if (arrMatch && (cellB === '' || cellB === null || cellB === undefined || cellB === 0) && cellA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) {
+          if (arrMatch && cellA.toLowerCase().match(/arrangement|kids|koffie|borrel|luxe|pauze|reseat/i)) {
             currentArrangement = arrMatch[1].trim();
             continue;
           }
@@ -897,6 +897,8 @@
 
           // Naam met count (tekst in A, getal in B)
           if (currentArrangement && currentDateKey && cellA && cellB !== '' && cellB !== null && cellB !== undefined) {
+            // Vangnet: overslaan als de 'naam' in werkelijkheid een arrangement- of totaalregel is
+            if (cellA.match(/^_N\/A:/i) || cellA.toLowerCase().match(/^(?:arrangement|arrangementen|pauze arrangement|kids|kids arrangement|koffie|koffie-arrangement|naborel|na borrel|luxe|reseat|totaal|eindtotaal|grand total|subtotaal)\b/)) continue;
             const count = parseInt(cellB) || 0;
             if (count <= 0) continue;
             const label = parseKortingniveau(currentArrangement);
@@ -961,6 +963,8 @@
           }
 
           if (currentArrangement && cellA && !cellA.match(/^\d+$/) && (cellB === '' || cellB === null || cellB === undefined)) {
+            // Vangnet: geen arrangement- of totaalregel als naam oppikken
+            if (cellA.match(/^_N\/A:/i) || cellA.toLowerCase().match(/^(?:arrangement|arrangementen|pauze arrangement|kids|kids arrangement|koffie|koffie-arrangement|naborel|na borrel|luxe|reseat|totaal|eindtotaal|grand total|subtotaal)\b/)) { expectCount = false; continue; }
             lastName = cellA; expectCount = true; continue;
           }
 
