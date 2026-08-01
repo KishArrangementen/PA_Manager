@@ -774,13 +774,19 @@
       const htmPa = (htmBucket.entries || []).filter(e => e.type === 'pa');
       if (htmPa.length === 0) continue;
 
-      const matchingKeys = Object.keys(xlsxAllDates).filter(k => xlsxAllDates[k].date === htmDate);
-      if (matchingKeys.length === 0) continue;  // datum bestaat niet in Excel — overslaan
+      let matchingKeys = Object.keys(xlsxAllDates).filter(k => xlsxAllDates[k].date === htmDate);
+      if (matchingKeys.length === 0) {
+        // Datum staat niet in Excel: dag volledig uit de HTM opbouwen
+        const tijd = (htmBucket.times && htmBucket.times.size ? [...htmBucket.times].sort()[0] : '19:30');
+        const nieuweKey = htmDate + ' ' + tijd;
+        if (!xlsxAllDates[nieuweKey]) xlsxAllDates[nieuweKey] = { date: htmDate, time: tijd, entries: [] };
+        matchingKeys = [nieuweKey];
+      }
 
       // Verzamel alle Excel-orders voor deze datum (alle tijdslots)
       const excelOrders = new Set();
       for (const k of matchingKeys) {
-        xlsxAllDates[k].entries.forEach(e => { if (e.order) excelOrders.add(String(e.order)); });
+        xlsxAllDates[k].entries.forEach(e => { if (e.order) excelOrders.add(String(e.order) + '|' + (e.label || '')); });
       }
 
       // Doel-key: het tijdslot met de meeste entries (meestal de hoofd-show)
@@ -791,8 +797,10 @@
       // Loop HTM-bookings; voeg onbekende orders toe als synthetische entries
       for (const b of htmPa) {
         if (!b.order) continue;
+        const lblCheck = b.label || parseKortingniveau(b.priceType);
         const ord = String(b.order);
-        if (excelOrders.has(ord)) continue;
+        const dedup = ord + '|' + lblCheck;
+        if (excelOrders.has(dedup)) continue;
 
         // Naam converteren naar "Achternaam, Voornaam" (HTM is "Voornaam Achternaam")
         const parts = (b.naam || '').trim().split(' ');
@@ -811,7 +819,7 @@
             fromHtm: true
           });
         }
-        excelOrders.add(ord);
+        excelOrders.add(dedup);
         totalAdded += b.qty;
         log.push(htmDate + ': +' + b.qty + 'p ' + formatted + ' (#' + ord + ')');
       }
