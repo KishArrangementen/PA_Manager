@@ -1946,6 +1946,7 @@
     }
     button:active:not(:disabled){transform:none}
   }
+
 </style>
 
 
@@ -5172,7 +5173,10 @@ const DEFAULT_LAYOUT = {
 
      Lukt geen van beide, dan komen de bladwijzer en het kopiëren in beeld.
      ========================================================== */
-  const KISH_ADRES = 'https://kish-arrangementen.nl/';
+  /* Staat PA Manager op hetzelfde adres als KISH, bijvoorbeeld onder
+     /manager, dan is dit gewoon de hoofdmap. Draait hij ergens anders,
+     zet hier dan het volledige adres van KISH. */
+  const KISH_ADRES = '/';
 
   function kishOpenen(){
     /* Een venster dat wij openen kunnen we wel berichten sturen, ook als
@@ -5229,6 +5233,14 @@ const DEFAULT_LAYOUT = {
 
     if(!aantal){ zeg('fout', 'Er zijn geen reserveringen om te versturen.'); return; }
 
+    /* Draait PA Manager als bestand vanaf de schijf, dan kan hij KISH niet
+       bereiken. Dat meteen zeggen in plaats van anderhalve seconde wachten
+       op een antwoord dat nooit komt. */
+    if(location.protocol === 'file:'){
+      mislukt('Dit werkt alleen als PA Manager online staat, op hetzelfde adres als KISH. Nu is het een bestand op je computer. Gebruik hieronder de bladwijzer.');
+      return;
+    }
+
     zeg('bezig', 'Versturen naar KISH...');
 
     const id = 'pam-' + Date.now();
@@ -5277,7 +5289,7 @@ const DEFAULT_LAYOUT = {
       if(geantwoord) return;
       opruimen();
       if(!venster || venster.closed){
-        mislukt('KISH heeft niet gereageerd. Open KISH met de knop hieronder, dan kan PA Manager er wel bij.');
+        mislukt('KISH heeft niet gereageerd. Open KISH met de knop bij stap 1, dan kan PA Manager er wel bij.');
       } else {
         mislukt('KISH heeft niet gereageerd. Kijk of dat tabblad nog goed open staat.');
       }
@@ -6081,6 +6093,25 @@ if('serviceWorker' in navigator){
     for(let i = vanaf; i < PAGINAS.length; i++) vrij.delete(i);
   }
 
+  /* De laatste pagina schoonmaken. Anders blijft de groene melding van de
+     vorige show staan en denk je dat die er al in zit. */
+  function schoonNaarKish(){
+    const melding = document.getElementById('ctMelding');
+    if(melding){ melding.hidden = true; melding.textContent = ''; melding.className = 'ctMelding'; }
+
+    const klaar = document.getElementById('ctStap2Klaar');
+    if(klaar){ klaar.hidden = true; klaar.textContent = ''; }
+    const stap = klaar && klaar.closest('li');
+    if(stap) stap.classList.remove('ctGedaan');
+
+    const terugval = document.getElementById('ctTerugval');
+    if(terugval) terugval.hidden = true;
+
+    /* De opgebouwde gegevens weggooien, zodat ze bij het versturen opnieuw
+       uit de nieuwe show worden gehaald. */
+    window._ctData = null;
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
     PAGINAS.forEach(function(p){
       const e = document.getElementById(p.id);
@@ -6091,6 +6122,7 @@ if('serviceWorker' in navigator){
     if(typeof echteKies === 'function'){
       window.selectXLSXDate = function(){
         slotVanaf(2);
+        schoonNaarKish();
         return echteKies.apply(this, arguments);
       };
     }
