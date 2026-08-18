@@ -17,22 +17,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+  /* De namen komen uit KISH, zodat beide apps dezelfde taal spreken.
+     De oude namen blijven bestaan en wijzen door naar de nieuwe, dan
+     hoeft de rest van dit bestand niet aangepast te worden. */
   :root {
-    --bg: #12141a; --bg2: #1a1d26; --surface: #1a1d26;
-    --glass: #1a1d26; --glass2: #222633;
-    --glass-border: #2e3342; --glass-border2: #3a4050;
-    --text: #e8eaf0; --text2: #8b92a5; --text3: #5a6275;
-    --accent: #2563eb; --accent-hover: #4a80f0; --accent-glow: rgba(37,99,235,0.18);
-    --salmon: #e88e6e; --yellow: #e8c840; --brown: #a67c52; --green: #4ade80;
-    --blue: #60a5fa; --red: #f87171; --pink: #f472b6; --teal: #2dd4bf;
-    --border: #2e3342; --accent3: #7ca6f5; --surface2: #222633; --surface3: #222633;
+    --bg:      #0a1220;
+    --panel:   rgba(12,22,42,.72);
+    --panel2:  rgba(20,32,56,.55);
+    --line:    rgba(120,150,200,.22);
+    --line2:   rgba(150,180,230,.34);
+    --txt:     #e8edf6;
+    --muted:   #8b92a5;
+    --accent:  #2563eb;
+    --green:   #059669;
+    --red:     #e5304d;
+
+    --bg2: var(--panel); --surface: var(--panel);
+    --glass: var(--panel); --glass2: var(--panel2);
+    --glass-border: var(--line); --glass-border2: var(--line2);
+    --text: var(--txt); --text2: var(--muted); --text3: #6b7286;
+    --accent-hover: #4a80f0; --accent-glow: rgba(37,99,235,0.22);
+    --border: var(--line); --accent3: #7ca6f5;
+    --surface2: var(--panel2); --surface3: var(--panel2);
+    --salmon: #e88e6e; --yellow: #f5a623; --brown: #a05a3a;
+    --blue: #60a5fa; --pink: #fb7185; --teal: #2dd4bf;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: 'Inter', -apple-system, sans-serif; background: #12141a;
-    color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased;
-    background-image: radial-gradient(ellipse at 30% 0%, rgba(37,99,235,0.06) 0%, transparent 50%),
-                      radial-gradient(ellipse at 70% 100%, rgba(45,212,191,0.04) 0%, transparent 50%);
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--txt); min-height: 100vh; -webkit-font-smoothing: antialiased;
+    /* Exact de achtergrond van het glasthema in KISH */
+    background:
+      radial-gradient(55% 45% at 18% 8%, rgba(40,90,180,.30), transparent 70%),
+      radial-gradient(50% 50% at 88% 88%, rgba(20,110,120,.22), transparent 70%),
+      linear-gradient(150deg,#070c16 0%,#0a1220 45%,#0a1424 100%);
     background-attachment: fixed;
     display: flex; flex-direction: column;
   }
@@ -53,7 +71,7 @@
     box-shadow: 0 4px 18px rgba(0,0,0,0.25);
     transition: border-color 0.2s;
   }
-  .step:hover { border-color: var(--glass-border2); }
+  
   .step-header {
     display: flex; align-items: center; gap: 10px;
     padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -65,8 +83,8 @@
     font-size: 11px; font-weight: 700; flex-shrink: 0;
     box-shadow: 0 2px 8px var(--accent-glow);
   }
-  .step-title { font-weight: 600; font-size: 14px; color: var(--text2); }
-  .step-body { padding: 20px; }
+  
+  
 
   /* Dropzone */
   .dropzone {
@@ -74,19 +92,16 @@
     padding: 48px 28px; text-align: center; cursor: pointer;
     transition: all 0.2s; background: rgba(255,255,255,0.02);
   }
-  .dropzone:hover, .dropzone.dragover {
-    border-color: var(--accent); background: rgba(37,99,235,0.06);
-    box-shadow: 0 0 30px rgba(37,99,235,0.08);
-  }
+  
   .dropzone-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.6; }
-  .dropzone-text { font-size: 15px; font-weight: 600; color: var(--text); }
-  .dropzone-sub { font-size: 12px; color: var(--text3); margin-top: 4px; }
+  
+  
   input[type="file"] { display: none; }
   /* Compactere number-inputs in walk-in popup (focus op +/- buttons) */
   .wi-num::-webkit-outer-spin-button, .wi-num::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
   .wi-num { -moz-appearance: textfield; }
   /* Twee dropzones naast elkaar */
-  .dz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  
   @media (max-width: 560px) { .dz-grid { grid-template-columns: 1fr; } }
   .dz-compact { padding: 26px 18px; }
   .dz-loaded { border-style: solid; border-color: var(--teal); background: rgba(45,212,191,0.05); }
@@ -149,7 +164,7 @@
   }
   .copy-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-  .instructions { font-size: 13px; color: var(--text2); line-height: 1.8; }
+  
   .instructions strong { color: var(--text); }
   .instructions code { background: var(--glass2); padding: 2px 7px; border-radius: 5px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
 
@@ -238,7 +253,7 @@
     border-radius: 8px; cursor: pointer; transition: all 0.15s;
     font-family: 'Inter', sans-serif;
   }
-  .tg-cell:hover { border-color: var(--accent); background: rgba(37,99,235,0.06); }
+  
   .tg-blocked { opacity: 0.3; background: rgba(248,113,113,0.06); border-color: rgba(248,113,113,0.3); }
   .tg-blocked:hover { opacity: 0.5; }
   .tg-nr { font-size: 11px; font-weight: 700; color: var(--text); line-height: 1; }
@@ -288,6 +303,1649 @@
     nav div:first-child span:first-child { font-size: 14px !important; }
   }
 
+  /* ---- Balk, in de stijl van KISH ---- */
+  #topbar{
+    position:sticky; top:0; z-index:55;
+    background:linear-gradient(180deg, rgba(37,99,235,.42), rgba(37,99,235,.26));
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 4px 20px rgba(0,0,0,.25);
+    backdrop-filter:blur(10px);
+    padding:11px 0;
+  }
+  #navInner{
+    max-width:880px; margin:0 auto; padding:0 24px;
+    display:flex; align-items:center; gap:12px;
+  }
+  #navLogo{display:flex; align-items:center; gap:11px; margin:0 auto; transition:margin .6s ease}
+  .brandIcon{
+    width:26px; height:26px; flex:0 0 26px; display:block; color:#fff;
+  }
+  .brandIcon svg{width:100%; height:100%; display:block}
+  .brandTekst{display:flex; flex-direction:column; line-height:1.15}
+  .brandTxt{font-size:18px; font-weight:600; letter-spacing:-.022em; color:#fff}
+  .brandTxt b{font-weight:400; color:rgba(255,255,255,.72)}
+  .brandSub{font-size:10px; color:rgba(255,255,255,.55); font-weight:600; letter-spacing:.09em; margin-top:2px}
+  #navInfo{display:none; text-align:right; font-size:11px; line-height:1.4; opacity:0; transition:opacity .5s ease}
+  #navDate{color:#bcd3ff; font-weight:700}
+  #navGuests{color:rgba(255,255,255,.6)}
+
+  /* ---- Kaarten en knoppen zoals in KISH ---- */
+  .step{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 4px 16px rgba(0,0,0,.22);
+  }
+  .step:hover{border-color:var(--line2)}
+  
+  .step-number{border-radius:8px}
+  .btn{border-radius:11px; padding:14px; font-weight:700}
+  .dropzone{
+    border:1.5px dashed rgba(120,150,200,.34);
+    background:rgba(20,32,56,.35);
+    border-radius:14px;
+  }
+  
+
+  /* ==========================================================
+     Afwerking: minder rauwe html, meer een afgemaakt scherm.
+     Alleen opmaak, de werking is niet aangeraakt.
+     ========================================================== */
+
+  /* De banenregel verderop bepaalt hoe een stap eruitziet. Hier stond een
+     kaartregel die daar overheen ging, met overflow:hidden waardoor de
+     plattegrond werd afgeknipt. Die is weggehaald. */
+  
+  
+  
+
+  /* Sleepvakken */
+  .dropzone{
+    border:1.5px dashed rgba(120,150,200,.3);
+    background:rgba(20,32,56,.32);
+    border-radius:14px;
+    padding:34px 24px;
+    transition:border-color .18s, background .18s, transform .18s;
+  }
+  .dropzone:hover, .dropzone.dragover{
+    border-color:var(--accent);
+    background:rgba(37,99,235,.09);
+    box-shadow:none;
+    transform:translateY(-1px);
+  }
+  .dropzone-text{font-size:14.5px; font-weight:700; color:var(--txt)}
+  .dropzone-sub{font-size:12.5px; color:var(--muted); margin-top:5px}
+  .dropzone-icon{opacity:.85; margin-bottom:10px}
+
+  /* Instructie als lijst in plaats van losse regels */
+  .instructions{
+    background:rgba(20,32,56,.4);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .insKop{
+    font-size:10.5px; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:9px;
+  }
+  .insLijst{margin:0; padding-left:18px; color:var(--txt); font-size:13.5px}
+  .insLijst li{margin-bottom:5px}
+  .insLijst li::marker{color:var(--accent); font-weight:700}
+
+  code{
+    background:rgba(37,99,235,.14);
+    border:1px solid rgba(37,99,235,.28);
+    color:#bcd3ff;
+    padding:2px 7px; border-radius:6px;
+    font-family:'JetBrains Mono', monospace; font-size:12px;
+  }
+
+  /* De bladwijzerknoppen als echte knop met een uitleg erin */
+  #ctBookmarkletLink, #bookmarkletLink{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 18px; margin-top:12px;
+    background:linear-gradient(180deg, rgba(37,99,235,.9), rgba(37,99,235,.66));
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;
+    color:#fff; text-decoration:none;
+    font-size:14.5px; font-weight:700;
+    box-shadow:0 3px 12px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.16);
+    cursor:grab;
+    transition:transform .14s, box-shadow .14s;
+  }
+  #ctBookmarkletLink:hover, #bookmarkletLink:hover{transform:translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.2)}
+  #ctBookmarkletLink:active, #bookmarkletLink:active{cursor:grabbing; transform:translateY(0)}
+  .bmIco{
+    width:18px; height:18px; flex:0 0 18px;
+    background:currentColor;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z'/></svg>") center/contain no-repeat;
+  }
+  .bmHint{
+    margin-left:auto; font-size:11.5px; font-weight:500;
+    color:rgba(255,255,255,.72); white-space:nowrap;
+  }
+
+  /* Uitklapper */
+  details{
+    margin-top:16px;
+    border-top:1px solid var(--line);
+    padding-top:14px;
+  }
+  summary{
+    list-style:none;
+    display:flex; align-items:center; gap:9px;
+    font-size:13px; font-weight:600; color:var(--muted);
+    padding:8px 0;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::before{
+    content:''; width:14px; height:14px; flex:0 0 14px;
+    background:currentColor;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'><path d='M9 6l6 6-6 6'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'><path d='M9 6l6 6-6 6'/></svg>") center/contain no-repeat;
+    transition:transform .2s;
+  }
+  details[open] summary::before{transform:rotate(90deg)}
+  summary:hover{color:var(--txt)}
+
+  .tg-arrow{width:14px; height:14px; color:var(--muted); transition:transform .2s; flex:0 0 14px}
+  .tg-arrow.open{transform:rotate(90deg)}
+
+  /* Zoekveld */
+  #searchRes{
+    background:rgba(20,32,56,.55) !important;
+    border:1px solid var(--line) !important;
+    border-radius:11px !important;
+    color:var(--txt) !important;
+    padding:12px 13px 12px 38px !important;
+    font-size:14px !important;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b92a5' stroke-width='2' stroke-linecap='round'><circle cx='11' cy='11' r='7'/><path d='M20 20l-3.5-3.5'/></svg>") !important;
+    background-repeat:no-repeat !important;
+    background-position:12px center !important;
+    background-size:17px 17px !important;
+  }
+  #searchRes:focus{outline:none; border-color:var(--accent) !important; box-shadow:0 0 0 3px rgba(37,99,235,.2)}
+  #searchRes::placeholder{color:var(--muted)}
+
+  /* Knoppen */
+  .btn-primary, .btn{
+    border-radius:12px;
+    padding:14px;
+    font-weight:700;
+    font-size:14.5px;
+    letter-spacing:.01em;
+    box-shadow:0 3px 12px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.14);
+    transition:transform .12s, filter .14s;
+  }
+  .btn-primary:hover, .btn:hover{filter:brightness(1.07)}
+  .btn-primary:active, .btn:active{transform:translateY(1px)}
+
+  .loc-btn{
+    border:1px solid var(--line);
+    background:transparent;
+    border-radius:14px;
+    transition:border-color .16s, background .16s;
+  }
+  
+  
+
+  .status{border-radius:11px; font-size:13px}
+
+  /* De begroeting rustiger */
+  #jarvisGreeting{
+    background:linear-gradient(135deg, rgba(37,99,235,.09), rgba(20,110,120,.05));
+    border:1px solid var(--line);
+    border-radius:16px;
+  }
+
+  /* Stappen komen zachtjes in beeld */
+  .step{transition:opacity .4s ease, transform .4s cubic-bezier(.22,.9,.28,1)}
+
+  /* ---- Begroeting als eigen kaart boven stap 1 ---- */
+  .onthaalGloed{
+    position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(60% 70% at 88% 10%, rgba(20,110,120,.14), transparent 70%);
+  }
+  .onthaalBinnen{position:relative; z-index:1; padding:30px 28px}
+
+  #jarvisText{
+    text-align:center;
+    font-size:14.5px;
+    color:var(--muted);
+    line-height:1.85;
+  }
+  #jarvisText .jarvis-line:first-child{margin-bottom:2px}
+
+  @media (max-width:640px){
+    .onthaalBinnen{padding:24px 18px}
+    #jarvisText{font-size:13.5px}
+  }
+
+  /* ---- Wie ben je ---- */
+  #jarvisNameSelect{text-align:center; margin-bottom:6px}
+  .wieKop{
+    font-size:11px; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:14px;
+  }
+  .wieRij{display:flex; gap:9px; justify-content:center; flex-wrap:wrap}
+  .wieK{
+    padding:12px 26px; border-radius:12px; min-height:auto;
+    background:transparent; border:1px solid var(--line); color:var(--txt);
+    font-size:15px; font-weight:600;
+    transition:border-color .14s, background .14s;
+  }
+  .wieK:hover{border-color:var(--accent); background:rgba(37,99,235,.1)}
+
+  /* Twee sleepvakken naast elkaar, want AudienceView blijft erin */
+  .dz-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  @media (max-width:640px){ .dz-grid{grid-template-columns:1fr} }
+
+  /* ---- Paginanavigatie ---- */
+  .pagina{display:none}
+  .pagina.paginaAan{display:block; animation:pgIn .3s ease-out}
+  @keyframes pgIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+
+  #pgRail{
+    position:fixed; left:0; width:72px; z-index:52;
+    top:var(--balkHoogte, 64px);
+    bottom:0;
+    overflow-y:auto; scrollbar-width:none;
+    display:none; flex-direction:column; align-items:stretch; gap:2px;
+    padding:12px 6px 20px;
+    background:rgba(8,15,30,.72);
+    backdrop-filter:blur(12px);
+    border-right:1px solid var(--line);
+  }
+  #pgRail::-webkit-scrollbar{display:none}
+  #pgRail.zichtbaar{display:flex}
+
+  .pgKnop{
+    display:none; flex-direction:column; align-items:center; gap:6px;
+    padding:11px 2px; border-radius:11px; border:none; background:transparent;
+    color:var(--muted); font-size:9.5px; font-weight:700; letter-spacing:.01em;
+    cursor:pointer; transition:color .14s, background .14s;
+  }
+  .pgKnop svg{width:18px; height:18px}
+  /* Een stap verschijnt pas zodra hij bereikt is */
+  .pgKnop.vrij{display:flex; animation:pgKom .32s cubic-bezier(.22,.9,.28,1)}
+  @keyframes pgKom{from{opacity:0; transform:translateX(-8px)} to{opacity:1; transform:none}}
+  .pgKnop:hover{color:var(--txt); background:rgba(255,255,255,.04)}
+  .pgKnop.aan{
+    color:#fff;
+    background:linear-gradient(180deg, rgba(37,99,235,.3), rgba(37,99,235,.16));
+    box-shadow:inset 3px 0 0 var(--accent);
+  }
+  .pgKnop.aan svg{color:#7db4ff}
+
+  body.metRail #navInner{padding-left:96px}
+
+
+  @media (max-width:820px){
+    #pgRail{
+      left:0; right:0; top:auto; bottom:0; width:auto;
+      --balkHoogte:auto; bottom:0;
+      flex-direction:row; justify-content:space-around;
+      padding:8px 8px calc(8px + env(safe-area-inset-bottom));
+      border-right:none; border-top:1px solid var(--line);
+    }
+    .pgKnop{flex:1; padding:8px 2px}
+    .pgKnop.aan{box-shadow:inset 0 3px 0 var(--accent)}
+    body.metRail #navInner{padding-left:24px}
+    body.metRail footer{padding-left:0; padding-bottom:96px}
+  }
+
+  /* ==========================================================
+     Banen van rand tot rand. Geen zwevende kaarten en geen ronde
+     hoeken, alleen rechthoeken met een dunne lijn ertussen.
+     ========================================================== */
+  .container{
+    max-width:none;
+    width:100%;
+    padding:0;
+    margin:0;
+    background:transparent;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+  }
+  body.metRail .container{padding-left:72px; margin:0; max-width:none}
+
+  /* Elke baan loopt van links naar rechts door */
+  .onthaal, .step{
+    background:rgba(12,22,42,.5);
+    border:none;
+    border-bottom:1px solid var(--line);
+    border-radius:0;
+    margin:0;
+    box-shadow:none;
+  }
+  .onthaalGloed{display:none}
+  .onthaal{
+    background:
+      radial-gradient(90% 120% at 50% -40%, rgba(37,99,235,.14), transparent 60%),
+      rgba(12,22,42,.5);
+  }
+  .onthaalBinnen{padding:30px 34px; max-width:940px; margin:0 auto}
+
+  .step-header{
+    background:rgba(0,0,0,.16);
+    border-bottom:1px solid var(--line);
+    border-radius:0;
+    padding:0;
+  }
+  .step-title{
+    display:block;
+    max-width:940px; margin:0 auto; padding:15px 34px;
+    font-size:12px; font-weight:700; letter-spacing:.11em;
+    text-transform:uppercase; color:var(--muted);
+    text-align:left !important; width:auto !important;
+  }
+  .step-body{padding:28px 34px 34px; max-width:940px; margin:0 auto}
+
+  /* Ook de blokken binnenin recht, alleen de knoppen houden hun vorm */
+  .instructions, .dropzone, #tafelConfig, .status, .zoekWrap{border-radius:0}
+  .dropzone{border-left:none; border-right:none}
+
+  @media (max-width:820px){
+    body.metRail .container{padding-left:0; padding-bottom:110px}
+    .onthaalBinnen{padding:24px 18px}
+    .step-title{padding:13px 18px}
+    .step-body{padding:22px 18px 26px}
+  }
+
+  /* ==========================================================
+     Alle rondingen eruit bij alles wat een vlak of een baan is.
+     Alleen knoppen en kleine chips houden een lichte ronding.
+     Dit staat onderaan zodat het altijd wint.
+     ========================================================== */
+  #jarvisGreeting,
+  .onthaal,
+  .step,
+  .step-header,
+  .step-body,
+  .dropzone,
+  .instructions,
+  .xcheck,
+  .console-script,
+  .status,
+  #tafelConfig,
+  #datePickerWrap,
+  .loc-btn,
+  .locKaart,
+  .locTeken,
+  .zaalMap,
+  .container,
+  .tg-cell,
+  table, th, td{
+    border-radius:0 !important;
+  }
+
+  /* Knoppen en chips houden een kleine ronding, anders wordt het een tabel */
+  .btn, .btn-primary, .month-btn, .date-btn, .wieK,
+  .copy-btn, .step-number, .label-badge, code,
+  #ctBookmarkletLink, #bookmarkletLink, #searchRes,
+  .pgKnop{
+    border-radius:8px !important;
+  }
+  .status-dot{border-radius:50% !important}
+
+  /* ---- Onderbalk, in dezelfde stijl als de kopbalk ---- */
+  #voetbalk{
+    position:relative; z-index:50;
+    background:rgba(8,15,30,.78);
+    backdrop-filter:blur(10px);
+    padding:0;
+  }
+  /* Geen eigen lijn erboven: de balk erboven heeft er al een. Staat die
+     er niet, dan komt hij hier alsnog. */
+  .container:not(:has(#pgVoet)) + #voetbalk{border-top:1px solid var(--line)}
+  .voetInner{
+    max-width:940px; margin:0 auto;
+    padding:13px 34px;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+  }
+  body.metRail .voetInner{padding-left:106px}
+  .voetMerk{
+    display:flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:600; letter-spacing:-.01em; color:var(--txt);
+  }
+  .voetMerk svg{width:14px; height:14px; flex:0 0 14px; color:var(--accent)}
+  .voetMerk b{font-weight:400; color:var(--muted)}
+  .voetRest{font-size:11.5px; color:var(--muted); font-weight:500}
+
+  @media (max-width:820px){
+    .voetInner{padding:12px 18px}
+    body.metRail .voetInner{padding-left:18px}
+    .voetRest{display:none}
+  }
+
+  /* ---- Tafelindeling per zaal ---- */
+  .zaal{margin-top:26px}
+  
+  .zaalKop{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    padding-bottom:9px; margin-bottom:11px;
+    border-bottom:1px solid var(--line);
+  }
+  .zaalKop h4{font-size:14px; font-weight:700; color:var(--txt); letter-spacing:.01em}
+  .zaalTel{font-size:11.5px; color:var(--muted); font-variant-numeric:tabular-nums}
+  .zaalKnoppen{margin-left:auto; display:flex; gap:6px}
+  .zaalKnoppen button{
+    padding:6px 12px; border-radius:8px; min-height:auto;
+    background:transparent; border:1px solid var(--line); color:var(--muted);
+    font-size:11.5px; font-weight:600;
+    transition:border-color .14s, color .14s;
+  }
+  .zaalKnoppen button:hover{border-color:var(--line2); color:var(--txt)}
+
+  .zaalRooster{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(52px, 1fr));
+    gap:5px;
+  }
+  .tg-cell{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:1px; padding:8px 2px; min-height:auto;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--txt);
+    transition:border-color .12s, background .12s, opacity .12s;
+    position:relative;
+  }
+  .tg-cell:hover{border-color:var(--accent); background:rgba(37,99,235,.09)}
+  .tg-nr{font-size:12.5px; font-weight:700; line-height:1.1; font-variant-numeric:tabular-nums}
+  .tg-seats{font-size:10px; font-weight:600; color:#7db4ff; line-height:1.1}
+
+  /* Geblokkeerd: een streep erdoor, dat leest sneller dan alleen doffer */
+  .tg-cell.tg-blocked{
+    background:rgba(229,48,77,.06);
+    border-color:rgba(229,48,77,.34);
+    color:#8b6068;
+  }
+  .tg-cell.tg-blocked .tg-seats{color:#8b6068}
+  .tg-cell.tg-blocked::after{
+    content:''; position:absolute; left:6px; right:6px; top:50%;
+    height:1px; background:rgba(229,48,77,.55);
+    transform:rotate(-16deg);
+  }
+  .tg-cell.tg-blocked:hover{border-color:rgba(229,48,77,.6); background:rgba(229,48,77,.12)}
+
+  @media (max-width:640px){
+    .zaalRooster{grid-template-columns:repeat(auto-fill, minmax(46px, 1fr))}
+    .zaalKnoppen{margin-left:0; width:100%}
+    .zaalKnoppen button{flex:1}
+  }
+
+  /* ---- Balk onder de pagina om verder te gaan ---- */
+  #pgVoet{
+    background:rgba(12,22,42,.5);
+    border-bottom:1px solid var(--line);
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .5s ease, transform .5s cubic-bezier(.22,.9,.28,1);
+  }
+  #pgVoet.erIn{opacity:1; transform:none}
+  .pgVoetInner{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    max-width:940px; margin:0 auto;
+    padding:9px 34px;
+  }
+  #pgVoet button{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:8px 16px; border-radius:9px; min-height:42px;
+    background:transparent; border:1px solid var(--line); color:var(--txt);
+    transition:border-color .14s, background .14s, transform .12s, filter .14s;
+  }
+  #pgVoet button[hidden]{display:none}
+  #pgVoet button svg{width:15px; height:15px; flex:0 0 15px; opacity:.9}
+  .pgLabel{display:flex; flex-direction:column; align-items:flex-start; line-height:1.2; text-align:left}
+  .pgLabel em{
+    font-style:normal; font-size:9px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; opacity:.6;
+  }
+  .pgLabel b{font-size:13.5px; font-weight:700; white-space:nowrap}
+  .geenBoven .pgLabel em{display:none}
+  .geenBoven .pgLabel{justify-content:center}
+
+  #pgVoet .pgVorige{color:var(--muted)}
+  #pgVoet .pgVorige:hover{border-color:var(--line2); background:rgba(255,255,255,.04); color:var(--txt)}
+
+  #pgVoet .pgVolgende{
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe);
+    border-color:transparent; color:#fff;
+    box-shadow:0 3px 14px rgba(29,79,190,.42), inset 0 1px 0 rgba(255,255,255,.2);
+    padding-right:18px;
+  }
+  #pgVoet .pgVolgende .pgLabel em{opacity:.72}
+  #pgVoet .pgVolgende:hover{filter:brightness(1.09); transform:translateY(-1px)}
+  #pgVoet .pgVolgende:active{transform:translateY(1px); filter:brightness(.97)}
+
+  /* Stippen in plaats van Stap 5 van 5 */
+  .pgStippen{display:flex; align-items:center; gap:9px}
+  .pgStip{
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid #3b4457;
+    transition:background .18s, border-color .18s, transform .18s;
+  }
+  .pgStip.vrij{border-color:#5a6478}
+  .pgStip.gedaan{background:#5a6478; border-color:#5a6478}
+  .pgStip.nu{background:var(--accent); border-color:var(--accent); transform:scale(1.5)}
+
+  @media (max-width:640px){
+    .pgStippen{display:none}
+    #pgVoet button{padding:10px 14px; min-height:46px}
+    .pgLabel b{font-size:13px}
+  }
+
+  @media (max-width:820px){
+    .pgVoetInner{padding:14px 18px}
+  }
+
+  /* ---- Locatiekeuze en samenvatting ---- */
+  .locTeken{
+    width:34px; height:34px; flex:0 0 34px;
+    display:grid; place-items:center;
+    background:transparent;
+    border:1px solid var(--lk, var(--accent));
+    color:var(--lk, var(--accent));
+    font-size:12.5px; font-weight:800; letter-spacing:.04em;
+  }
+  .locTekenGroot{
+    width:38px; height:38px; flex:0 0 38px;
+    margin:0 auto 10px; font-size:13.5px;
+  }
+
+  /* De twee keuzeknoppen */
+  .loc-btn{
+    flex:1; padding:20px 16px; text-align:center;
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--muted);
+    transition:border-color .16s, background .16s, color .16s;
+  }
+  .loc-btn:hover{border-color:var(--line2); color:var(--txt)}
+  .loc-btn.active{
+    border-color:var(--accent);
+    background:rgba(37,99,235,.1);
+    color:var(--txt);
+    box-shadow:inset 0 2px 0 var(--accent);
+  }
+  .loc-btn.active .locTeken{border-color:var(--accent); background:rgba(37,99,235,.16); color:#9dc0ff}
+
+  /* De samenvattingskaarten */
+  .locKaart{
+    display:flex; align-items:center; gap:13px;
+    padding:14px 16px;
+    background:rgba(20,32,56,.32);
+    border:1px solid var(--line);
+  }
+  .locKaartTekst{display:flex; flex-direction:column; gap:2px; min-width:0}
+  .locNaam{font-size:13.5px; font-weight:700; color:var(--txt)}
+  .locCijfers{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums}
+  .locCijfers b{color:var(--txt); font-weight:700}
+  .locSub{font-size:11px; color:#6b7286}
+
+  /* De uitklapper voor de tafelindeling */
+  #tafelConfig{
+    background:rgba(20,32,56,.32);
+    border:1px solid var(--line);
+  }
+  #tafelConfig > button{border-radius:0 !important}
+
+  /* De uitklapper had een rand gekregen maar de inhoud geen binnenmarge,
+     waardoor de tafelvakjes tegen die rand aan plakten. */
+  #tafelContent{padding:0 16px 18px}
+  #tafelContent > div:first-child{margin-top:4px !important}
+  #tafelGrids{padding-bottom:2px}
+  .zaal:first-child{margin-top:10px}
+
+  /* En wat lucht tussen de zijbalk en de inhoud */
+  @media (max-width:820px){
+    #tafelContent{padding:0 12px 14px}
+  }
+
+  /* ---- Plattegrond per zaal, dezelfde opzet als in KISH ---- */
+  .zaalMap{
+    position:relative;
+    margin-top:4px;
+    background:rgba(12,22,42,.4);
+    /* Geen rand rondom: de kop erboven heeft al een lijn, en de
+       plattegrond loopt breder dan de kop, dus een kader klopt niet. */
+    border:none;
+    overflow:auto;
+  }
+  .stoelGroep{position:absolute; inset:0; pointer-events:none}
+
+  /* Stoelen, exact de maten uit KISH */
+  .chair{
+    position:absolute; width:15px; height:10px; border-radius:3px;
+    background:#39424f; border:1px solid #545e6f; pointer-events:none;
+  }
+  .chair.stoelDicht{background:#5a2a33; border-color:#8a3b48}
+
+  .mapTafel{
+    position:absolute;
+    transform:translate(-50%,-50%);
+    min-height:auto; padding:0;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(20,32,56,.8);
+    border:2px solid #8b92a5;
+    border-radius:6px;
+    color:var(--txt);
+    transition:border-color .12s, background .12s;
+    z-index:2;
+  }
+  .mapTafel.mapRond{border-radius:50%}
+  .mapNr{font-size:12px; font-weight:800; line-height:1; font-variant-numeric:tabular-nums}
+  .mapTafel:hover{border-color:var(--accent); background:rgba(37,99,235,.28); z-index:3}
+  .mapTafel.tg-blocked{
+    background:rgba(229,48,77,.14);
+    border-color:rgba(229,48,77,.55);
+    color:#a06b74;
+  }
+  .mapTafel.tg-blocked::after{
+    content:''; position:absolute; left:3px; right:3px; top:50%;
+    height:1.5px; background:rgba(229,48,77,.75);
+    transform:rotate(-30deg);
+  }
+  .mapTafel.tg-blocked:hover{border-color:#e5304d; background:rgba(229,48,77,.24)}
+
+  @media (max-width:640px){
+    .zaalMap{aspect-ratio:1 / 1; min-height:320px}
+  }
+
+  /* Het vlak waarop getekend wordt heeft de maat van KISH en wordt daarna
+     verkleind, zodat de tafels hun onderlinge verhouding houden. */
+  .zaalLaag{
+    position:absolute; left:0; top:0;
+    transform-origin:0 0;
+  }
+  .zaalZoom{
+    font-size:10.5px; color:#6b7286; font-variant-numeric:tabular-nums;
+    margin-left:2px;
+  }
+  /* De plattegrond mag buiten de leeskolom van 940 pixels uitlopen, want
+     tekst leest niet fijn op volle breedte maar een zaal wel. Wat er aan
+     ruimte over is wordt gebruikt, tot 400 pixels aan elke kant. */
+  .zaalMap{
+    aspect-ratio:auto;
+    /* De hoogte wordt bij het vullen op de plattegrond gezet */
+    min-height:200px;
+    /* De plattegrond blijft binnen zijn houder. Het hele onderdeel
+       Tafelindeling is een baan geworden, dus de ruimte zit daar al in. */
+    margin-left:0;
+    margin-right:0;
+  }
+  @media (max-width:900px){
+    .zaalMap{min-height:180px}
+  }
+
+  .zaalMap{overflow:auto; scrollbar-width:thin}
+  .zaalHouder{position:relative}
+  .zaalLaag{position:absolute; left:0; top:0; transform-origin:0 0}
+
+  /* ==========================================================
+     De plattegrond loopt breder dan de leeskolom. Alles waar hij
+     in zit mag dus niet afknippen. Dit staat onderaan zodat het
+     van elke eerdere regel wint.
+     ========================================================== */
+  .onthaal, .step, .step-body, #tafelConfig, #tafelContent, #tafelGrids, .zaal{
+    overflow:visible !important;
+  }
+  .zaalMap{overflow:hidden}
+
+  /* ==========================================================
+     Tafelindeling als volle baan. Het was een omkaderd blok binnen de
+     leeskolom, en dan valt een brede plattegrond eruit. Nu lopen de kop,
+     de uitleg en de plattegronden allemaal even breed.
+     ========================================================== */
+  #tafelConfig{
+    --band:min(288px, max(0px, (100vw - 1012px) / 2 + 34px));
+    margin-left:calc(-1 * var(--band));
+    margin-right:calc(-1 * var(--band));
+    background:transparent;
+    border:none;
+    border-top:1px solid var(--line);
+    padding-top:4px;
+  }
+  #tafelConfig > button{
+    padding-left:calc(var(--band) + 2px) !important;
+    padding-right:calc(var(--band) + 2px) !important;
+  }
+  #tafelContent{padding-left:calc(var(--band) + 2px); padding-right:calc(var(--band) + 2px)}
+
+  @media (max-width:900px){
+    #tafelConfig{--band:0px}
+    #tafelContent{padding-left:12px; padding-right:12px}
+    #tafelConfig > button{padding-left:14px !important; padding-right:14px !important}
+  }
+
+  /* De uitklapknop was een blauw kader binnen de kolom. Nu een baan zoals
+     de rest, met alleen een lijn eronder. */
+  #tafelConfig > button{
+    background:transparent !important;
+    border:none !important;
+    border-bottom:1px solid var(--line) !important;
+    border-radius:0 !important;
+    padding-top:14px !important;
+    padding-bottom:14px !important;
+  }
+  #tafelConfig > button:hover{background:rgba(255,255,255,.03) !important}
+
+  /* ==========================================================
+     Alles doorlopen tot de zijkanten. Er stond overal een leeskolom van
+     940 pixels in het midden, waardoor er op een breed scherm honderden
+     pixels leeg bleven. Nu alleen een marge van 34 pixels.
+     ========================================================== */
+  .step-body,
+  .onthaalBinnen,
+  .step-title,
+  .pgVoetInner,
+  .voetInner{
+    max-width:none !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+  }
+  /* De voettekst houdt wel zijn ruimte voor de zijbalk */
+  body.metRail .voetInner{padding-left:106px !important}
+
+  /* De uitklapper hoeft niet meer buiten de kolom te breken, want die is er
+     niet meer. De marge komt van de baan eromheen. */
+  #tafelConfig{
+    --band:0px;
+    margin-left:0;
+    margin-right:0;
+  }
+  #tafelContent{padding-left:0; padding-right:0}
+  #tafelConfig > button{padding-left:0 !important; padding-right:0 !important}
+
+  @media (max-width:900px){
+    #tafelContent{padding-left:0; padding-right:0}
+  }
+
+  /* De tafelindeling was in en uitklapbaar. Dat is nu gewoon een onderdeel
+     dat eronder staat, dus geen knop en geen pijltje meer. */
+  #tafelConfig > button{
+    pointer-events:none;
+    cursor:default;
+  }
+  #tafelConfig > button .tg-arrow{display:none}
+  #tafelContent{display:block !important}
+  #tafelContent.hidden{display:block !important}
+
+  /* De knop Andere show stond absoluut op 12 pixels en de titel begon op 34,
+     dus die lagen over elkaar. De kop is nu een rij: knop links, titel erna. */
+  .step-header{
+    display:flex !important;
+    align-items:center;
+    gap:14px;
+    padding:0 34px !important;
+  }
+  .step-header > button{
+    position:static !important;
+    transform:none !important;
+    left:auto !important; top:auto !important;
+    flex:0 0 auto;
+    margin:0;
+  }
+  .step-title{
+    flex:1 1 auto;
+    padding:15px 0 !important;
+    text-align:left !important;
+  }
+  @media (max-width:900px){
+    .step-header{padding:0 18px !important}
+  }
+
+  /* ---- Tabbladen per zaal, in plaats van drie plattegronden onder elkaar ---- */
+  .zaalTabs{display:flex; gap:8px; margin:16px 0 0; flex-wrap:wrap}
+  .zaalTab{
+    display:flex; flex-direction:column; gap:3px; align-items:flex-start;
+    padding:11px 18px; min-height:auto;
+    background:transparent;
+    border:1px solid var(--line);
+    border-bottom:none;
+    color:var(--muted);
+    text-align:left;
+    transition:background .14s, color .14s, border-color .14s;
+    position:relative;
+  }
+  .zaalTabNaam{font-size:13.5px; font-weight:700; color:inherit}
+  .zaalTabTel{font-size:11px; color:#6b7286; font-variant-numeric:tabular-nums}
+  .zaalTab:hover{color:var(--txt); background:rgba(255,255,255,.03)}
+  .zaalTab.aan{
+    color:var(--txt);
+    background:rgba(20,32,56,.5);
+    border-color:var(--line2);
+    box-shadow:inset 0 2px 0 var(--accent);
+  }
+  .zaalTab.aan .zaalTabTel{color:#9dc0ff}
+
+  /* De zaal zelf staat in een vak dat aansluit op de tabbladen */
+  .zaal{display:none; margin:0}
+  .zaal.zaalAan{display:block}
+  .zaal .zaalKop{
+    padding:12px 16px;
+    margin:0;
+    border:1px solid var(--line2);
+    border-bottom:1px solid var(--line);
+    background:rgba(20,32,56,.5);
+  }
+  .zaal .zaalMap{
+    margin:0;
+    border:1px solid var(--line2);
+    border-top:none;
+    background:rgba(12,22,42,.5);
+  }
+  @media (max-width:900px){
+    .zaalTab{flex:1; padding:9px 12px}
+    .zaalTabNaam{font-size:12px}
+  }
+
+  /* De blauwe knop onderaan de locatiepagina deed hetzelfde als Volgende in
+     de balk eronder. De balk voert die actie nu uit, dus de knop kan weg.
+     Hij blijft wel in het scherm staan, want de balk klikt hem aan. */
+  #step2 .btn-primary{
+    position:absolute;
+    width:1px; height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    padding:0; margin:-1px; border:0;
+  }
+
+  /* Het invullen op DISH is eruit. Het element blijft staan omdat er code
+     naar de bladwijzerlink verwijst, maar niemand ziet het meer. */
+  #step4 details{display:none !important}
+
+  /* ==========================================================
+     De navigatiebalk blijft onderaan in beeld, zodat je niet naar
+     beneden hoeft om verder te gaan.
+     ========================================================== */
+  #pgVoet{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    z-index:51;
+    background:rgba(8,15,30,.9);
+    backdrop-filter:blur(12px);
+    border-top:1px solid var(--line);
+    border-bottom:none;
+  }
+  body.metRail .pgVoetInner{padding-left:calc(72px + 34px)}
+
+  /* Ruimte onder de pagina zodat de laatste inhoud niet achter de
+     balk verdwijnt, en de voettekst er netjes boven blijft. Alleen als
+     de balk er ook echt staat, anders houd je een gat over. */
+  /* De ruimte hoort op de pagina zelf, niet onder de voettekst. De pagina
+     is namelijk minstens een schermhoogte hoog, dus een marge onder de
+     voettekst schuift hem niet omhoog en dan valt hij achter de balk. */
+  body.metVoet{padding-bottom:76px}
+  body.metVoet .container{padding-bottom:24px}
+
+  /* De terugknop in de zijbalk zit onderaan, die moet boven de
+     navigatiebalk blijven staan. */
+  #pgRail{padding-bottom:20px}
+
+  @media (max-width:820px){
+    #pgVoet{bottom:76px}
+    .pgVoetInner{padding-left:18px}
+    body.metVoet{padding-bottom:152px}
+    body.metVoet .container{padding-bottom:24px}
+  }
+
+  /* Pagina staat stil zolang er een venster over staat */
+  body.slotOpen{overflow:hidden}
+
+  /* De voettekst is weg: de balk onderaan met Terug en Volgende doet nu
+     dienst als onderrand, en het merk staat al in de kopbalk. Het element
+     blijft in de pagina staan zodat er niets omvalt dat ernaar verwijst. */
+  #voetbalk{display:none !important}
+
+  /* De knop Andere show is weg. Je gaat nu via de zijbalk of de balk
+     onderaan terug naar Inlezen, en daar wordt de showkeuze weer geopend. */
+  #step2 .step-header > button{display:none}
+
+  /* ==========================================================
+     De bladwijzerknoppen. Ze hadden hun opmaak in het element zelf staan,
+     met een groene achtergrond en de uitleg tegen de tekst aan. Alles staat
+     nu hier, in de kleuren van de app.
+     ========================================================== */
+  #ctBookmarkletLink,
+  #bookmarkletLink{
+    display:inline-flex !important;
+    align-items:center;
+    gap:14px;
+    padding:14px 22px 14px 18px !important;
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe) !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    border-radius:11px !important;
+    color:#fff !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+    font-size:14px !important;
+    font-weight:600 !important;
+    text-decoration:none !important;
+    cursor:grab !important;
+    box-shadow:0 3px 14px rgba(29,79,190,.4), inset 0 1px 0 rgba(255,255,255,.2) !important;
+    transition:transform .14s, filter .14s, box-shadow .14s !important;
+  }
+  #ctBookmarkletLink:hover,
+  #bookmarkletLink:hover{
+    transform:translateY(-1px);
+    filter:brightness(1.08);
+    box-shadow:0 6px 20px rgba(29,79,190,.5), inset 0 1px 0 rgba(255,255,255,.24) !important;
+  }
+  #ctBookmarkletLink:active,
+  #bookmarkletLink:active{cursor:grabbing !important; transform:translateY(1px)}
+
+  /* Het bladwijzericoontje in een eigen vakje, zodat het niet tegen de
+     tekst aan plakt */
+  .bmIco{
+    width:34px; height:34px; flex:0 0 34px;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.16);
+    border-radius:8px;
+    position:relative;
+  }
+  .bmIco::before{
+    content:'';
+    width:17px; height:17px;
+    background:#fff;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z'/></svg>") center/contain no-repeat;
+  }
+
+  /* De uitleg onder de knoptekst in plaats van ertegenaan */
+  #ctBookmarkletLink, #bookmarkletLink{white-space:nowrap}
+  .bmTekst{display:flex; flex-direction:column; align-items:flex-start; line-height:1.25}
+  .bmHint{
+    display:block;
+    margin:2px 0 0 !important;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.01em;
+    text-transform:none;
+    color:rgba(255,255,255,.72);
+  }
+
+  /* ---- Invullen in KISH: kopiëren is de gewone weg, de bladwijzer erbij ---- */
+  .ctActie{margin-top:18px}
+  
+  
+  
+  
+  
+
+  /* De bladwijzer is de terugvaloptie, dus rustiger */
+  .ctTerugval{margin-top:26px; padding-top:18px; border-top:1px solid var(--line)}
+  .ctTerugvalKop{font-size:12.5px; color:var(--muted); margin-bottom:12px}
+  /* Het kopieren is de terugval, dus rustig */
+  
+  
+  .ctTerugval .bmHint{color:var(--muted)}
+
+  /* ---- Reserveringen op de controlepagina, als kaarten zoals in KISH ---- */
+  #resTable{display:flex; flex-direction:column; gap:7px; overflow:visible}
+  .resScheid{height:1px; background:var(--line); margin:9px 0}
+  .resKaart{
+    display:flex; align-items:center; gap:14px;
+    padding:12px 15px;
+    background:rgba(12,22,42,.72);
+    border:1px solid var(--line);
+    border-left:3px solid var(--line);
+    box-shadow:0 3px 12px rgba(0,0,0,.2);
+  }
+  .resKaart.status-ok{border-left-color:#059669}
+  .resKaart.status-warn{border-left-color:#f5a623}
+  .resKaart.status-err{border-left-color:#e5304d}
+
+  .rPax{font-weight:800; font-size:17px; min-width:40px; white-space:nowrap}
+  .rPax small{font-weight:400; font-size:11px; color:var(--muted); margin-left:1px}
+  .rNaam{
+    font-weight:700; font-size:15px; flex:0 1 210px; min-width:90px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .rMid{flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:4px}
+  .rTags{display:flex; gap:5px; flex-wrap:wrap}
+  .rDrank{
+    font-size:12.5px; color:#c6cbd8;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .rTijd{
+    font-size:13px; font-weight:700; color:#aec2e0;
+    font-variant-numeric:tabular-nums; min-width:44px; text-align:right;
+  }
+  .rTafel{
+    display:flex; flex-direction:column; align-items:flex-end; gap:1px;
+    min-width:96px; padding:8px 11px; min-height:auto;
+    background:transparent; border:1px solid var(--line);
+    color:var(--txt); text-align:right;
+    transition:border-color .14s, background .14s;
+  }
+  .rTafel:hover{border-color:var(--accent); background:rgba(37,99,235,.1)}
+  .rTafel b{font-size:15px; font-weight:800; font-variant-numeric:tabular-nums}
+  .rTafel small{font-size:10px; font-weight:600; white-space:nowrap}
+
+  @media (max-width:820px){
+    .resKaart{flex-wrap:wrap; gap:9px}
+    .rNaam{flex:1 1 auto}
+    .rMid{flex:1 1 100%; order:5}
+  }
+
+  /* De kopieerknop is de terugvaloptie, dus geen blauw vlak */
+  
+  
+  .ctTerugval .bmHint{color:var(--muted)}
+
+  /* ---- Naar KISH sturen ---- */
+  .ctStuur{
+    display:inline-flex; align-items:center; gap:14px;
+    padding:14px 24px 14px 18px; min-height:auto;
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe);
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:11px;
+    color:#fff; font-size:15px; font-weight:600;
+    box-shadow:0 3px 14px rgba(29,79,190,.4), inset 0 1px 0 rgba(255,255,255,.2);
+    transition:transform .14s, filter .14s;
+  }
+  .ctStuur:hover{transform:translateY(-1px); filter:brightness(1.08)}
+  .ctStuur:active{transform:translateY(1px)}
+  
+
+  /* De melding onder de knop */
+  .ctMelding{
+    margin-top:14px;
+    padding:12px 15px 12px 14px;
+    font-size:13.5px; font-weight:600;
+    border-left:3px solid var(--line);
+    background:rgba(20,32,56,.4);
+    color:var(--txt);
+  }
+  .ctMelding[hidden]{display:none}
+  .ctMelding.bezig{border-left-color:var(--accent); color:var(--muted)}
+  .ctMelding.goed{border-left-color:#059669; background:rgba(5,150,105,.1)}
+  .ctMelding.fout{border-left-color:#e5304d; background:rgba(229,48,77,.1)}
+
+  /* De twee andere manieren, alleen als het niet lukte */
+  .ctTerugval[hidden]{display:none}
+  .ctAndere{display:flex; flex-direction:column; gap:9px; align-items:flex-start}
+  .ctAndere > *{max-width:100%}
+
+  .ctOpenKish{
+    display:block; margin-top:12px;
+    padding:10px 16px; min-height:auto;
+    background:transparent; border:1px solid var(--line);
+    color:#aec2e0; font-size:13px; font-weight:600;
+  }
+  .ctOpenKish:hover{border-color:var(--accent); color:var(--txt)}
+  .ctOpenKish[hidden]{display:none}
+
+  /* ---- Naar KISH sturen, stap voor stap met de knop erbij ---- */
+  .ctStappen{list-style:none; margin:0; padding:0; counter-reset:ctstap}
+  .ctStappen > li{
+    counter-increment:ctstap;
+    position:relative;
+    padding:0 0 26px 46px;
+    border-left:1px solid var(--line);
+    margin-left:15px;
+  }
+  .ctStappen > li:last-child{border-left-color:transparent; padding-bottom:0}
+  .ctStappen > li::before{
+    content:counter(ctstap);
+    position:absolute; left:-16px; top:-2px;
+    width:31px; height:31px;
+    display:grid; place-items:center;
+    background:rgba(20,32,56,.9);
+    border:1px solid var(--line2);
+    color:var(--txt);
+    font-size:13px; font-weight:800;
+  }
+  .ctStappen > li.ctGedaan::before{
+    content:'\2713';
+    background:#059669; border-color:#059669; color:#fff;
+  }
+  .ctStapKop{display:block; font-size:15px; font-weight:700; color:var(--txt); margin-bottom:4px}
+  .ctStapUit{display:block; font-size:13px; color:var(--muted); line-height:1.55; margin-bottom:12px; max-width:62ch}
+  .ctStapKlaar{
+    display:inline-flex; align-items:center; gap:7px;
+    font-size:13px; font-weight:600; color:#12c78d;
+  }
+  .ctStapKlaar[hidden]{display:none}
+  .ctStapKlaar::before{
+    content:''; width:15px; height:15px; background:#12c78d;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'><path d='M5 12l5 5L20 7'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round'><path d='M5 12l5 5L20 7'/></svg>") center/contain no-repeat;
+  }
+
+  @media (max-width:640px){
+    .ctStappen > li{padding-left:38px; margin-left:13px}
+    .ctStapUit{font-size:12.5px}
+  }
+
+  /* De terugvalopties, met dezelfde stappen als hierboven */
+  .ctTerugval{margin-top:30px; padding-top:22px; border-top:1px solid var(--line)}
+  .ctStappenB{margin-top:18px}
+  .ctStappenB > li::before{background:rgba(20,32,56,.9); border-color:var(--line)}
+
+  /* Het icoontje in de knop Reserveringen naar KISH */
+  .ctIco{
+    width:34px; height:34px; flex:0 0 34px;
+    display:grid; place-items:center;
+    background:rgba(255,255,255,.16); border-radius:8px;
+  }
+  .ctIco::before{
+    content:''; width:17px; height:17px; background:#fff;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center/contain no-repeat;
+            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M13 6l6 6-6 6'/></svg>") center/contain no-repeat;
+  }
+
+  /* ==========================================================
+     Knoppen en overgangen gelijktrekken. Veel knoppen hadden hun opmaak
+     in het element zelf staan, met hun eigen kleuren en overgangen. Dit
+     blok staat onderaan zodat het daar overheen gaat.
+     ========================================================== */
+
+  /* Alles wat je aan kunt klikken reageert op dezelfde manier */
+  button, a[href], .loc-btn, .tg-cell, .mapTafel, .zaalTab, .rTafel{
+    -webkit-tap-highlight-color:transparent;
+  }
+  button:not(:disabled), a[href]{cursor:pointer}
+  button:disabled{cursor:default}
+
+  /* Toetsenbord: altijd zichtbaar waar je bent */
+  button:focus-visible, a:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+  }
+  button:focus:not(:focus-visible){outline:none}
+
+  /* Gewone knoppen: rustige rand, accent bij zweven */
+  #resTable ~ * button,
+  .step-body button:not(.ctStuur):not(.ctOpenKish):not(.btn-primary):not(.zaalKnoppen button):not(.tg-cell):not(.mapTafel):not(.rTafel):not(.zaalTab):not(.pgKnop){
+    transition:border-color .15s ease, background .15s ease, color .15s ease, transform .1s ease;
+  }
+  .step-body button:active:not(.tg-cell):not(.mapTafel){transform:translateY(1px)}
+
+  /* De maandknoppen en dagknoppen bij het kiezen van een datum */
+  .month-btn, .date-btn{
+    transition:border-color .15s ease, background .15s ease, transform .12s ease;
+  }
+  .month-btn:hover, .date-btn:hover{transform:translateY(-1px)}
+  .month-btn:active, .date-btn:active{transform:translateY(0)}
+
+  /* Tafels op de plattegrond: zachte overgang, geen sprong */
+  .mapTafel{transition:border-color .14s ease, background .14s ease, transform .14s ease}
+  .mapTafel:hover{transform:translate(-50%,-50%) scale(1.1)}
+  .chair{transition:background .14s ease, border-color .14s ease}
+
+  /* Reserveringskaarten reageren op zweven */
+  .resKaart{transition:border-color .15s ease, background .15s ease}
+  .resKaart:hover{border-color:var(--line2); background:rgba(16,28,52,.8)}
+
+  /* De stappen komen zachtjes in beeld bij het wisselen van pagina */
+  .pagina.paginaAan{animation:pgIn .32s cubic-bezier(.22,.9,.28,1)}
+  @keyframes pgIn{
+    from{opacity:0; transform:translateY(10px)}
+    to{opacity:1; transform:none}
+  }
+
+  /* De zaal wisselt met een korte overgang */
+  .zaal.zaalAan{animation:zaalIn .24s ease-out}
+  @keyframes zaalIn{from{opacity:0} to{opacity:1}}
+
+  /* Meldingen schuiven in beeld */
+  .ctMelding:not([hidden]){animation:meldIn .26s cubic-bezier(.22,.9,.28,1)}
+  @keyframes meldIn{
+    from{opacity:0; transform:translateY(-5px)}
+    to{opacity:1; transform:none}
+  }
+
+  /* De terugvalopties klappen open in plaats van te verschijnen */
+  .ctTerugval:not([hidden]){animation:meldIn .3s cubic-bezier(.22,.9,.28,1)}
+
+  /* Het vinkje bij een afgeronde stap komt met een klein zetje */
+  .ctStappen > li.ctGedaan::before{animation:vinkIn .3s cubic-bezier(.3,1.4,.5,1)}
+  @keyframes vinkIn{
+    from{transform:scale(.7); opacity:.5}
+    to{transform:scale(1); opacity:1}
+  }
+
+  /* Wie minder beweging wil, krijgt geen beweging */
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* ==========================================================
+     Knoppen gelijktrekken. Veel knoppen hadden hun kleur, ronding en
+     hoverstand in het element zelf staan, elk met een eigen maat. Alles
+     staat nu hier: rechte vormen, dezelfde randkleur, dezelfde overgang.
+     Alleen de hoofdknoppen zijn gevuld met het accentblauw.
+     ========================================================== */
+
+  /* De gewone knop: open vorm met een rand */
+  #app button:not(.pgKnop):not(.zaalTab):not(.mapTafel):not(.tg-cell):not(.tPaxK),
+  .container button:not(.pgKnop):not(.zaalTab):not(.mapTafel):not(.tg-cell),
+  #tafelSwapOverlay button,
+  #walkInOverlay button{
+    border-radius:8px !important;
+    transition:border-color .14s ease, background .14s ease, color .14s ease, transform .1s ease !important;
+    font-family:'Inter', -apple-system, sans-serif !important;
+  }
+  .container button:not(.pgVolgende):not(.ctStuur):not(.btn-primary):not(.zaalTab):not(.mapTafel):not(.tg-cell):not(.wieK):active,
+  #walkInOverlay button:active,
+  #tafelSwapOverlay button:active{transform:translateY(1px)}
+
+  /* De hoofdknoppen: gevuld, met een schaduw en een lichte glans */
+  .ctStuur,
+  .btn-primary,
+  #submitWalkIn,
+  #hapjesCopyBtn,
+  #ctBookmarkletLink,
+  #bookmarkletLink{
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe) !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    color:#fff !important;
+    box-shadow:0 3px 14px rgba(29,79,190,.4), inset 0 1px 0 rgba(255,255,255,.2) !important;
+    border-radius:10px !important;
+    font-weight:700 !important;
+    text-transform:none !important;
+    letter-spacing:0 !important;
+  }
+  .ctStuur:hover,
+  .btn-primary:hover,
+  #submitWalkIn:hover,
+  #hapjesCopyBtn:hover,
+  #ctBookmarkletLink:hover,
+  #bookmarkletLink:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+  }
+  .ctStuur:active,
+  .btn-primary:active,
+  #submitWalkIn:active,
+  #hapjesCopyBtn:active{transform:translateY(1px); filter:brightness(.97)}
+
+  /* De bladwijzers blijven sleepbaar aanvoelen */
+  #ctBookmarkletLink, #bookmarkletLink{cursor:grab !important}
+  #ctBookmarkletLink:active, #bookmarkletLink:active{cursor:grabbing !important; transform:translateY(1px)}
+
+  /* Knoppen die alleen tekst zijn */
+  #wiClearTafels, #wiClose, #ctCopyBtn{transform:none !important}
+
+  /* De vensters die met de hand zijn opgebouwd, in de kleuren van de app */
+  #tafelSwapOverlay > div,
+  #walkInOverlay > div{
+    background:rgba(10,18,34,.97) !important;
+    border:1px solid var(--line) !important;
+    border-radius:14px !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.55) !important;
+  }
+
+  /* Alles komt rustig in beeld in plaats van te springen */
+  @keyframes vensterIn{
+    from{opacity:0; transform:translateY(10px) scale(.985)}
+    to{opacity:1; transform:none}
+  }
+  #tafelSwapOverlay > div, #walkInOverlay > div{animation:vensterIn .22s cubic-bezier(.22,.9,.28,1)}
+  #tafelSwapOverlay, #walkInOverlay{animation:pgIn .18s ease-out}
+
+  /* Overgangen die overal hetzelfde aanvoelen */
+  .loc-btn, .tg-cell, .mapTafel, .zaalTab, .zaalKnoppen button, .wieK,
+  .month-btn, .date-btn, .tBtn{
+    transition:border-color .14s ease, background .14s ease, color .14s ease, box-shadow .14s ease;
+  }
+
+  /* Niks beweegt als iemand dat heeft uitgezet */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* De hapjesknop is een hoofdknop, en wordt groen zodra het gelukt is */
+  #hapjesCopyBtn{
+    padding:14px 20px !important;
+    font-size:14.5px !important;
+  }
+  #hapjesCopyBtn.isGekopieerd{
+    background:linear-gradient(180deg, #12a86f, #059669) !important;
+    box-shadow:0 3px 14px rgba(5,150,105,.4), inset 0 1px 0 rgba(255,255,255,.2) !important;
+  }
+
+  /* ==========================================================
+     Afwerking van knoppen en beweging.
+
+     Veel knoppen hebben hun opmaak in het element zelf staan, en die
+     kunnen we niet allemaal aanraken zonder de code eronder te breken.
+     Wat hier staat trekt ze gelijk waar dat kan, en zorgt dat alles zich
+     hetzelfde gedraagt bij zweven, indrukken en toetsenbordgebruik.
+     ========================================================== */
+
+  /* Overal dezelfde reactie op indrukken en zweven */
+  button, a[id$="BookmarkletLink"], .loc-btn, .zaalTab, .tg-cell, .mapTafel,
+  .month-btn, .date-btn, .wieK, .zaalKnoppen button, .tBtn{
+    transition:background .15s ease, border-color .15s ease, color .15s ease,
+               transform .12s ease, box-shadow .15s ease, filter .15s ease;
+  }
+  button:not(:disabled):active,
+  a[id$="BookmarkletLink"]:active{transform:translateY(1px)}
+  .mapTafel:active{transform:translate(-50%,-50%) scale(.94)}
+
+  /* transition:all animeert ook maten en posities, dat schokt bij het
+     opnieuw tekenen van een pagina. Hier beperkt tot wat nodig is. */
+  [style*="transition:all"], [style*="transition: all"]{
+    transition-property:background-color, border-color, color, box-shadow, opacity !important;
+  }
+
+  /* Toetsenbord: altijd zien waar je bent */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+    border-radius:2px;
+  }
+  button:focus:not(:focus-visible){outline:none}
+
+  /* Knoppen die niks doen, zien dat je ze niet kunt gebruiken */
+  button:disabled{cursor:default}
+
+  /* De statusmelding schuift rustig in beeld in plaats van te verschijnen */
+  .status, .ctMelding{animation:zachtIn .28s ease-out}
+  @keyframes zachtIn{from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:none}}
+
+  /* Kaarten in de lijst komen na elkaar in beeld, maar niet te lang */
+  .resKaart{animation:zachtIn .3s ease-out both}
+  .resKaart:nth-child(1){animation-delay:0ms}
+  .resKaart:nth-child(2){animation-delay:20ms}
+  .resKaart:nth-child(3){animation-delay:40ms}
+  .resKaart:nth-child(4){animation-delay:60ms}
+  .resKaart:nth-child(5){animation-delay:80ms}
+  .resKaart:nth-child(n+6){animation-delay:100ms}
+
+  /* Sleepvakken reageren duidelijker als je er een bestand boven houdt */
+  .dropzone.dragover{transform:scale(1.005)}
+
+  /* Wie minder beweging wil, krijgt geen beweging */
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* ---- Knoppen in de vensters, die hebben hun opmaak in het element ---- */
+
+  /* Walk-in toevoegen en de tafelkiezer */
+  #submitWalkIn, #wiVenMain, #wiVenCb, .wiStep, #wiClose, #wiClearTafels{
+    font-family:inherit !important;
+  }
+  #submitWalkIn{
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe) !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    border-radius:11px !important;
+    font-weight:700 !important;
+    box-shadow:0 3px 14px rgba(29,79,190,.4), inset 0 1px 0 rgba(255,255,255,.2) !important;
+  }
+  #submitWalkIn:hover{filter:brightness(1.08)}
+
+  #wiVenMain, #wiVenCb{
+    border-radius:9px !important;
+    font-weight:600 !important;
+  }
+  .wiStep{
+    border-radius:9px !important;
+    font-weight:700 !important;
+  }
+  #wiClose, #wiClearTafels{
+    border-radius:8px !important;
+  }
+  #wiClose:hover{color:var(--txt) !important; background:rgba(255,255,255,.06) !important}
+
+  /* De knop om een gast toe te voegen */
+  button[onclick="addWalkIn()"]{
+    border-radius:9px !important;
+    font-weight:600 !important;
+  }
+  button[onclick="addWalkIn()"]:hover{
+    background:rgba(37,99,235,.1) !important;
+    border-color:var(--accent) !important;
+  }
+
+  /* De maandknoppen en de dagen in de datumkiezer */
+  .month-btn, .date-btn{font-weight:600}
+  .date-btn:hover{border-color:var(--accent); background:rgba(37,99,235,.08)}
+
+  /* Het venster zelf: een baan bovenin en rechte hoeken, net als de pagina */
+  #tafelSwapOverlay > div, #walkInOverlay > div{
+    border-radius:0 !important;
+    border:1px solid var(--line) !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.6) !important;
+  }
+
+  /* ==========================================================
+     Knoppen en overgangen gelijktrekken. Een deel van de knoppen had zijn
+     opmaak in het element zelf staan, met eigen kleuren en lettertypes.
+     Alles komt nu uit dezelfde regels, zodat het bij elkaar past.
+     ========================================================== */
+
+  /* Alle knoppen dezelfde reactie op aanraken */
+  button, .date-btn, .month-btn, .loc-btn, a#ctBookmarkletLink{
+    font-family:inherit;
+    cursor:pointer;
+    transition:background .15s ease, border-color .15s ease, color .15s ease,
+               transform .12s ease, filter .15s ease, box-shadow .15s ease;
+  }
+  button:active, .date-btn:active, .month-btn:active{transform:translateY(1px)}
+  button:disabled{cursor:default; transform:none}
+
+  /* Toetsenbord: zichtbaar waar je staat */
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
+  textarea:focus-visible, .tg-cell:focus-visible, .mapTafel:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+  }
+
+  /* Gast toevoegen: zelfde vorm als de andere lichte knoppen */
+  #resTable ~ * button[onclick*="addWalkIn"],
+  button[onclick*="addWalkIn"]{
+    padding:10px 16px !important;
+    background:transparent !important;
+    border:1px solid var(--line) !important;
+    border-radius:8px !important;
+    color:var(--txt) !important;
+    font-size:13px !important;
+    font-weight:600 !important;
+  }
+  button[onclick*="addWalkIn"]:hover{
+    border-color:var(--accent) !important;
+    background:rgba(37,99,235,.1) !important;
+  }
+
+  /* Hapjeslijst kopiëren */
+  #hapjesCopyBtn{
+    padding:12px 20px;
+    border-radius:9px;
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe);
+    border:1px solid rgba(255,255,255,.16);
+    color:#fff; font-size:14px; font-weight:600;
+    box-shadow:0 3px 12px rgba(29,79,190,.34), inset 0 1px 0 rgba(255,255,255,.18);
+  }
+  #hapjesCopyBtn:hover{filter:brightness(1.08); transform:translateY(-1px)}
+
+  /* Maanden en dagen */
+  .month-btn{
+    padding:9px 16px; border-radius:8px;
+    background:transparent; border:1px solid var(--line); color:var(--muted);
+    font-size:13px; font-weight:600;
+  }
+  .month-btn:hover{border-color:var(--line2); color:var(--txt)}
+  .month-btn.active{
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe);
+    border-color:transparent; color:#fff; font-weight:700;
+  }
+  .date-btn{
+    background:transparent; border:1px solid var(--line);
+    border-radius:8px; color:var(--txt);
+  }
+  .date-btn:hover{border-color:var(--accent); background:rgba(37,99,235,.09)}
+
+  /* De stappen komen rustig in beeld */
+  .pagina.paginaAan{animation:pgIn .28s cubic-bezier(.22,.9,.28,1)}
+  @keyframes pgIn{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+
+  /* De zaal wisselt zacht van tabblad */
+  .zaal.zaalAan{animation:zaalIn .24s ease-out}
+  @keyframes zaalIn{from{opacity:0} to{opacity:1}}
+
+  /* Meldingen schuiven in beeld in plaats van te verschijnen */
+  .ctMelding:not([hidden]){animation:meldIn .26s cubic-bezier(.22,.9,.28,1)}
+  @keyframes meldIn{from{opacity:0; transform:translateY(-5px)} to{opacity:1; transform:none}}
+
+  /* De terugvalopties klappen open */
+  .ctTerugval:not([hidden]){animation:meldIn .3s cubic-bezier(.22,.9,.28,1)}
+
+  /* Wie minder beweging wil, krijgt geen beweging */
+  @media (prefers-reduced-motion:reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+  }
+
+  /* ==========================================================
+     De vensters over de pagina: tafel wisselen en gast toevoegen.
+     Ze hadden hun opmaak in het element zelf, met ronde hoeken en eigen
+     kleuren. Nu in de stijl van de rest.
+     ========================================================== */
+  #tafelSwapOverlay, #walkInOverlay{
+    animation:schermIn .2s ease-out;
+    padding:20px;
+  }
+  @keyframes schermIn{from{opacity:0} to{opacity:1}}
+
+  #tafelSwapOverlay > div, #walkInOverlay > div{
+    background:rgba(10,18,34,.98) !important;
+    border:1px solid var(--line2) !important;
+    border-radius:0 !important;
+    box-shadow:0 24px 70px rgba(0,0,0,.6) !important;
+    animation:schermOp .26s cubic-bezier(.22,.9,.28,1);
+  }
+  @keyframes schermOp{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+
+  /* De knoppen in die vensters */
+  #tafelSwapOverlay button, #walkInOverlay button{
+    border-radius:8px;
+    font-family:inherit;
+  }
+  #walkInOverlay button[onclick*="submitWalkIn"]{
+    background:linear-gradient(180deg, #2f74f0, #1d4fbe) !important;
+    border:1px solid rgba(255,255,255,.16) !important;
+    color:#fff !important;
+    font-weight:700 !important;
+    box-shadow:0 3px 12px rgba(29,79,190,.34), inset 0 1px 0 rgba(255,255,255,.18) !important;
+  }
+  #walkInOverlay button[onclick*="submitWalkIn"]:hover{filter:brightness(1.08)}
+  #tafelSwapOverlay button[onclick*="Close"],
+  #walkInOverlay button[onclick*="Close"],
+  #walkInOverlay button[onclick*="wiClose"]{
+    border-radius:8px !important;
+    color:var(--muted) !important;
+  }
+  #tafelSwapOverlay button[onclick*="Close"]:hover,
+  #walkInOverlay button[onclick*="wiClose"]:hover{
+    background:rgba(255,255,255,.06) !important;
+    color:var(--txt) !important;
+  }
+
+  /* ==========================================================
+     Laatste ronde: knoppen, overgangen en toetsenbord.
+     Alles wat nog een eigen kleur of geen overgang had, wordt hier
+     gelijkgetrokken. Dit staat onderaan zodat het altijd wint.
+     ========================================================== */
+
+  /* Elke knop reageert op dezelfde manier op zweven en indrukken */
+  button, .date-btn, .month-btn, .loc-btn, .zaalTab, .zaalKnoppen button,
+  .tg-cell, .mapTafel, .wieK, .tBtn, .rTafel{
+    transition:background .15s ease, border-color .15s ease,
+               color .15s ease, transform .12s ease, filter .15s ease,
+               box-shadow .15s ease;
+  }
+  button:active:not(:disabled){transform:translateY(1px)}
+  /* Specifieker dan de algemene regel hierboven, anders schuift een tafel
+     uit het midden bij het indrukken. */
+  button.mapTafel:active:not(:disabled){transform:translate(-50%,-50%) scale(1.06)}
+
+  /* Zichtbaar waar je bent als je met de tab-toets werkt */
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+  }
+  :focus:not(:focus-visible){outline:none}
+
+  /* Gast toevoegen, die had nog zijn eigen kleuren */
+  button[onclick="addWalkIn()"]{
+    background:transparent !important;
+    border:1px solid var(--line) !important;
+    border-radius:9px !important;
+    color:var(--txt) !important;
+    padding:11px 16px !important;
+    font-size:13.5px !important;
+    font-weight:600 !important;
+  }
+  button[onclick="addWalkIn()"]:hover{
+    border-color:var(--accent) !important;
+    background:rgba(37,99,235,.1) !important;
+  }
+
+  /* De statusmelding boven de lijst */
+  .status{
+    border:1px solid var(--line);
+    border-left:3px solid var(--line);
+    background:rgba(20,32,56,.4);
+    padding:12px 15px 12px 14px;
+    font-weight:600;
+  }
+  .status.success{border-left-color:#059669; background:rgba(5,150,105,.1)}
+  .status.error{border-left-color:#e5304d; background:rgba(229,48,77,.1)}
+  .status.info{border-left-color:var(--accent); background:rgba(37,99,235,.1)}
+  .status.loading{border-left-color:var(--accent); background:rgba(37,99,235,.08); color:var(--muted)}
+  .status.warn{border-left-color:#f5a623; background:rgba(245,166,35,.1)}
+
+  /* De pagina komt rustig in beeld bij het wisselen van stap */
+  .pagina.paginaAan{animation:pgIn .3s cubic-bezier(.22,.9,.28,1)}
+
+  /* Wie minder beweging heeft ingesteld krijgt geen animaties */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+      scroll-behavior:auto !important;
+    }
+    button:active:not(:disabled){transform:none}
+  }
 </style>
 
 
@@ -296,71 +1954,69 @@
 <body>
 
 <!-- Navbar -->
-<nav style="position:sticky;top:0;z-index:50;background:#171a22;border-bottom:1px solid var(--glass-border);padding:12px 0;box-shadow:0 4px 18px rgba(0,0,0,0.35);">
-  <div id="navInner" style="max-width:880px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:12px;">
-    <div id="navLogo" style="display:flex;align-items:center;gap:12px;margin:0 auto;transition:margin 0.6s ease;">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAPvklEQVR4nOWbe5BeVZHAf33u/d7fN6+EIYkQHgEBA6FEEmKWYAWjpaC4UgYRVGrBtXxRQrn42nJDdNfHostaLrquK7usjwIHtcyqBa7gAwyWqGiQLKsIBlYS85jH9833uvee0/vH+V4z+WYmuCWBpKfuzJ3bp/t09+nTp/uce4V+oCpcj7BFHMC699XWG/RC6+LzBFaKmAFVq4D0pX/6QUUCUXVlhYcCk/qhQ7617SP5ewDYrIbrUUR0NuEBCmzerGZLW/H3Vl5rgtTb1TbPNamiqItR20TV/ck1+mNAxCBBBjEpXDytEmTudTa+adtHS7fBTN06NL3/bNqkwdiY2HVv37mM4sjnTTr/MtRhowooFhAE88wZ+NmgoDhAEYIgXQIxuKh2B9PjV2276bgn2zq2KTqatBEvfNeTqyU19A0TZpYmzUnrG0lwCLT5f4OiFiDMDAUuae7SePJV931i2f29RjDgXWNsTOzaa3etITV0JyJL4/pE4hWXQIFn4wUSCBLE9YkEkaWkhu5ce+2uNWNjYjdvVgMgtG5WV/eMBib3S2PCURvXrIgJ2myeuS6/EHTlV3U2SOUD55I91tXPvL8wugfAbNoxJmwRZ5y5JQjzo0lUTQQJVLXHnPosvbz8qoogQRJVkyDMjxpnbmGLuE07xkQA1rxr4jVhpjiWNMqJCOGhGa2nB1RJwuxAmDSnN/3kE8O3G1QFTa5T5xScHPpR+xNfOFHnFE2uQ1VkzTV71hNk7sZFASKC8uyd8gtBWzdVxaQttnl+qGouCsNsmESRFSXoNDxcwYcGF4bZMEnii0Jw65yNwano4Trys0FVnI0Bty5UZJVLmoCYw3rkZ4AYlzRRZFUoYoqqPss9okAtIkExVJcoiBzeE78/qCYaKnKEDX0viIR+bZyvSfe+X9MZ5tOZfiSdXwfinmo/f6xMC/EKF2qQ2O69kS5zEa9bnMzsKBV2761270U8/WwIjG+TWP9XAGP8cwDbZ+uhV6Z2u6eC74UF097BvHSUrkdKnHhFVKERK4sHDKpeaCPCeMVhWkoVMkLYKqTjxNP3jo4ITFUdqVAYKhjCwAtfayrlmqKqFHNdDVQhDKCU6zKpNhTngJZMgYFSoT++rwG0jwsIfvSyKeFz1wyzdNgLsfmLZb79kwYDBcNExfHuTSUuOS+HAImD99w8xe6JhEJWKNeU618/yIZVGQC+9qM6f3trmaGCwTrfR72pvHpdjlevy3HsUQH5jNBMlP1lx5P7LT9+OOL2e+oEQat9pKw6Ic3n3jkEQDOBK24Y5/G9Cdm0UGsqpy1PcfO1w4hA7OCKj4/z2C6Pd328/aA8oJT3BsikfKlQrjne/7oSf/GSAgDOwbWfneQH25sM5AXnQB0Usl3afEZo76QZgUpdecdFRa6+qHhAn0cPBTxveYrnHZfmq/fU/dQwPSPc4pmz3qPaY9jGDxQ83qkSyPxxYO4Y0Coj23MTwFqlXHN84s1DXLYhj1Noxso7PzPJdx9osKhkSJxiWpPdupnxAPxINmJl+VEBb355AafeE770vSo//01MEMAxiwPWn57xri7emO0s1al2eCbWG9NPP/+3PSAiHu9ajVX7G2LOVUAVUD//2/O2GSlb3jDAZRvyPgZEytU3TfD97S3lbXcofA3eE5E7dbnnc8KSgEzKIx94JOK6z02yqGQIA1+PfenuGstGDEbUG895enRmIK7UHVNVRxwL0w2lWncdmUW6/fZsE80ywEGCU3jnxSVOXOJJ6pHy1k+Nc8+vmiwqGuKEg8oo2vZurx7OwcrjU1zz5yXuezhi36Sl2lDiWNk17nwQ7RW8594IrD01zfFHe2M2IuWEo5/adkbfINgWtBclwIlLQpyDct3xlzfu54FHYkaKhth23axLq7Ocy3uFUyWbgh07I/ZMWkaHAoYKhi1vHKTaUJ7Ym7BjZ8xdv2jwg+1NEguhaQ2gKtpjgVQofOTKoQNl75EZurL0U9UcxM7iAcxTgbBsJPTz0elB06KgTgkDmJx2vOdfJ9k1bjueU8gKpx6b4uJz89z0jhFufMswoXgvmaHZU4EF9AvniYEz9FCF8Ypj0YAhnxE++bZhsmm49fs1Fg+aGcnHPPqjgLVe2ft2NNn0ob1sPCvL6udmOHV5ihVLvQvHFl5yVpaL1+e5+c5pFg0EM0YfIE6UD9wyye4JSyb0U+D4JSHXv2HIB88+Os+GuVPhWVTGwMdum+K8VRlecU6eOFE+9qZhAoEv3V1l0aDB2i6tn1o6i5/3QxFoRv7hVNXxxbuqfPmuKsW8cNKyFJtfP8hpx6VxCs9fkUJQH4Rm+bFTuG9Hk0d3J+TTwnRdWXViepYebbr+FjALbqH1QJQob/3kON/7ZYNUKMSJ8uGrhnnDxiL7ppxPazsG6K8/CFEMRw8HrD4lQ5QozipOYbqmbL2vxt2/aHbSZqfSlb+PTIWsMJATijlhIC8UcjMj8UL6LRAyFeu6uXXKCEbg6k/t5x/eMsJLz84RxcoHrxjCqXLLndMsHjSd5cD10LpWGiYCceIYHUzxH+9ezE9/3WTbQ00e2ZVQazhOWlbk0g3ew1Kh8NDvohZtO9Bqh6e1Pjexzvdlnf8/sd08YK4g34Z5VwEQhoumk88HIRjjE52rb9rPjW8d4YI1eQA+fOUwo0MBn/1mmWzaB7tivlsLFLKCc9oRKEr8VFh9SobVp2T6yvDfj8d89Z4qxZzBWu8pgaHDMwykVZf4KO/U41NhD97MvwqEc0VWwVvw01vLDLRSz4d3xqQCwYgQCLz7XyZ48NGYYk4AIZcWjhoM2F92ZFLC1++t8eCjMQAPPhaRTQnWKpmUsHN3wl/98zhrTsvw3OekGB0OyGX8tNo76bj3Vw1uvqPCdN2RDn16nQ6FP4w7PrO1AkDilKmqEohPs1NG2Dvp+PTWSqueUSbKjtDIAVOyo+fKq56Y20fUr/ntZaiQNaRT3pLtHLxcdZ05CjBYMJ1SudpQosRjMikhn5VOyesUputeqnzGUMgJqZailZpjuuEoZA2pgE4R0y66KjUvkAiUcqYTewQ/DcptPL5u6MSmfgO98sp5DIAvLtrrdG9u38EHM/Y8uisB3RydlsJuVm3frtWdejrteR6YbuCfIbB06Wb3Nxs/l8y9MGce0IZkgXchEjs3zjqYB93h3d4EOYBvn9RaFdw8TBfCz4YFt8SeDphTgqdBtAW3xA53mHMVOFIgfFr8bA5oR+5DRQ8HMQXay117o7O9BLaf9y0xTfe5SGsZa0lrZtNJt40/uO3Sze5jtgy9FmjTd2TG9zV75TnAAAt5QCOCdAi1hs/AUqGP0I0Isulurd4GVajWfdvAQCOGbKolvIPpyOMyrZ6jBJLE82omvi8jM/sIWu+l1RpeuVza4wMDUex5Z1JoYhFVaMZezlrk2863UTNnMURLuPddPrj//ZcP73vv6wbHR4eCZLoOxy8J4zs+tuT3py1PN2tR1/KJhVwavfUDo7vWrczWB4vG/uffLfn9Sc8Jo1oTwgD98l+P7rrkRflKtQm1Jly6oVD+yJuG92XT6AevHN6XSaG1Jhx/tO/j1OXpZjP2hnz+Senm37xxaP9lG0uTZ56UaeyvwCUbCuUPXrlo78vPKVSKWXG5jLgb3zay5/2XD+970wXFKetfmpuzGJp3Q8RaWL8qX7/jJ7Xi2pW5xgXn5Kr7y/DKF+ans2mjF67NVZOkPfTe3TJp484+JdO89Pxi5YqXlqZWrcg0RkqBLVfh3DNytaNGQvviFxRqAzk0imHZ4jB53caB8ovPyldXHpeJMqFoI4IL1/o+XrE2V21GUMigf/+WRXt/uL2R+9VjcdqIYi2cujwdHbMoTB7/gw3rTZV8xrgzVmSi7/60Xrh840All0bbRuh3Gb/J1P8HlPK0M5duKJR/9GA9u3VbrXD8qOoF5xSqd/28ltt4dr62dJHYZuzbqirpEN32UDNba6iccWI6+taPq6V81jinyiUvKkw/8D/NzLFHhfGa07L16bpv/4XvlAdevb5YKeXF1ZpOFg+oXvhC38dLzs7XlgzjVJWhonEPPtrMPPeYML7u0uHxeqQk1slkJQ72l22QWBXrnAiiV15YmvrZr+uZ8YpKMI+W83qAKtSbzoz9oFq6/t8nRx7/gw3POzNf2/G7OH3DreXBnz0cZV50Zq5Wb7Q2YLQ9N0U/9fWJ4Wv+af/iJIFKzZkVS8QVcsZ9/LaJ4S/8V3ng/LNytXaA+sUjzcw3t00XS3njpqrIn52eqz/8uO/jpw9HmY0vyFd/vw/5x7HJoXddMjK+dCSw23/bTIcGanWVVNroimWpuJQT5xyMV2zwoX/bv/iYo1LJ81ekonqzNU376CgnX/7YvMVQPoNrJoiqinOQyxiXWJVKHSlmVdMp0WoD047KIp6mUleTWBgqimtEagIjmgpEJ6pq0iGUcrhKHZNNq/otdpFSDjfdwOQz0rePRgRHD+OyaeN2j7tQBNIhOlQyNp8R3bXPhlGCFHK4qSqmmEWNiE431MxOtdsgJ1/26LzLgHUzD0Xb52yh8TinBx5AWufxSPfwAnzbMPCeZV2r4HHdJa/3Wb8+jPjArNqt+duFlFO/grT5tGnhwDqjFxbMA4KetRdmCivQ9+ipXcmhXfrOczeTb+/a3n42Vx9Wu5shHXnoGqOXj5vFe04DLJQH9CPu7P8fBM1C9wvin4I88/GeC0I/A4/Ut0RUQwiEI/ElKRQkkFBdMo0ERdQeOY6gChKAS6aNqmwXkwHFLXSMdBhdTkwGVdkeomxDgnWKKkfSq6ISgLLNoHarSxoJYA7VcDz9F8YljQS1WwVVOe41v/lxkC6tdlHFIRIcrn6gAKrWpEvGRpX7d95+8lqDiBoT3IC2klnV1knK4Xe1EgNFRYwJbkBEDZu+Ejw2tuJ2G019x6QGQlWXzGvGZzGousSkBkIbTX3nsbEVt7PpK4GAGjbDcfc/NEo+/0uRcFSTmkXMs/JTuTlBnZUwH6gme6jVzty5euUetoAB/yXlzm+fvtsktVeidkKCXKBqk07Q0EMdtP6Iq0dmVZtIkAtQO2GS2it3fvv03d4q4rrxbpMGjIk95hUPrg6yA98Qk1rqorL1u5Y8O71BsaCY9ECgLt5lG+VX/e83z7i/rSvMzn9biGMv+tkyCYc+b4Lsy1DFJdOemfhTrNb+7QHkhw7asiiAQ1GEwIRFEMHZxh2aTF71xNYXPNmrPPTTYLOa9lfjx178m9cKqberi841YV7UJaiLQF1Pf88A6IyHQUwaMSEuqamY9L1KfNMTXzv5NmCGbr2kfUCFzd3P54991W/Xi3ChuuQ8hJWIDKBWnznFgyoSCKpllIfEhD9U5VtPfGNF9/P5LSgc+Pn8/wH7bECR0PAbLAAAAABJRU5ErkJggg==" width="34" height="34" style="border-radius:8px;display:block;" alt="">
-      <div style="display:flex;flex-direction:column;line-height:1;">
-        <span style="font-size:16px;font-weight:800;letter-spacing:-0.3px;color:var(--text);">KISH <span style="font-weight:600;color:var(--text2);">&middot; PA Manager</span></span>
-        <span style="font-size:10px;color:var(--text3);font-weight:500;letter-spacing:0.5px;">AFAS CIRCUSTHEATER</span>
+<nav id="topbar">
+  <div id="navInner">
+    <div id="navLogo">
+      <span class="brandIcon"><svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="square"><path d="M24 16 V84"/><path d="M78 16 L42 50 L78 84"/></svg></span>
+      <div class="brandTekst">
+        <span class="brandTxt">KISH <b>&middot; PA Manager</b></span>
+        <span class="brandSub">AFAS CIRCUSTHEATER</span>
       </div>
     </div>
-    <div id="navInfo" style="display:none;text-align:right;font-size:11px;line-height:1.4;opacity:0;transition:opacity 0.5s ease;">
-      <div id="navDate" style="color:var(--accent);font-weight:700;"></div>
-      <div id="navGuests" style="color:var(--text3);"></div>
+    <div id="navInfo">
+      <div id="navDate"></div>
+      <div id="navGuests"></div>
     </div>
   </div>
 </nav>
 
 <div class="container">
 
-<!-- Jarvis Greeting -->
-<div id="jarvisGreeting" style="margin-bottom:16px;padding:24px;background:linear-gradient(135deg,rgba(37,99,235,0.06),rgba(45,212,191,0.04));border:1px solid rgba(37,99,235,0.12);border-radius:14px;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:0;right:0;width:200px;height:100%;background:radial-gradient(circle at 100% 50%,rgba(37,99,235,0.06),transparent 70%);pointer-events:none;"></div>
-  <!-- Name selection -->
-  <div id="jarvisNameSelect" style="text-align:center;position:relative;z-index:1;">
-    <div style="font-size:14px;color:var(--text2);margin-bottom:16px;">Wie maakt er gebruik van de <span style="color:var(--accent);font-weight:700;">P.A.M.</span>?</div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <button onclick="startJarvis('Irene')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Irene</button>
-      <button onclick="startJarvis('Joris')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Joris</button>
-      <button onclick="startJarvis('Kevin')" style="padding:14px 32px;background:var(--glass);border:1.5px solid var(--glass-border);border-radius:12px;color:var(--text);font-size:15px;font-weight:700;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.2s;min-width:120px;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--glass-border)';this.style.background='var(--glass)';this.style.transform=''">Kevin</button>
+<!-- Begroeting -->
+<div class="onthaal" id="jarvisGreeting">
+  <div class="onthaalGloed"></div>
+  <div class="onthaalBinnen">
+    <div id="jarvisNameSelect">
+      <p class="wieKop">Met wie heb ik het genoegen?</p>
+      <div class="wieRij">
+        <button class="wieK" onclick="startJarvis('Irene')">Irene</button>
+        <button class="wieK" onclick="startJarvis('Joris')">Joris</button>
+        <button class="wieK" onclick="startJarvis('Kevin')">Kevin</button>
+      </div>
     </div>
-  </div>
-  <!-- Greeting (hidden until name selected) -->
-  <div id="jarvisText" style="font-size:14px;color:var(--text2);line-height:1.8;position:relative;z-index:1;text-align:center;display:none;">
+    <div id="jarvisText" style="display:none"></div>
   </div>
 </div>
 
 <!-- STAP 1 -->
-<div class="step" id="step1" style="opacity:0;transform:translateY(20px);transition:opacity 0.8s ease,transform 0.8s ease;">
+<div class="step" id="step1" style="opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease;">
   <div class="step-header">
-    
-    <span class="step-title" style="width:100%;text-align:center;">Excel uploaden</span>
+    <span class="step-title" style="width:100%;text-align:center;">Bestand inlezen</span>
   </div>
   <div class="step-body">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+    <div class="dz-grid">
       <div class="dropzone" id="dropzone" style="flex:1;min-width:240px;margin:0;" onclick="document.getElementById('fileInput').click()">
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
         </div>
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">1 · Excel (AFAS)</div>
-        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Primaire bron — sleep je .xlsx hierheen of klik</div>
-        <div id="excelBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">✓ Geladen</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">Excel uit AFAS</div>
+        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Sleep het Excelbestand hierheen, of klik om het te zoeken</div>
+        <div id="excelBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">Geladen</div>
       </div>
       <div class="dropzone" id="dropzoneHtm" style="flex:1;min-width:240px;margin:0;" onclick="document.getElementById('fileInputHtm').click()">
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
         </div>
-        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">2 · AudienceView (.htm)</div>
-        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Extra controle — sleep je .htm hierheen of klik</div>
-        <div id="htmBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">✓ Geladen</div>
+        <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;">AudienceView</div>
+        <div style="font-size:12px;color:var(--text3);max-width:300px;margin:0 auto;line-height:1.5;">Sleep het AudienceView bestand hierheen. Dit is niet verplicht.</div>
+        <div id="htmBadge" class="hidden" style="margin-top:10px;font-size:11px;font-weight:700;color:var(--teal);background:rgba(45,212,191,0.1);padding:4px 10px;border-radius:6px;display:inline-block;">Geladen</div>
       </div>
     </div>
     <input type="file" id="fileInput" accept=".pdf,.xlsx,.xls">
     <input type="file" id="fileInputHtm" accept=".htm,.html">
     <div id="htmVerify" class="hidden" style="margin-top:14px;"></div>
     <div id="datePickerWrap" class="hidden" style="margin-top:16px;">
-      <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">Meerdere data gevonden. Filter op maand en kies de datum:</div>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">Er staan meerdere dagen in dit bestand. Kies de maand en daarna de dag.</div>
       <div id="monthFilter" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;"></div>
       <div id="weekOverview" style="margin-bottom:16px;"></div>
       <div id="datePicker"></div>
@@ -377,16 +2033,16 @@
   </div>
   <div class="step-body">
     <div style="margin-bottom:14px;color:var(--text2);font-size:13px;">
-      Kies de hoofdlocatie. Circusbar wordt automatisch gevuld met koffie + overige gasten.
+      Waar zit het gezelschap vanavond? De Circusbar wordt automatisch gevuld met de koffiegasten en wie er verder overblijft.
     </div>
     <div style="display:flex;gap:12px;margin-bottom:16px;">
       <button class="loc-btn active" data-loc="Theaterrestaurant" onclick="pickLocation(this)">
-        <div style="width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:18px;font-weight:800;color:var(--accent);">TR</div>
+        <span class="locTeken locTekenGroot">TR</span>
         <div style="font-size:15px;font-weight:700;">Theaterrestaurant</div>
         <div style="font-size:11px;color:var(--text3);font-weight:400;margin-top:3px;">52 tafels · 101 – 152</div>
       </button>
       <button class="loc-btn" data-loc="Le Cirque" onclick="pickLocation(this)">
-        <div style="width:40px;height:40px;border-radius:10px;background:rgba(37,99,235,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:18px;font-weight:800;color:var(--accent);">LC</div>
+        <span class="locTeken locTekenGroot">LC</span>
         <div style="font-size:15px;font-weight:700;">Le Cirque</div>
         <div style="font-size:11px;color:var(--text3);font-weight:400;margin-top:3px;">40 tafels · 1 – 40</div>
       </button>
@@ -395,23 +2051,23 @@
     
     <!-- Tafel configuratie -->
     <div style="margin-top:14px;" id="tafelConfig">
-      <button onclick="document.getElementById('tafelContent').classList.toggle('hidden');this.querySelector('.tg-arrow').textContent=document.getElementById('tafelContent').classList.contains('hidden')?'▶':'▼'" style="width:100%;padding:14px 18px;background:rgba(37,99,235,0.06);border:1.5px solid rgba(37,99,235,0.25);border-radius:12px;color:var(--text);font-size:14px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;display:flex;align-items:center;gap:10px;transition:all 0.15s;text-align:left;" onmouseover="this.style.borderColor='var(--accent)';this.style.background='rgba(37,99,235,0.1)'" onmouseout="this.style.borderColor='rgba(37,99,235,0.25)';this.style.background='rgba(37,99,235,0.06)'">
+      <button onclick="document.getElementById('tafelContent').classList.toggle('hidden');this.querySelector('.tg-arrow').classList.toggle('open', !document.getElementById('tafelContent').classList.contains('hidden'))" style="width:100%;padding:14px 18px;background:rgba(37,99,235,0.06);border:1.5px solid rgba(37,99,235,0.25);border-radius:12px;color:var(--text);font-size:14px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;display:flex;align-items:center;gap:10px;transition:all 0.15s;text-align:left;">
         <span style="width:28px;height:28px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1" y="1" width="5" height="5" rx="1" fill="#fff"/><rect x="8" y="1" width="5" height="5" rx="1" fill="#fff" opacity="0.6"/><rect x="1" y="8" width="5" height="5" rx="1" fill="#fff" opacity="0.6"/><rect x="8" y="8" width="5" height="5" rx="1" fill="#fff" opacity="0.4"/></svg>
         </span>
         <div style="flex:1;">
           <div style="font-size:14px;font-weight:700;">Tafelindeling aanpassen</div>
-          <div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:1px;">Blokkeer tafels of pas stoelen aan per locatie</div>
+          <div style="font-size:11px;color:var(--text2);font-weight:400;margin-top:1px;">Zet tafels dicht die je vanavond niet wilt gebruiken</div>
         </div>
-        <span class="tg-arrow" style="font-size:10px;color:var(--accent);">▶</span>
+        <svg class="tg-arrow open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
       </button>
-      <div id="tafelContent" class="hidden" style="margin-top:10px;">
-      <div style="margin-top:10px;font-size:12px;color:var(--text2);margin-bottom:8px;">Pas het aantal stoelen per tafel aan. Klik om te blokkeren/deblokkeren.</div>
+      <div id="tafelContent" style="margin-top:10px;">
+      <div style="margin-top:10px;font-size:12px;color:var(--text2);margin-bottom:8px;">Klik op een tafel om hem dicht te zetten. Dichte tafels krijgen geen gasten. Klik er nog eens op om hem weer vrij te geven.</div>
       <div id="tafelGrids" style="overflow-x:auto;"></div>
       </div>
     </div>
 
-    <button class="btn-primary" onclick="confirmLocations()">✓ Verdeling berekenen &amp; script genereren</button>
+    <button class="btn-primary" onclick="confirmLocations()">Tafels verdelen</button>
   </div>
 </div>
 
@@ -426,9 +2082,9 @@
     <div id="freeTablesInfo" style="margin-bottom:14px;"></div>
     <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center;">
       <div style="flex:1;position:relative;">
-        <input type="text" id="searchRes" placeholder="🔍 Zoek gast op naam..." oninput="filterReservations()" style="width:100%;padding:10px 14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:13px;font-family:DM Sans,sans-serif;outline:none;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--glass-border)'">
+        <input type="text" id="searchRes" placeholder="Zoek een gast op naam" oninput="filterReservations()" style="width:100%;padding:10px 14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--text);font-size:13px;font-family:DM Sans,sans-serif;outline:none;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--glass-border)'">
       </div>
-      <button onclick="addWalkIn()" style="padding:10px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;white-space:nowrap;transition:all 0.15s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--glass-border)'">+ Gast toevoegen</button>
+      <button onclick="addWalkIn()" style="padding:10px 16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:8px;color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;white-space:nowrap;transition:all 0.15s;">Gast toevoegen</button>
     </div>
     <div id="resTable" style="overflow-x:auto;"></div>
   </div>
@@ -448,32 +2104,66 @@
 <div class="step hidden" id="step4">
   <div class="step-header">
     
-    <span class="step-title" style="width:100%;text-align:center;">Invullen op Kish</span>
+    <span class="step-title" style="width:100%;text-align:center;">Naar KISH sturen</span>
   </div>
   <div class="step-body">
-    <div class="instructions">
-      <strong>Kish tafels (Eigen systeem):</strong><br>
-      1. Sleep de knop hieronder naar je <strong>bladwijzerbalk</strong> (eenmalig)<br>
-      2. Open de <code>Kish App</code> en klik op de bookmarklet → alles wordt geïmporteerd
-    </div>
-    <div style="margin-top:16px;text-align:center;">
-      <a id="ctBookmarkletLink" href="#" style="display:inline-block;padding:16px 32px;background:#2ec08a;color:#fff;font-weight:700;font-size:14px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;font-family:'Inter',sans-serif;cursor:grab;transition:all 0.25s;">
-          🍿 Kish App tafels invuller — sleep naar bladwijzerbalk
-        </a>
-    </div>
-    <details style="margin-top:28px;border-top:1px solid var(--glass-border);padding-top:18px;">
+
+    <ol class="ctStappen">
+      <li>
+        <span class="ctStapKop">Open KISH</span>
+        <span class="ctStapUit">KISH moet in een tabblad open staan dat je vanaf hier hebt geopend.</span>
+        <button type="button" id="ctOpenKish" class="ctOpenKish" onclick="kishOpenen()">
+          KISH openen in een nieuw tabblad
+        </button>
+        <span class="ctStapKlaar" id="ctStap1Klaar" hidden>KISH staat open</span>
+      </li>
+      <li>
+        <span class="ctStapKop">Stuur de reserveringen</span>
+        <span class="ctStapUit">Kom terug naar dit tabblad en klik op de knop. Ze staan dan meteen in KISH.</span>
+        <button type="button" class="ctStuur" onclick="stuurNaarKish()">
+          <span class="ctIco ctIcoStuur"></span>
+          <span class="bmTekst">Reserveringen naar KISH</span>
+        </button>
+        <span class="ctStapKlaar" id="ctStap2Klaar" hidden></span>
+        <div id="ctMelding" class="ctMelding" hidden></div>
+      </li>
+    </ol>
+
+      <div class="ctTerugval" id="ctTerugval" hidden>
+        <p class="ctTerugvalKop">Werkt het versturen niet? Dan kan het altijd nog met een bladwijzer. Dat is de manier die we hiervoor gebruikten.</p>
+
+        <ol class="ctStappen ctStappenB">
+          <li>
+            <span class="ctStapKop">Zet de bladwijzer klaar</span>
+            <span class="ctStapUit">Sleep de knop hieronder naar de balk met bladwijzers bovenin je browser. Zie je die balk niet, druk dan op Ctrl en Shift en B tegelijk. Dit hoef je maar &eacute;&eacute;n keer te doen, daarna staat hij er altijd.</span>
+            <a id="ctBookmarkletLink" href="#">
+              <span class="bmIco"></span><span class="bmTekst">Reserveringen naar KISH<span class="bmHint">Sleep mij naar je bladwijzerbalk</span></span>
+            </a>
+          </li>
+          <li>
+            <span class="ctStapKop">Ga naar KISH en klik erop</span>
+            <span class="ctStapUit">Open het tabblad waar KISH in staat en klik daar op de bladwijzer die je net hebt neergezet. De reserveringen staan er dan in. Belangrijk: klik erop terwijl je in KISH bent, niet hier.</span>
+          </li>
+        </ol>
+
+
+      </div>
+
+      <details style="margin-top:28px;border-top:1px solid var(--glass-border);padding-top:18px;">
       <summary style="cursor:pointer;color:var(--text2);font-weight:600;font-size:13px;display:flex;align-items:center;gap:8px;justify-content:center;">
-        <span style="font-size:11px;">&#9654;</span> Invullen op DISH (alleen als het nodig is)
+        Invullen op DISH, alleen als het nodig is
       </summary>
       <div class="instructions" style="margin-top:16px;">
-        <strong>Hoe te gebruiken:</strong><br>
-        1. Sleep de knop hieronder naar je <strong>bladwijzerbalk</strong> (eenmalig)<br>
-        2. Ga naar <code>app.tafelreservering.com</code> → juiste <strong>datum</strong><br>
-        3. Klik op de bookmarklet → alles wordt automatisch ingevuld
+        <p class="insKop">Zo werkt het</p>
+        <ol class="insLijst">
+          <li>Sleep de knop hieronder eenmalig naar je bladwijzerbalk.</li>
+          <li>Ga naar <code>app.tafelreservering.com</code> en kies de juiste datum.</li>
+          <li>Klik op de bladwijzer. Alles wordt automatisch ingevuld.</li>
+        </ol>
       </div>
       <div style="margin-top:16px;text-align:center;">
         <a id="bookmarkletLink" href="#" style="display:inline-block;padding:16px 32px;background:var(--accent);color:#fff;font-weight:700;font-size:14px;border-radius:8px;text-transform:uppercase;letter-spacing:0.5px;text-decoration:none;font-family:'Inter',sans-serif;cursor:grab;transition:all 0.25s;">
-        🎭 DISH Invuller — sleep naar bladwijzerbalk
+        <span class="bmIco"></span><span class="bmTekst">DISH invuller<span class="bmHint">Sleep deze knop naar je bladwijzerbalk</span></span>
       </a>
       </div>
     </details>
@@ -482,8 +2172,14 @@
 
 </div><!-- /container -->
 
-<footer style="position:relative;z-index:50;border-top:1px solid var(--glass-border);padding:16px 0;text-align:center;background:#171a22;box-shadow:0 -4px 24px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.05);">
-  <span style="font-size:12px;color:var(--text3);font-weight:500;">© Kevin Kiene — 2026</span>
+<footer id="voetbalk">
+  <div class="voetInner">
+    <span class="voetMerk">
+      <svg viewBox="0 0 100 100" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="square"><path d="M24 16 V84"/><path d="M78 16 L42 50 L78 84"/></svg>
+      KISH <b>&middot; PA Manager</b>
+    </span>
+    <span class="voetRest">Kevin Kiene &middot; 2026</span>
+  </div>
 </footer>
 
 <script>
@@ -602,7 +2298,7 @@
       }
 
       allReservations = reservations;
-      showStatus('success', `✓ ${reservations.length} reserveringen` + (pdfStartTime ? ` (begintijd: ${pdfStartTime})` : ''));
+      showStatus('success', `${reservations.length} reserveringen` + (pdfStartTime ? ` (begintijd: ${pdfStartTime})` : ''));
       renderResults();
     } catch (err) {
       console.error(err);
@@ -1441,7 +3137,7 @@
       if (sk.noPriceType) redenen.push(sk.noPriceType + 'x lege price type');
       if (sk.badDate)     redenen.push(sk.badDate + 'x datum onleesbaar');
       html += '<div style="background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.35);border-radius:8px;padding:9px 12px;margin-bottom:10px;font-size:12px;color:var(--red);">';
-      html += '<div style="font-weight:700;margin-bottom:3px;">⚠ ' + sk.total + ' rijen uit .htm overgeslagen</div>';
+      html += '<div style="font-weight:700;margin-bottom:3px;">' + sk.total + ' rijen uit AudienceView overgeslagen</div>';
       html += '<div style="font-size:11px;color:var(--text2);">' + redenen.join(' · ') + ' — kijk in de console (F12) voor voorbeelden</div>';
       html += '</div>';
     }
@@ -1472,7 +3168,7 @@
 
       html += '<div style="font-size:11px;color:var(--text3);margin-top:4px;">' + (labels || 'geen PA') + '</div>';
       if (h.restoTotal > 0) {
-        html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">🍽️ ' + h.restoTotal + ' resto (niet meegeteld)</div>';
+        html += '<div style="font-size:11px;color:var(--text3);margin-top:2px;">' + h.restoTotal + ' resto, niet meegeteld</div>';
       }
       const onbekend = h.entries.filter(e => e.type === 'onbekend');
       if (onbekend.length) {
@@ -1585,7 +3281,7 @@
       const maxGasten = Math.max(...Object.values(dagTotalen).map(d => d.total), 1);
       
       let woHtml = '<div style="padding:14px;background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;">';
-      woHtml += '<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px;">Weekoverzicht — totaal gasten per dag</div>';
+      woHtml += '<div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:10px;">Aantal gasten per dag</div>';
       woHtml += '<div style="display:flex;align-items:flex-end;gap:4px;height:60px;">';
       const sorted = Object.entries(dagTotalen).sort((a,b) => a[1].date - b[1].date);
       sorted.forEach(([dateStr, info]) => {
@@ -1610,7 +3306,15 @@
 
     // Verberg Jarvis greeting
     const jarvis = document.getElementById('jarvisGreeting');
-    if (jarvis) { jarvis.style.transition = 'opacity 0.5s,transform 0.5s'; jarvis.style.opacity = '0'; jarvis.style.transform = 'translateY(-10px)'; setTimeout(() => jarvis.style.display = 'none', 500); }
+    if (jarvis) {
+      /* Blijvend weg: anders komt hij terug als lege ruimte zodra je via
+         de zijbalk weer naar het eerste scherm gaat. */
+      jarvis.classList.add('jarvisWeg');
+      jarvis.style.transition = 'opacity 0.5s,transform 0.5s';
+      jarvis.style.opacity = '0';
+      jarvis.style.transform = 'translateY(-10px)';
+      setTimeout(() => jarvis.style.display = 'none', 500);
+    }
 
     // Vergelijking met vorige data (als er al eerder een sheet was geladen)
     const prevKey = 'pam_prev_' + date;
@@ -1733,6 +3437,123 @@
 
   // Tafeldata per locatie: {nummer: stoelen}
   // Naburige tafels die samengevoegd kunnen worden staan in adjacency lists
+  /* Canvasmaat en tafelvormen per zaal, ook uit KISH */
+const MAP_SIZE = {
+  'Theaterrestaurant':{w:1450,h:940},
+  'Le Cirque':{w:1150,h:780},
+  'Circusbar':{w:950,h:490}
+};
+const TABLE_STYLE = {
+  'Circusbar':{ round:'all' },
+  'Le Cirque':{ round:['7','10','11','12','24','25','26','34','35','36'], wide:['27','40'] },
+  'Theaterrestaurant':{ round:['107','125','126','141','152'], wide:['149'] }
+};
+function shapeClass(loc, nr){
+  const s = TABLE_STYLE[loc]||{};
+  if(s.round==='all' || (s.round||[]).includes(nr)) return 'round';
+  if((s.wide||[]).includes(nr)) return 'wide';
+  return '';
+}
+
+  /* Tafelmaten, stoelkanten en het plaatsen van stoelen: letterlijk
+     overgenomen uit KISH, zodat de zaal er hier hetzelfde uitziet. */
+function tafelMaat(cap, vorm){
+  if(vorm === 'wide')  return {w: Math.max(64, Math.ceil((cap||4)/2)*26), h:40};
+  if(vorm === 'round'){
+    const d = cap >= 6 ? 48 : (cap >= 3 ? 34 : 28);
+    return {w:d, h:d};
+  }
+  if(cap >= 4)         return {w:52, h:52};
+  if(cap === 3)        return {w:42, h:42};
+  return {w:38, h:38};
+}
+
+function stoelKant(nr, cap, vorm, lay, size){
+  if(vorm === 'round') return 'rond';
+  // Zelf gedraaid in de bewerkstand? Dan telt die keuze, ook voor lange tafels.
+  const eigen = lay[nr] && lay[nr].o;
+  if(eigen === 'zij' || eigen === 'lang') return eigen;
+  if(vorm === 'wide') return 'lang';
+  const hier = lay[nr]; if(!hier) return 'lang';
+  const x = hier.x/100*size.w, y = hier.y/100*size.h;
+  let dv = 1e9, dh = 1e9;
+  for(const k in lay){
+    if(k === nr) continue;
+    const dx = Math.abs(lay[k].x/100*size.w - x), dy = Math.abs(lay[k].y/100*size.h - y);
+    if(dy >= dx) dv = Math.min(dv, dy); else dh = Math.min(dh, dx);
+  }
+  return dv < dh ? 'zij' : 'lang';
+}
+
+function addChairs(laag, nr, cap, vorm, kant, lay, size, statusKlasse){
+  if(!laag || !lay || !lay[nr]) return;
+  const n = Math.max(1, Math.min(cap || 2, 10));
+  const m = tafelMaat(cap, vorm);
+  const cx = lay[nr].x/100*size.w, cy = lay[nr].y/100*size.h;
+  const RUG = 11;                       // afstand van tafelrand tot hart van de stoel
+  const zet = (dx, dy, hoek)=>{
+    const c = document.createElement('div');
+    c.className = 'chair' + (statusKlasse ? ' '+statusKlasse : '');
+    c.style.left = (cx+dx)+'px';
+    c.style.top  = (cy+dy)+'px';
+    c.style.transform = 'translate(-50%,-50%) rotate(' + hoek + 'deg)';
+    laag.appendChild(c);
+  };
+  if(kant === 'rond'){
+    const r = m.w/2 + RUG;
+    for(let i=0;i<n;i++){
+      const a = (360/n)*i - 90, rad = a*Math.PI/180;
+      zet(Math.cos(rad)*r, Math.sin(rad)*r, a+90);
+    }
+    return;
+  }
+  const een = Math.ceil(n/2), twee = n - een;
+  if(kant === 'zij'){
+    for(let i=0;i<een;i++)  zet(-m.w/2-RUG, -m.h/2+m.h*(i+.5)/een,   90);
+    for(let j=0;j<twee;j++) zet( m.w/2+RUG, -m.h/2+m.h*(j+.5)/twee, 270);
+  } else {
+    for(let a=0;a<een;a++)  zet(-m.w/2+m.w*(a+.5)/een,  -m.h/2-RUG,   0);
+    for(let b=0;b<twee;b++) zet(-m.w/2+m.w*(b+.5)/twee,  m.h/2+RUG, 180);
+  }
+}
+
+  /* Plattegrond uit KISH: per zaal de tafels op x en y in procenten.
+     Zo staan de tafels hier op dezelfde plek als op de vloer. */
+const DEFAULT_LAYOUT = {
+  'Theaterrestaurant':{
+    '101':{x:62.7,y:39.9},'102':{x:62.7,y:33.9},'103':{x:62.7,y:27.9},'104':{x:62.7,y:21.9},
+    '105':{x:62.7,y:15.9},'106':{x:60,y:8.6},'107':{x:66,y:5.3},'108':{x:87.5,y:5.2},
+    '109':{x:82.5,y:7.7},'110':{x:90,y:13.6},'111':{x:84.1,y:17.1},'112':{x:92.4,y:24.4},
+    '113':{x:87.5,y:28.0},'114':{x:95.8,y:34.0},'115':{x:90,y:37.8},'116':{x:75.8,y:31.7},
+    '117':{x:75.8,y:41.2},'118':{x:97.3,y:48.4},'119':{x:90,y:48.4},'120':{x:95.8,y:64.1},
+    '121':{x:90,y:60.5},'122':{x:88.4,y:77.4},'123':{x:85.9,y:69.0},'124':{x:75.8,y:49.6},
+    '125':{x:74.7,y:58.6},'126':{x:71.3,y:64.5},'127':{x:78.4,y:71.3},'128':{x:80.8,y:81.0},
+    '129':{x:68.4,y:86.8},'130':{x:68.4,y:79.7},'131':{x:68.4,y:73.7},'132':{x:61.7,y:86.8},
+    '133':{x:61.7,y:79.7},'134':{x:61.7,y:73.7},'135':{x:55.1,y:86.8},'136':{x:55.1,y:79.7},
+    '137':{x:55.1,y:73.7},'138':{x:48.5,y:86.8},'139':{x:48.5,y:79.7},'140':{x:48.5,y:73.7},
+    '141':{x:41.8,y:78.4},'142':{x:43.4,y:61.7},'143':{x:32.6,y:64.0},'144':{x:26.9,y:64.0},
+    '145':{x:32.6,y:73.7},'146':{x:26.9,y:73.7},'147':{x:21,y:80.8},'148':{x:21,y:90.5},
+    '149':{x:11.9,y:90.5},'150':{x:12.7,y:79.7},'151':{x:5.2,y:65.1},'152':{x:14.9,y:67.0}
+  },
+  'Le Cirque':{
+    '37':{x:3.5,y:5.7},'38':{x:8.5,y:5.7},'39':{x:13.5,y:5.7},'40':{x:20.4,y:11.6},'28':{x:3.5,y:17.6},'29':{x:8.5,y:17.6},
+    '34':{x:39,y:6.4},'35':{x:46.9,y:6.4},'36':{x:54.8,y:6.4},
+    '33':{x:40.4,y:17.6},'32':{x:45.4,y:17.6},'31':{x:52.3,y:17.6},'30':{x:57.3,y:17.6},
+    '27':{x:4.5,y:29.4},'26':{x:13,y:34.8},'25':{x:17.9,y:40.7},'24':{x:23.9,y:45.2},
+    '23':{x:34.4,y:29.6},'20':{x:44.4,y:29.6},
+    '22':{x:34.4,y:37},'19':{x:44.4,y:37},'17':{x:54.4,y:37},'15':{x:62.4,y:37},
+    '21':{x:34.4,y:44.5},'18':{x:44.4,y:44.5},'16':{x:54.4,y:44.5},'14':{x:62.4,y:44.5},
+    '9':{x:34.4,y:60.9},'10':{x:44.9,y:60.1},'11':{x:55.8,y:60},'12':{x:65.8,y:60},
+    '8':{x:26.4,y:72.8},'13':{x:84.3,y:77.3},'7':{x:29.9,y:86.7},
+    '6':{x:38.3,y:87.8},'5':{x:46.3,y:87.8},'4':{x:54.2,y:87.8},'3':{x:62.2,y:87.8},'2':{x:70.2,y:87.8},'1':{x:78.2,y:87.8}
+  },
+  'Circusbar':{
+    '208':{x:42,y:10},'207':{x:32,y:16.7},'206':{x:23.5,y:27},'205':{x:16.8,y:40.4},
+    '204':{x:8.5,y:60.9},'203':{x:7,y:77.9},'202':{x:15.3,y:88},'201':{x:26.8,y:88},
+    '209':{x:68.9,y:16.7},'210':{x:78.7,y:27},'211':{x:85.5,y:40.4},'212':{x:90.5,y:60.9},
+    '214':{x:92,y:84.7},'215':{x:38.7,y:57.6},'216':{x:48.8,y:57.6},'217':{x:58.6,y:57.6}
+  }
+};
   const venueData = {
     'Theaterrestaurant': {
       tafels: {
@@ -1855,37 +3676,221 @@
 
 
   function renderTafelGrids() {
-    let html = '';
+    /* Drie plattegronden onder elkaar is veel scrollen. Ze staan nu achter
+       tabbladen, zodat je met een tik van zaal naar zaal wisselt. */
+    let tabs = '<div class="zaalTabs">';
     for (const [venue, data] of Object.entries(venueData)) {
-      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
-      html += '<div style="margin-top:14px;">';
-      html += '<div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">';
-      html += '<span style="font-size:14px;font-weight:700;color:var(--text);">' + emoji + ' ' + venue + '</span>';
-      if (venue === 'Circusbar') {
-        html += '<button onclick="blokkeerHelftCB()" style="padding:3px 10px;border-radius:6px;border:1px solid rgba(37,99,235,0.3);background:rgba(37,99,235,0.06);color:var(--accent);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Blokkeer helft</button>';
-      }
-      html += '<button onclick="toggleAllTafels(\'' + venue + '\',true)" style="padding:3px 10px;border-radius:6px;border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.06);color:var(--red);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Blokkeer alles</button>';
-      html += '<button onclick="toggleAllTafels(\'' + venue + '\',false)" style="padding:3px 10px;border-radius:6px;border:1px solid var(--glass-border);background:var(--glass);color:var(--text3);font-size:10px;font-weight:600;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;">Deblokkeer alles</button>';
-      html += '</div>';
-      html += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
+      const tafels = Object.entries(data.tafels);
+      const dicht = tafels.filter(function(p){
+        return blockedTafels[venue] && blockedTafels[venue].has(Number(p[0]));
+      }).length;
+      tabs += '<button type="button" class="zaalTab" data-zaal="' + venue + '">' +
+                '<span class="zaalTabNaam">' + venue + '</span>' +
+                '<span class="zaalTabTel" data-zaal="' + venue + '">' +
+                  (tafels.length - dicht) + ' van ' + tafels.length + ' vrij</span>' +
+              '</button>';
+    }
+    tabs += '</div>';
+
+    let html = tabs;
+    for (const [venue, data] of Object.entries(venueData)) {
       const tafels = Object.entries(data.tafels).sort((a,b) => Number(a[0]) - Number(b[0]));
-      for (const [nr, stoelen] of tafels) {
-        const isBlocked = blockedTafels[venue] && blockedTafels[venue].has(Number(nr));
-        html += '<div class="tg-cell' + (isBlocked ? ' tg-blocked' : '') + '" onclick="toggleBlockGrid(\'' + venue + '\',' + nr + ',this)">';
-        html += '<span class="tg-nr">' + nr + '</span>';
-        html += '<span class="tg-seats">' + stoelen + '</span>';
+      const plek = (typeof DEFAULT_LAYOUT !== 'undefined' && DEFAULT_LAYOUT[venue]) || null;
+      const geblokkeerd = tafels.filter(([nr]) =>
+        blockedTafels[venue] && blockedTafels[venue].has(Number(nr))).length;
+      const vrij = tafels.length - geblokkeerd;
+      const stoelen = tafels.reduce((s, [nr, st]) =>
+        s + ((blockedTafels[venue] && blockedTafels[venue].has(Number(nr))) ? 0 : st), 0);
+
+      html += '<section class="zaal" data-zaal="' + venue + '">';
+      html += '<header class="zaalKop">';
+      html +=   '<h4>' + venue + '</h4>';
+      html +=   '<span class="zaalTel" data-zaal="' + venue + '">' + vrij + ' van ' + tafels.length +
+                ' tafels &middot; ' + stoelen + ' stoelen</span>';
+      html +=   '<span class="zaalZoom"></span>';
+      html +=   '<div class="zaalKnoppen">';
+      if (venue === 'Circusbar') {
+        html +=   '<button type="button" onclick="blokkeerHelftCB()">Halve zaal</button>';
+      }
+      html +=     '<button type="button" onclick="toggleAllTafels(\'' + venue + '\',true)">Alles dicht</button>';
+      html +=     '<button type="button" onclick="toggleAllTafels(\'' + venue + '\',false)">Alles open</button>';
+      html +=   '</div>';
+      html += '</header>';
+
+      if (plek) {
+        /* De plattegrond, met tafels en stoelen zoals in KISH.
+           De zaal wordt na het tekenen gevuld, want dan pas is bekend
+           hoe groot het vlak op het scherm is. */
+        html += '<div class="zaalMap" data-zaal="' + venue + '"></div>';
+      } else {
+        /* Geen plattegrond bekend, dan terug naar het raster */
+        html += '<div class="zaalRooster">';
+        for (const [nr, st] of tafels) {
+          const dicht = blockedTafels[venue] && blockedTafels[venue].has(Number(nr));
+          html += '<button type="button" class="tg-cell' + (dicht ? ' tg-blocked' : '') + '"' +
+                  ' onclick="toggleBlockGrid(\'' + venue + '\',' + nr + ',this)">' +
+                    '<span class="tg-nr">' + nr + '</span>' +
+                    '<span class="tg-seats">' + st + '</span>' +
+                  '</button>';
+        }
         html += '</div>';
       }
-      html += '</div>';
-      if (venue === 'Le Cirque') {
-        html += '<div style="font-size:11px;color:var(--text3);margin-top:5px;">🔴 Rood/dim = geblokkeerd (serre 1-13). Klik om te (de)blokkeren.</div>';
-      } else {
-        html += '<div style="font-size:11px;color:var(--text3);margin-top:5px;">Klik op een tafel om te blokkeren/deblokkeren.</div>';
-      }
-      html += '</div>';
+      html += '</section>';
     }
     document.getElementById('tafelGrids').innerHTML = html;
+    sluitTabsAan();
+    vulZalen();
   }
+
+  let actieveZaal = null;
+  function sluitTabsAan(){
+    const wrap = document.getElementById('tafelGrids');
+    if(!wrap) return;
+    const namen = Object.keys(venueData);
+    if(!actieveZaal || namen.indexOf(actieveZaal) === -1) actieveZaal = namen[0];
+
+    wrap.querySelectorAll('.zaalTab').forEach(function(t){
+      t.onclick = function(){ actieveZaal = t.dataset.zaal; toonZaal(); };
+    });
+    toonZaal();
+  }
+
+  function toonZaal(){
+    const wrap = document.getElementById('tafelGrids');
+    if(!wrap) return;
+    wrap.querySelectorAll('.zaal').forEach(function(s){
+      s.classList.toggle('zaalAan', s.dataset.zaal === actieveZaal);
+    });
+    wrap.querySelectorAll('.zaalTab').forEach(function(t){
+      t.classList.toggle('aan', t.dataset.zaal === actieveZaal);
+    });
+    /* Het vlak was verborgen en had dus geen breedte. Nu het zichtbaar is
+       wordt het gevuld, de kijker op het formaat pakt dat op. */
+    const vlak = wrap.querySelector('.zaal.zaalAan .zaalMap');
+    if(vlak){ vlak._breed = 0; vulZaal(vlak); }
+  }
+
+  /* De zalen worden apart gevuld omdat de stoelen in pixels worden gezet,
+     en daarvoor moet het vlak eerst een breedte op het scherm hebben.
+     Bij het tekenen staat de uitklapper vaak nog dicht, dan is dat vlak
+     nul pixels breed. Daarom wordt er gekeken wanneer het formaat krijgt. */
+  let zaalKijker = null;
+  function vulZalen(){
+    if(!zaalKijker && window.ResizeObserver){
+      zaalKijker = new ResizeObserver(function(rijen){
+        rijen.forEach(function(r){
+          const vlak = r.target;
+          const breed = Math.round(vlak.clientWidth);
+          if(breed > 0 && vlak._breed !== breed){
+            vlak._breed = breed;
+            vulZaal(vlak);
+          }
+        });
+      });
+    }
+    document.querySelectorAll('.zaalMap').forEach(function(vlak){
+      vlak._breed = 0;
+      if(zaalKijker) zaalKijker.observe(vlak);
+      vulZaal(vlak);
+    });
+  }
+
+  function vulZaal(vlak){
+    const venue = vlak.dataset.zaal;
+    const data = venueData[venue];
+    const plek = (typeof DEFAULT_LAYOUT !== 'undefined' && DEFAULT_LAYOUT[venue]) || null;
+    if(!data || !plek) return;
+
+    /* KISH tekent op een groot vlak, 1450 bij 940 voor het restaurant, en
+       verkleint dat daarna zodat het past. Zo houden de tafels en de stoelen
+       hun onderlinge verhouding. Doen we dat hier niet, dan staan de tafels
+       op elkaar omdat het vlak veel kleiner is. */
+    const maat = MAP_SIZE[venue] || { w:1000, h:700 };
+    const beeld = { w: vlak.clientWidth, h: vlak.clientHeight };
+    if(!beeld.w || !beeld.h) return;
+
+    vlak.innerHTML = '';
+
+    /* Uitrekenen hoe groot alles echt is, inclusief de stoelen eromheen,
+       en daarop de verkleining bepalen. */
+    let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+    Object.entries(data.tafels).forEach(function(paar){
+      const nr = paar[0], cap = paar[1];
+      const p = plek[nr];
+      if(!p) return;
+      const m = tafelMaat(cap, shapeClass(venue, nr));
+      const rand = 34;
+      const cx = p.x / 100 * maat.w, cy = p.y / 100 * maat.h;
+      x0 = Math.min(x0, cx - m.w/2 - rand); x1 = Math.max(x1, cx + m.w/2 + rand);
+      y0 = Math.min(y0, cy - m.h/2 - rand); y1 = Math.max(y1, cy + m.h/2 + rand);
+    });
+    if(x1 <= x0 || y1 <= y0) return;
+
+    /* De verkleining volgt alleen de breedte. De hoogte van het vlak wordt
+       daarna op de plattegrond gezet, dus hij past altijd en er is nooit
+       een schuifbalk nodig. */
+    const zoom = Math.min(1, (beeld.w - 2) / (x1 - x0));
+    const nodigHoog = (y1 - y0) * zoom;
+    vlak.style.height = Math.round(nodigHoog) + 'px';
+    vlak.style.overflow = 'hidden';
+    const moetSchuiven = false;
+
+    /* Een binnenvlak op de echte maat, zodat schuiven werkt */
+    const houder = document.createElement('div');
+    houder.className = 'zaalHouder';
+    houder.style.width  = ((x1 - x0) * zoom) + 'px';
+    houder.style.height = ((y1 - y0) * zoom) + 'px';
+    if(!moetSchuiven) houder.style.margin = '0 auto';
+    vlak.appendChild(houder);
+
+    const laag = document.createElement('div');
+    laag.className = 'zaalLaag';
+    laag.style.width = maat.w + 'px';
+    laag.style.height = maat.h + 'px';
+    laag.style.transform = 'scale(' + zoom + ') translate(' + (-x0) + 'px,' + (-y0) + 'px)';
+    houder.appendChild(laag);
+
+    /* De verkleining in beeld zetten, zoals de zoomknop in KISH doet */
+    const lbl = vlak.parentNode && vlak.parentNode.querySelector('.zaalZoom');
+    if(lbl){
+      lbl.textContent = Math.round(zoom * 100) + '%' +
+        (moetSchuiven ? ' \u00b7 sleep om te schuiven' : '');
+    }
+
+    Object.entries(data.tafels).forEach(function(paar){
+      const nr = paar[0], cap = paar[1];
+      const p = plek[nr];
+      if(!p) return;
+      const dicht = blockedTafels[venue] && blockedTafels[venue].has(Number(nr));
+      const vorm = shapeClass(venue, nr);
+      const m = tafelMaat(cap, vorm);
+      const kant = stoelKant(nr, cap, vorm, plek, maat);
+
+      const groep = document.createElement('div');
+      groep.className = 'stoelGroep';
+      groep.dataset.zaal = venue;
+      groep.dataset.nr = nr;
+      laag.appendChild(groep);
+      addChairs(groep, nr, cap, vorm, kant, plek, maat, dicht ? 'stoelDicht' : '');
+
+      const t = document.createElement('button');
+      t.type = 'button';
+      t.className = 'mapTafel' + (vorm === 'round' ? ' mapRond' : '') + (dicht ? ' tg-blocked' : '');
+      t.style.left = (p.x / 100 * maat.w) + 'px';
+      t.style.top  = (p.y / 100 * maat.h) + 'px';
+      t.style.width = m.w + 'px';
+      t.style.height = m.h + 'px';
+      t.title = 'Tafel ' + nr + ', ' + cap + ' stoelen';
+      t.setAttribute('aria-pressed', dicht ? 'true' : 'false');
+      /* Het nummer groeit mee tegen de verkleining in, zodat het op het
+         scherm altijd ongeveer even groot en dus leesbaar blijft. */
+      t.innerHTML = '<span class="mapNr" style="font-size:' +
+                    (10.5 / zoom).toFixed(1) + 'px">' + nr + '</span>';
+      t.onclick = function(){ toggleBlockGrid(venue, Number(nr), t); };
+      laag.appendChild(t);
+    });
+  }
+
 
   function blokkeerHelftCB() {
     const data = venueData['Circusbar'];
@@ -1919,6 +3924,35 @@
       blockedTafels[venue].add(nr);
       el.classList.add('tg-blocked');
     }
+    /* De stoelen om de tafel en de telling in de kop lopen mee */
+    const groep = document.querySelector('.stoelGroep[data-zaal="' + venue + '"][data-nr="' + nr + '"]');
+    if (groep) {
+      const dicht = blockedTafels[venue].has(nr);
+      groep.querySelectorAll('.chair').forEach(function(c){
+        c.classList.toggle('stoelDicht', dicht);
+      });
+    }
+    werkTellingBij(venue);
+  }
+
+  /* Alleen de telling in de kop bijwerken, zonder de hele zaal opnieuw te tekenen */
+  function werkTellingBij(venue) {
+    const data = venueData[venue];
+    if (!data) return;
+    const tafels = Object.entries(data.tafels);
+    const dicht = tafels.filter(function(p){
+      return blockedTafels[venue] && blockedTafels[venue].has(Number(p[0]));
+    }).length;
+    const stoelen = tafels.reduce(function(s, p){
+      return s + ((blockedTafels[venue] && blockedTafels[venue].has(Number(p[0]))) ? 0 : p[1]);
+    }, 0);
+    const el = document.querySelector('.zaalTel[data-zaal="' + venue + '"]');
+    if (el) {
+      el.textContent = (tafels.length - dicht) + ' van ' + tafels.length +
+                       ' tafels \u00b7 ' + stoelen + ' stoelen';
+    }
+    const tab = document.querySelector('.zaalTabTel[data-zaal="' + venue + '"]');
+    if (tab) tab.textContent = (tafels.length - dicht) + ' van ' + tafels.length + ' vrij';
   }
 
 
@@ -2330,22 +4364,23 @@
     const borrelGasten = naBorrel.reduce((s, r) => s + r.aantalPersonen, 0);
 
     function card(iconHtml, title, res, gasten, sub) {
-      return '<div style="padding:16px;background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;display:flex;align-items:center;gap:14px;">' +
-        iconHtml +
-        '<div><div style="font-size:14px;font-weight:700;color:var(--text);">' + title + '</div>' +
-        '<div style="font-size:12px;color:var(--text2);margin-top:2px;"><strong>' + res + '</strong> res. · <strong>' + gasten + '</strong> gasten</div>' +
-        '<div style="font-size:11px;color:var(--text3);margin-top:1px;">' + sub + '</div></div></div>';
+      return '<div class="locKaart">' + iconHtml +
+        '<div class="locKaartTekst">' +
+          '<span class="locNaam">' + title + '</span>' +
+          '<span class="locCijfers"><b>' + res + '</b> res. &middot; <b>' + gasten + '</b> gasten</span>' +
+          '<span class="locSub">' + sub + '</span>' +
+        '</div></div>';
     }
 
     function iconBox(letter, color) {
-      return '<div style="width:40px;height:40px;border-radius:10px;background:' + color + ';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;font-weight:800;font-family:DM Sans,sans-serif;">' + letter + '</div>';
+      return '<span class="locTeken" style="' + color + '">' + letter + '</span>';
     }
 
     let html = '<div style="display:grid;grid-template-columns:1fr 1fr' + (borrelGasten > 0 ? ' 1fr' : '') + ';gap:10px;">';
-    html += card(iconBox('CB', 'rgba(166,124,82,0.15);color:#a67c52'), 'Circusbar', koffie.length, koffieGasten, 'Koffie + overige gasten');
-    html += card(iconBox(selectedMainLocation === 'Le Cirque' ? 'LC' : 'TR', 'rgba(37,99,235,0.12);color:var(--accent)'), selectedMainLocation, rest.length, restGasten, 'Normaal, Luxe, Kind, Combi');
+    html += card(iconBox('CB', '--lk:#a05a3a'), 'Circusbar', koffie.length, koffieGasten, 'Koffie + overige gasten');
+    html += card(iconBox(selectedMainLocation === 'Le Cirque' ? 'LC' : 'TR', '--lk:#2563eb'), selectedMainLocation, rest.length, restGasten, 'Normaal, Luxe, Kind, Combi');
     if (borrelGasten > 0) {
-      html += card(iconBox('NB', 'rgba(96,165,250,0.12);color:#60a5fa'), 'Na Borrel', naBorrel.length, borrelGasten, 'Circusbar · +1 uur');
+      html += card(iconBox('NB', '--lk:#60a5fa'), 'Na Borrel', naBorrel.length, borrelGasten, 'Circusbar · +1 uur');
     }
     html += '</div>';
     document.getElementById('locationSummary').innerHTML = html;
@@ -2399,7 +4434,7 @@
     if (window._lastChanges) {
       const c = window._lastChanges;
       let changeHtml = '<div style="margin-top:10px;padding:12px;background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.15);border-radius:8px;font-size:12px;">';
-      changeHtml += '<div style="font-weight:700;color:var(--accent);margin-bottom:6px;">📋 Wijzigingen t.o.v. vorige upload:</div>';
+      changeHtml += '<div style="font-weight:700;color:var(--accent);margin-bottom:6px;">Wijzigingen ten opzichte van de vorige upload</div>';
       if (c.added.length > 0) changeHtml += '<div style="color:var(--green);">+ Nieuw: ' + c.added.join(', ') + '</div>';
       if (c.removed.length > 0) changeHtml += '<div style="color:var(--red);">− Verwijderd: ' + c.removed.join(', ') + '</div>';
       changeHtml += '</div>';
@@ -2431,12 +4466,12 @@
     const totaalHapjes = {};
     let hapjesHtml = '';
 
-    const locEmoji = { 'Circusbar': '☕', 'Theaterrestaurant': '🍽️', 'Le Cirque': '🎪' };
+
     for (const [loc, labels] of Object.entries(locaties)) {
       const locHapjes = {};
       let hasItems = false;
       hapjesHtml += '<div style="margin-bottom:16px;padding:14px;background:rgba(0,0,0,0.2);border-radius:10px;">';
-      hapjesHtml += '<div style="font-weight:700;font-size:14px;margin-bottom:10px;color:' + (loc === 'Circusbar' ? '#fbbf24' : 'var(--accent)') + ';">' + (locEmoji[loc] || '📍') + ' ' + loc + '</div>';
+      hapjesHtml += '<div style="font-weight:700;font-size:14px;margin-bottom:10px;color:' + (loc === 'Circusbar' ? '#fbbf24' : 'var(--accent)') + ';">' + loc + '</div>';
       for (const [label, items] of Object.entries(hapjes)) {
         const count = labels[label] || 0;
         if (count === 0) continue;
@@ -2468,7 +4503,7 @@
     }
 
     hapjesHtml += '<div style="display:flex;gap:8px;margin-top:16px;">';
-    hapjesHtml += '<button onclick="copyHapjes()" style="flex:1;padding:14px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;font-family:DM Sans,sans-serif;transition:all 0.15s;" onmouseover="this.style.background=\'var(--accent-hover)\'" onmouseout="this.style.background=\'var(--accent)\'">📋 Kopieer hapjeslijst naar klembord</button>';
+    hapjesHtml += '<button id="hapjesCopyBtn" onclick="copyHapjes()" style="flex:1;">Hapjeslijst kopi&euml;ren</button>';
     hapjesHtml += '</div>';
 
     const startTime = pdfStartTime || '19:00';
@@ -2484,7 +4519,7 @@
 
     let lastZaal = '';
     document.getElementById('resTable').innerHTML =
-      '<table><thead><tr><th>#</th><th>Naam</th><th>Pers.</th><th>Label</th><th>Zaal</th><th>Tafel</th><th>Tijd</th><th>Notities</th></tr></thead><tbody>' +
+      '' +
       sorted.map(function(item, idx) {
         const r = item.r;
         const i = item.i;
@@ -2502,13 +4537,26 @@
         }
         lastZaal = currentZaal;
         const statusClass = r.tafelNr && r.zaal ? 'status-ok' : r.zaal ? 'status-warn' : 'status-err';
-        return separator + '<tr><td style="white-space:nowrap;"><span class="status-dot ' + statusClass + '" style="vertical-align:middle;"></span>' + (idx + 1) + '</td><td><strong>' + esc(r.naam) + '</strong></td><td>' + r.aantalPersonen + '</td>' +
-          '<td><span class="label-badge label-' + lc + '">' + esc(r.label) + '</span></td>' +
-          '<td style="color:' + zaalColor + ';font-weight:600;font-size:12px;">' + esc(r.zaal) + '</td>' +
-          '<td style="font-family:JetBrains Mono,monospace;font-size:12px;font-weight:600;cursor:pointer;color:var(--accent);" onclick="swapTafel(' + i + ')" title="Klik om tafel te wijzigen">' + (r.tafelNr || '-') + ' ✏️</td>' +
-          '<td>' + displayTime + '</td><td class="notes-cell">' + esc(r.notities || '-') + '</td></tr>';
+        /* Kaarten zoals in KISH: aantal, naam, arrangement met de drankregel
+           eronder, tafel met de zaal, en de tijd. Aantikken van de tafel
+           opent dezelfde tafelkiezer als voorheen. */
+        const gescheiden = separator ? '<div class="resScheid"></div>' : '';
+        return gescheiden +
+          '<article class="resKaart ' + statusClass + '" data-naam="' + esc(r.naam).toLowerCase() + '">' +
+            '<span class="rPax">' + r.aantalPersonen + '<small>p.</small></span>' +
+            '<span class="rNaam">' + esc(r.naam) + '</span>' +
+            '<span class="rMid">' +
+              '<span class="rTags"><em class="label-badge label-' + lc + '">' + esc(r.label) + '</em></span>' +
+              '<span class="rDrank">' + esc(r.notities || 'Niets besteld') + '</span>' +
+            '</span>' +
+            '<span class="rTijd">' + displayTime + '</span>' +
+            '<button type="button" class="rTafel" onclick="swapTafel(' + i + ')" title="Klik om een andere tafel te kiezen">' +
+              '<b>' + (r.tafelNr || '&mdash;') + '</b>' +
+              '<small style="color:' + zaalColor + '">' + esc(r.zaal) + '</small>' +
+            '</button>' +
+          '</article>';
       }).join('') +
-      '</tbody></table>';
+      '';
 
     document.getElementById('hapjesContent').innerHTML = hapjesHtml;
     fadeIn('step3', 100);
@@ -2552,10 +4600,9 @@
     for (const venue of venues) {
       const data = venueData[venue];
       if (!data) continue;
-      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
       const isCurrentVenue = venue === res.zaal;
       popupHtml += '<div style="margin-bottom:12px;' + (isCurrentVenue ? 'padding:10px;background:rgba(37,99,235,0.04);border:1px solid rgba(37,99,235,0.15);border-radius:10px;' : '') + '">';
-      popupHtml += '<div style="font-size:12px;font-weight:700;color:' + (isCurrentVenue ? 'var(--accent)' : 'var(--text2)') + ';margin-bottom:6px;">' + emoji + ' ' + venue + (isCurrentVenue ? ' — huidige locatie' : '') + '</div>';
+      popupHtml += '<div style="font-size:12px;font-weight:700;color:' + (isCurrentVenue ? 'var(--accent)' : 'var(--text2)') + ';margin-bottom:6px;">' + venue + (isCurrentVenue ? ' — huidige locatie' : '') + '</div>';
       popupHtml += '<div style="display:flex;flex-wrap:wrap;gap:4px;">';
 
       const tafels = Object.entries(data.tafels).sort((a,b) => Number(a[0]) - Number(b[0]));
@@ -2578,7 +4625,7 @@
           opacity = '0.2'; cursor = 'default'; onclick = '';
         }
 
-        popupHtml += '<div onclick="' + onclick + '" style="width:48px;height:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:' + bg + ';border:1px solid ' + border + ';border-radius:8px;cursor:' + cursor + ';opacity:' + opacity + ';transition:all 0.1s;" ' + (onclick ? 'onmouseover="this.style.borderColor=\'var(--accent)\'" onmouseout="this.style.borderColor=\'' + border + '\'"' : '') + '>';
+        popupHtml += '<div onclick="' + onclick + '" style="width:48px;height:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:' + bg + ';border:1px solid ' + border + ';border-radius:8px;cursor:' + cursor + ';opacity:' + opacity + ';transition:all 0.1s;" ' + (onclick ? '' : '') + '>';
         popupHtml += '<span style="font-size:11px;font-weight:700;color:' + color + ';">' + nr + '</span>';
         popupHtml += '<span style="font-size:9px;color:var(--text3);">' + stoelen + 'p</span>';
         popupHtml += '</div>';
@@ -3109,27 +5156,134 @@
     const data = buildCTData();
     window._ctData = data;
     const json = JSON.stringify(data);
-    const script = 'if(window.ctImport){window.ctImport(' + json + ');}else{alert("Open eerst CT_Tafels.html in dit tabblad en klik dan op deze bladwijzer.");}';
+    const script = 'if(window.ctImport){window.ctImport(' + json + ');}else{alert("Je staat nu niet in KISH. Ga naar het tabblad waar KISH open staat en klik daar op deze bladwijzer.");}';
     const a = document.getElementById('ctBookmarkletLink');
     if (a) a.href = 'javascript:' + encodeURIComponent('(function(){' + script + '})();void(0);');
   }
 
-  function copyCTExport() {
-    const data = window._ctData || buildCTData();
-    const txt = JSON.stringify(data);
-    const btn = document.getElementById('ctCopyBtn');
-    const klaar = () => {
-      if (!btn) return;
-      const oud = btn.textContent;
-      btn.textContent = '✓ Gekopieerd — plak in CT Tafels';
-      setTimeout(() => { btn.textContent = oud; }, 2500);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(txt).then(klaar).catch(() => { window.prompt('Kopieer handmatig:', txt); });
-    } else {
-      window.prompt('Kopieer handmatig:', txt);
-    }
+
+  /* ==========================================================
+     Reserveringen naar KISH sturen. Twee wegen:
+
+     1. Een gedeeld kanaal. Werkt alleen als KISH en PA Manager op
+        hetzelfde webadres staan.
+     2. Een bericht naar het KISH-venster dat wij zelf hebben geopend.
+        Dat werkt ook als PA Manager als bestand op de schijf draait.
+
+     Lukt geen van beide, dan komen de bladwijzer en het kopiëren in beeld.
+     ========================================================== */
+  const KISH_ADRES = 'https://kish-arrangementen.nl/';
+
+  function kishOpenen(){
+    /* Een venster dat wij openen kunnen we wel berichten sturen, ook als
+       het op een ander adres staat. */
+    window._kishVenster = window.open(KISH_ADRES, 'kishvenster');
+    werkKishKnopBij();
+    /* Als het venster later wordt gesloten, hoort stap 1 weer open te gaan */
+    clearInterval(window._kishWacht);
+    window._kishWacht = setInterval(werkKishKnopBij, 1500);
   }
+
+  function werkKishKnopBij(){
+    const knop = document.getElementById('ctOpenKish');
+    const klaar = document.getElementById('ctStap1Klaar');
+    const open = !!(window._kishVenster && !window._kishVenster.closed);
+    if(knop) knop.hidden = open;
+    if(klaar) klaar.hidden = !open;
+    const stap = knop && knop.closest('li');
+    if(stap) stap.classList.toggle('ctGedaan', open);
+  }
+
+  function vinkStap2(gedaan, tekst){
+    const klaar = document.getElementById('ctStap2Klaar');
+    if(klaar){
+      klaar.hidden = !gedaan;
+      if(gedaan && tekst) klaar.textContent = tekst;
+    }
+    const stap = klaar && klaar.closest('li');
+    if(stap) stap.classList.toggle('ctGedaan', !!gedaan);
+  }
+
+  document.addEventListener('DOMContentLoaded', werkKishKnopBij);
+
+  function stuurNaarKish(){
+    const melding = document.getElementById('ctMelding');
+    const terugval = document.getElementById('ctTerugval');
+    const data = window._ctData || buildCTData();
+    const aantal = (data.reserveringen || []).length;
+
+    function zeg(soort, tekst){
+      if(!melding) return;
+      melding.hidden = false;
+      melding.className = 'ctMelding ' + soort;
+      melding.textContent = tekst;
+    }
+    function mislukt(waarom){
+      zeg('fout', waarom);
+      /* De bladwijzer en het kopiëren komen nu tevoorschijn, zodat je nooit
+         vastzit als het versturen niet lukt. */
+      if(terugval) terugval.hidden = false;
+      vinkStap2(false);
+      werkKishKnopBij();
+    }
+
+    if(!aantal){ zeg('fout', 'Er zijn geen reserveringen om te versturen.'); return; }
+
+    zeg('bezig', 'Versturen naar KISH...');
+
+    const id = 'pam-' + Date.now();
+    let geantwoord = false;
+    let kanaal = null;
+
+    function gelukt(n){
+      geantwoord = true;
+      zeg('goed', n + ' reserveringen toegevoegd in KISH.');
+      if(terugval) terugval.hidden = true;
+      vinkStap2(true, n + ' reserveringen toegevoegd');
+      opruimen();
+    }
+    function opruimen(){
+      window.removeEventListener('message', vanVenster);
+      if(kanaal) try{ kanaal.close(); }catch(_){}
+    }
+    function vanVenster(e){
+      const b = e.data || {};
+      if(b.id !== id) return;
+      if(b.type === 'ok') gelukt(b.aantal);
+      else { geantwoord = true; mislukt('KISH kon het niet verwerken: ' + (b.fout || 'onbekende fout')); opruimen(); }
+    }
+
+    window.addEventListener('message', vanVenster);
+
+    /* weg 1: gedeeld kanaal */
+    if('BroadcastChannel' in window){
+      kanaal = new BroadcastChannel('kish-import');
+      kanaal.onmessage = function(e){
+        const b = e.data || {};
+        if(b.id !== id) return;
+        if(b.type === 'ok') gelukt(b.aantal);
+        else { geantwoord = true; mislukt('KISH kon het niet verwerken: ' + (b.fout || 'onbekende fout')); opruimen(); }
+      };
+      kanaal.postMessage({ type:'import', data: data, id: id });
+    }
+
+    /* weg 2: het venster dat wij hebben geopend */
+    const venster = window._kishVenster;
+    if(venster && !venster.closed){
+      try{ venster.postMessage({ type:'import', data: data, id: id }, '*'); }catch(_){}
+    }
+
+    setTimeout(function(){
+      if(geantwoord) return;
+      opruimen();
+      if(!venster || venster.closed){
+        mislukt('KISH heeft niet gereageerd. Open KISH met de knop hieronder, dan kan PA Manager er wel bij.');
+      } else {
+        mislukt('KISH heeft niet gereageerd. Kijk of dat tabblad nog goed open staat.');
+      }
+    }, 1800);
+  }
+
 
   function copyHapjes() {
     const hapjes = {
@@ -3154,7 +5308,7 @@
     for (const [loc, labels] of Object.entries(locaties)) {
       const locTotaal = {};
       let hasItems = false;
-      txt += '📍 ' + loc.toUpperCase() + '\n';
+      txt += loc.toUpperCase() + '\n';
       txt += '─────────────────────────\n';
       for (const [label, items] of Object.entries(hapjes)) {
         const count = labels[label] || 0;
@@ -3176,20 +5330,16 @@
       }
       txt += '\n';
     }
-    const btn = document.querySelector('[onclick="copyHapjes()"]');
+    const btn = document.getElementById('hapjesCopyBtn');
     navigator.clipboard.writeText(txt.trim()).then(() => {
-      if (btn) {
-        btn.textContent = '✅ Hapjeslijst is gekopieerd!';
-        btn.style.background = '#22c55e';
-        btn.onmouseover = null;
-        btn.onmouseout = null;
-        setTimeout(() => {
-          btn.textContent = '📋 Kopieer hapjeslijst naar klembord';
-          btn.style.background = 'var(--accent)';
-          btn.onmouseover = function() { this.style.background = 'var(--accent-hover)'; };
-          btn.onmouseout = function() { this.style.background = 'var(--accent)'; };
-        }, 2500);
-      }
+      if (!btn) return;
+      /* De kleur komt uit een klasse, zodat de knop niet met de opmaak vecht */
+      btn.textContent = 'Gekopieerd';
+      btn.classList.add('isGekopieerd');
+      setTimeout(() => {
+        btn.textContent = 'Hapjeslijst kopi\u00e8ren';
+        btn.classList.remove('isGekopieerd');
+      }, 2500);
     });
   }
 
@@ -3215,11 +5365,13 @@
   // === ZOEKFUNCTIE ===
   function filterReservations() {
     const q = (document.getElementById('searchRes').value || '').toLowerCase();
-    const rows = document.querySelectorAll('#resTable tbody tr');
-    rows.forEach(tr => {
-      if (tr.querySelector('td[colspan]')) return; // separator
-      const naam = (tr.querySelector('td:nth-child(2)') || {}).textContent || '';
-      tr.style.display = naam.toLowerCase().includes(q) ? '' : 'none';
+    /* De lijst bestaat nu uit kaarten in plaats van tabelrijen */
+    document.querySelectorAll('#resTable .resKaart').forEach(function(k){
+      k.style.display = (k.dataset.naam || '').includes(q) ? '' : 'none';
+    });
+    /* De scheidingslijnen tussen de zalen alleen tonen als er niet gezocht wordt */
+    document.querySelectorAll('#resTable .resScheid').forEach(function(s){
+      s.style.display = q ? 'none' : '';
     });
   }
 
@@ -3475,13 +5627,12 @@
 
     let html = '<div style="display:flex;gap:12px;flex-wrap:wrap;">';
     for (const [venue, data] of Object.entries(venueData)) {
-      const emoji = venue === 'Circusbar' ? '☕' : venue === 'Le Cirque' ? '🎪' : '🍽️';
       const allNrs = Object.keys(data.tafels).map(Number);
       const blocked = blockedTafels[venue] || new Set();
       const vrij = allNrs.filter(nr => !bezet.has(nr) && !blocked.has(nr));
       const vrijStoelen = vrij.reduce((s, nr) => s + (data.tafels[nr] || 0), 0);
       const color = vrij.length === 0 ? 'var(--red)' : vrij.length <= 3 ? '#eab308' : 'var(--green)';
-      html += '<div style="font-size:12px;color:var(--text2);">' + emoji + ' ' + venue + ': <strong style="color:' + color + ';">' + vrij.length + ' tafels vrij</strong> (' + vrijStoelen + ' stoelen)</div>';
+      html += '<div style="font-size:12px;color:var(--text2);">' + venue + ': <strong style="color:' + color + ';">' + vrij.length + ' tafels vrij</strong> (' + vrijStoelen + ' stoelen)</div>';
     }
     html += '</div>';
     el.innerHTML = html;
@@ -3692,10 +5843,12 @@
       });
     });
 
-    // Toon step1 na alle lines
+    // Stap 1 komt in beeld zodra de begroeting is opgebouwd
     setTimeout(function() {
       var s1 = document.getElementById('step1');
       if (s1) { s1.style.opacity = '1'; s1.style.transform = 'translateY(0)'; }
+      // en de balk eronder pas daarna, anders staat hij er voor de sleepvakken
+      setTimeout(function(){ if (window.toonPgVoet) window.toonPgVoet(); }, 260);
     }, lines.length * 200 + 400);
   }
 
@@ -3723,6 +5876,275 @@
 if('serviceWorker' in navigator){
   window.addEventListener('load', ()=>{ navigator.serviceWorker.register('sw.js').catch(()=>{}); });
 }
+</script>
+<script>
+/* ==========================================================
+   Paginanavigatie. De stappen stonden onder elkaar op een lange
+   pagina. Ze worden nu een voor een getoond, met een zijbalk om
+   ertussen te wisselen.
+   Er wordt niets herschreven: de bestaande fadeIn wordt onderschept,
+   die bepaalt nog steeds wanneer een stap beschikbaar komt.
+   ========================================================== */
+(function(){
+  const PAGINAS = [
+    { id:'step1',      naam:'Inlezen',   ico:'M12 3v12M7 10l5 5 5-5M4 20h16' },
+    { id:'step2',      naam:'Locaties',  ico:'M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z',
+      actie:'#step2 .btn-primary', actieNaam:'Tafels verdelen' },
+    { id:'step3',      naam:'Controle',  ico:'M4 7h16M4 12h16M4 17h10' },
+    { id:'stepHapjes', naam:'Hapjes',    ico:'M4 13h16a8 8 0 0 0-16 0zM3 17h18' },
+    { id:'step4',      naam:'Invullen',  ico:'M5 12l5 5L20 7' }
+  ];
+
+  const vrij = new Set();   /* begint leeg, elke stap verschijnt zodra hij bereikt is */
+  let huidig = 0;
+  let rail;
+
+  function el(i){ return document.getElementById(PAGINAS[i].id); }
+
+  function teken(){
+    PAGINAS.forEach(function(p, i){
+      const e = el(i);
+      if(e) e.classList.toggle('paginaAan', i === huidig);
+      const k = rail && rail.querySelector('.pgKnop[data-i="' + i + '"]');
+      if(k){
+        k.classList.toggle('aan', i === huidig);
+        k.classList.toggle('vrij', vrij.has(i));
+      }
+    });
+    /* De balk zelf blijft weg zolang er niks in staat */
+    if(rail) rail.classList.toggle('zichtbaar', vrij.size > 0);
+    document.body.classList.toggle('metRail', vrij.size > 0);
+    tekenVoet();
+    const gr = document.getElementById('jarvisGreeting');
+    if(gr){
+      const weg = gr.classList.contains('jarvisWeg');
+      gr.style.display = (huidig === 0 && !weg) ? '' : 'none';
+    }
+  }
+
+  function naar(i){
+    if(i < 0 || i >= PAGINAS.length || !vrij.has(i)) return;
+    huidig = i;
+    teken();
+    /* Terug op Inlezen hoort de showkeuze weer open te staan, anders kun je
+       geen andere show kiezen. Dat deed de knop Andere show voorheen. */
+    if(i === 0 && typeof terugNaarShowkeuze === 'function' && window._calendarData){
+      terugNaarShowkeuze();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function bouwRail(){
+    rail = document.createElement('div');
+    rail.id = 'pgRail';
+    rail.innerHTML =
+      PAGINAS.map(function(p, i){
+        return '<button type="button" class="pgKnop" data-i="' + i + '" title="' + p.naam + '">' +
+                 '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="' + p.ico + '"/></svg>' +
+                 '<span>' + p.naam + '</span>' +
+               '</button>';
+      }).join('');
+    document.body.appendChild(rail);
+    rail.querySelectorAll('.pgKnop').forEach(function(k){
+      k.onclick = function(){ naar(+k.dataset.i); };
+    });
+  }
+
+  /* Onderaan elke pagina een balk om vooruit en achteruit te gaan.
+     Zonder die balk kun je alleen via de zijbalk verder, en die staat
+     buiten je blikveld als je onderaan een lange pagina bent. */
+  let voetBalk;
+  function bouwVoet(){
+    voetBalk = document.createElement('div');
+    voetBalk.id = 'pgVoet';
+    voetBalk.innerHTML =
+      '<div class="pgVoetInner">' +
+        '<button type="button" class="pgVorige">' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 6l-6 6 6 6"/></svg>' +
+          '<span class="pgLabel"><em>Terug naar</em><b></b></span>' +
+        '</button>' +
+        '<div class="pgStippen">' +
+          PAGINAS.map(function(p, i){
+            return '<span class="pgStip" data-i="' + i + '" title="' + p.naam + '"></span>';
+          }).join('') +
+        '</div>' +
+        '<button type="button" class="pgVolgende">' +
+          '<span class="pgLabel"><em></em><b></b></span>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>' +
+        '</button>' +
+      '</div>';
+    const houder = document.querySelector('.container');
+    if(houder) houder.appendChild(voetBalk);
+    voetBalk.querySelector('.pgVorige').onclick = function(){ naar(huidig - 1); };
+    voetBalk.querySelector('.pgVolgende').onclick = function(){
+      /* Is de volgende stap er al, dan gaan we erheen. Zo niet en heeft deze
+         pagina een hoofdactie, dan voeren we die uit. Die actie geeft de
+         volgende stap vrij en dan opent hij vanzelf. */
+      if(vrij.has(huidig + 1)){ naar(huidig + 1); return; }
+      const knop = actieKnop(huidig);
+      if(knop) knop.click();
+    };
+  }
+
+  function actieKnop(i){
+    const p = PAGINAS[i];
+    if(!p || !p.actie) return null;
+    const k = document.querySelector(p.actie);
+    return (k && !k.disabled) ? k : null;
+  }
+
+  function tekenVoet(){
+    if(!voetBalk) return;
+    const vorige  = voetBalk.querySelector('.pgVorige');
+    const volgende = voetBalk.querySelector('.pgVolgende');
+    const kan = function(i){ return i >= 0 && i < PAGINAS.length && vrij.has(i); };
+
+    const zetLabel = function(btn, boven, onder){
+      btn.querySelector('em').textContent = boven;
+      btn.querySelector('b').textContent = onder;
+      btn.classList.toggle('geenBoven', !boven);
+    };
+
+    const heeftVorige = kan(huidig - 1);
+    vorige.hidden = !heeftVorige;
+    if(heeftVorige) zetLabel(vorige, 'Terug naar', PAGINAS[huidig - 1].naam);
+
+    const knop = actieKnop(huidig);
+    if(kan(huidig + 1)){
+      volgende.hidden = false;
+      volgende.classList.remove('pgKlaar');
+      zetLabel(volgende, 'Volgende', PAGINAS[huidig + 1].naam);
+    } else if(knop){
+      volgende.hidden = false;
+      volgende.classList.remove('pgKlaar');
+      zetLabel(volgende, '', PAGINAS[huidig].actieNaam || 'Doorgaan');
+    } else {
+      /* Laatste stap of nog niks te doen: geen knop die grijs staat en
+         waar je toch op probeert te klikken. */
+      volgende.hidden = true;
+    }
+
+    voetBalk.querySelectorAll('.pgStip').forEach(function(s){
+      const i = +s.dataset.i;
+      s.classList.toggle('gedaan', vrij.has(i) && i < huidig);
+      s.classList.toggle('nu', i === huidig);
+      s.classList.toggle('vrij', vrij.has(i));
+    });
+
+    /* Alleen een balk als er ook echt iets te kiezen valt. Anders stond er
+       een strook met alleen stippen erin. */
+    const zichtbaar = !vorige.hidden || !volgende.hidden;
+    voetBalk.style.display = zichtbaar ? '' : 'none';
+    document.body.classList.toggle('metVoet', zichtbaar);
+    /* Op de eerste pagina wacht de balk tot het inleesgedeelte er staat.
+       Op elke andere pagina is er niks om op te wachten. */
+    if(huidig !== 0) voetBalk.classList.add('erIn');
+  }
+
+  window.toonPgVoet = function(){
+    if(voetBalk) voetBalk.classList.add('erIn');
+  };
+
+  /* De bestaande fadeIn bepaalt wanneer een stap klaar is. Die haken we
+     aan zodat de pagina meteen opent, zonder de functie te herschrijven. */
+  const echteFadeIn = window.fadeIn;
+  let gepland = null;
+  window.fadeIn = function(id, vertraging){
+    const r = echteFadeIn ? echteFadeIn.apply(this, arguments) : undefined;
+    const i = PAGINAS.findIndex(function(p){ return p.id === id; });
+    if(i >= 0){
+      vrij.add(i);
+      /* Er worden soms drie stappen achter elkaar vrijgegeven. Ga dan naar
+         de eerste daarvan, niet naar de laatste. */
+      if(gepland === null || i < gepland) gepland = i;
+      Promise.resolve().then(function(){
+        if(gepland !== null){ naar(gepland); gepland = null; }
+      });
+    }
+    return r;
+  };
+
+  /* De balk hoort tussen de kopbalk en de voettekst te passen, dus die
+     twee hoogtes worden gemeten in plaats van vastgezet. Zo blijft het
+     kloppen bij een andere tekstgrootte of een smal scherm. */
+  function meetRanden(){
+    const bal = document.getElementById('topbar');
+    const w = document.documentElement.style;
+    w.setProperty('--balkHoogte', (bal ? bal.offsetHeight : 64) + 'px');
+  }
+
+  /* Kies je een andere dag, dan zijn Controle, Hapjes en Invullen van de
+     vorige dag. Die stappen gaan weer op slot, zodat de knop onderaan weer
+     Verdeling berekenen wordt en de nieuwe dag ook echt wordt ingedeeld.
+     Zonder dit sprong hij door naar de oude uitkomst. */
+  function slotVanaf(vanaf){
+    for(let i = vanaf; i < PAGINAS.length; i++) vrij.delete(i);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    PAGINAS.forEach(function(p){
+      const e = document.getElementById(p.id);
+      if(e) e.classList.add('pagina');
+    });
+
+    const echteKies = window.selectXLSXDate;
+    if(typeof echteKies === 'function'){
+      window.selectXLSXDate = function(){
+        slotVanaf(2);
+        return echteKies.apply(this, arguments);
+      };
+    }
+    bouwRail();
+    bouwVoet();
+    teken();
+    meetRanden();
+    window.addEventListener('resize', meetRanden);
+    if(window.ResizeObserver){
+      const kijker = new ResizeObserver(meetRanden);
+      const bal = document.getElementById('topbar');
+      if(bal) kijker.observe(bal);
+    }
+
+    /* Bij de naamkeuze staat er nog niks in de balk. Inlezen verschijnt
+       zodra iemand zich heeft gemeld en de begroeting begint. */
+    const echteStart = window.startJarvis;
+    if(typeof echteStart === 'function'){
+      window.startJarvis = function(){
+        const r = echteStart.apply(this, arguments);
+        vrij.add(0);
+        teken();
+        return r;
+      };
+    }
+  });
+})();
+</script>
+<script>
+/* ==========================================================
+   Achtergrond vastzetten zolang er een venster over de pagina staat.
+   Anders scroll je met het wieltje de pagina eronder weg terwijl je in
+   het venster bezig bent.
+   Er wordt gekeken of het venster in de pagina staat, dus dit werkt voor
+   elk venster in de lijst zonder dat hun eigen code aangepast hoeft.
+   ========================================================== */
+(function(){
+  const VENSTERS = ['tafelSwapOverlay', 'walkInOverlay'];
+  function kijk(){
+    const open = VENSTERS.some(function(id){ return document.getElementById(id); });
+    if(open === document.body.classList.contains('slotOpen')) return;
+    if(open){
+      /* De schuifbalk verdwijnt bij het vastzetten, dat geeft een sprong.
+         Die breedte wordt opgevangen met een marge rechts. */
+      const breedte = window.innerWidth - document.documentElement.clientWidth;
+      if(breedte > 0) document.body.style.paddingRight = breedte + 'px';
+      document.body.classList.add('slotOpen');
+    } else {
+      document.body.classList.remove('slotOpen');
+      document.body.style.paddingRight = '';
+    }
+  }
+  new MutationObserver(kijk).observe(document.body, { childList: true });
+})();
 </script>
 </body>
 </html>
