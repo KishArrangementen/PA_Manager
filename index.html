@@ -5186,10 +5186,13 @@ const DEFAULT_LAYOUT = {
 
      Lukt geen van beide, dan komen de bladwijzer en het kopiëren in beeld.
      ========================================================== */
-  /* Staat PA Manager op hetzelfde adres als KISH, bijvoorbeeld onder
-     /manager, dan is dit gewoon de hoofdmap. Draait hij ergens anders,
-     zet hier dan het volledige adres van KISH. */
-  const KISH_ADRES = '/';
+  /* Vast, volledig adres in plaats van een relatief pad ('/'). Een
+     relatief pad is gevoelig voor het exacte adres waar deze pagina
+     zelf vandaan is geladen — als daar ooit een oude omweg of
+     doorverwijzing in zit (zoals de inmiddels afgesloten GitHub Pages-
+     versie), opent de knop de verkeerde plek. Dit adres is altijd goed,
+     ongeacht vanwaar PA Manager precies is geopend. */
+  const KISH_ADRES = 'https://kish-arrangementen.nl/';
 
   function kishOpenen(){
     /* Een venster dat wij openen kunnen we wel berichten sturen, ook als
@@ -5223,7 +5226,17 @@ const DEFAULT_LAYOUT = {
 
   document.addEventListener('DOMContentLoaded', werkKishKnopBij);
 
+  // Voorkomt dat een dubbele klik (of een ongeduldige tweede klik terwijl de
+  // eerste nog bezig is) leidt tot twee losse verzendingen — en dus twee
+  // keer dezelfde reserveringen in KISH. Elke klik krijgt zijn eigen id
+  // (zie hieronder), dus de bewakingslaag in KISH ziet zo'n dubbele klik
+  // niet als dezelfde verzending; deze vlag houdt het al bij de bron tegen.
+  let versturenBezig = false;
+
   function stuurNaarKish(){
+    if(versturenBezig) return;
+    versturenBezig = true;
+
     const melding = document.getElementById('ctMelding');
     const terugval = document.getElementById('ctTerugval');
     const data = window._ctData || buildCTData();
@@ -5236,6 +5249,7 @@ const DEFAULT_LAYOUT = {
       melding.textContent = tekst;
     }
     function mislukt(waarom){
+      versturenBezig = false;
       zeg('fout', waarom);
       /* De bladwijzer en het kopiëren komen nu tevoorschijn, zodat je nooit
          vastzit als het versturen niet lukt. */
@@ -5244,7 +5258,7 @@ const DEFAULT_LAYOUT = {
       werkKishKnopBij();
     }
 
-    if(!aantal){ zeg('fout', 'Er zijn geen reserveringen om te versturen.'); return; }
+    if(!aantal){ versturenBezig = false; zeg('fout', 'Er zijn geen reserveringen om te versturen.'); return; }
 
     /* Draait PA Manager als bestand vanaf de schijf, dan kan hij KISH niet
        bereiken. Dat meteen zeggen in plaats van anderhalve seconde wachten
@@ -5262,6 +5276,7 @@ const DEFAULT_LAYOUT = {
 
     function gelukt(n){
       geantwoord = true;
+      versturenBezig = false;
       zeg('goed', n + ' reserveringen toegevoegd in KISH.');
       if(terugval) terugval.hidden = true;
       vinkStap2(true, n + ' reserveringen toegevoegd');
