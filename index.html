@@ -4256,6 +4256,7 @@ const DEFAULT_LAYOUT = {
 
     // === STAP 1: Vul Circusbar ===
     const cbOverflow = [];
+    const onverdeeld = [];   // gasten die nergens meer passen (alle zalen dicht/vol)
 
     // Koffie → CB rand, dan midden als nodig
     // Alleen plaatsen als de groep in een aaneengesloten cluster past (anders → mainLoc)
@@ -4313,13 +4314,42 @@ const DEFAULT_LAYOUT = {
       if (seatSum(a) < res.aantalPersonen) {
         console.error('[TAFEL] ⚠️ Luxe ' + res.aantalPersonen + 'p (' + res.naam + ') alleen ' + seatSum(a) + ' stoelen toegewezen');
       }
-      res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
+      if (a.length) {
+        res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
+      } else {
+        // Hoofdzaal heeft geen enkele open tafel: probeer Circusbar, anders onverdeeld
+        plaatsAndersOfOnverdeeld(res);
+      }
     }
 
     // Overflow uit CB → hoofdlocatie (bij elkaar)
     for (const res of cbOverflow) {
       const a = grab(mainAll, res.aantalPersonen);
-      res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
+      if (a.length) {
+        res.zaal = mainLoc; res.tafelNr = a.join('+'); metStoelNotitie(res);
+      } else {
+        // Hoofdzaal heeft geen enkele open tafel: probeer Circusbar, anders onverdeeld
+        plaatsAndersOfOnverdeeld(res);
+      }
+    }
+
+    // Laatste vangnet: als de hoofdzaal helemaal dicht is (alle tafels geblokkeerd),
+    // een gast nooit stilletjes aan die dichte zaal koppelen. Eerst Circusbar proberen
+    // met soepelere regels (rand én midden, niet per se aaneengesloten). Lukt ook dat
+    // niet, dan blijft de gast bewust ONVERDEELD en krijgt de gebruiker een melding.
+    function plaatsAndersOfOnverdeeld(res) {
+      const n = res.aantalPersonen;
+      if (cbVrij(cbAll) >= n) {
+        const a = grab(cbAll, n);
+        if (a.length) {
+          res.zaal = 'Circusbar'; res.tafelNr = a.join('+'); metStoelNotitie(res);
+          console.warn('[TAFEL] ' + res.naam + ' (' + n + 'p): hoofdzaal ' + mainLoc + ' dicht, naar Circusbar ' + res.tafelNr);
+          return;
+        }
+      }
+      res.zaal = ''; res.tafelNr = '';
+      onverdeeld.push(res);
+      console.error('[TAFEL] ⚠️ ONVERDEELD: ' + res.naam + ' (' + n + 'p), geen plek in ' + mainLoc + ' of Circusbar');
     }
 
     // === STAP 3: Na Borrel — hergebruik tafels (ander tijdslot, altijd Circusbar) ===
@@ -4351,6 +4381,14 @@ const DEFAULT_LAYOUT = {
         allAssigned[nr] = r.naam;
       });
     });
+
+    // Gasten die nergens passen: duidelijk melden, niet stilletjes laten liggen
+    if (onverdeeld.length) {
+      const lijst = onverdeeld.map(r => r.naam + ' (' + r.aantalPersonen + 'p)').join('\n');
+      alert('Let op: ' + onverdeeld.length + ' reservering' + (onverdeeld.length === 1 ? '' : 'en') +
+        ' konden nergens geplaatst worden omdat ' + mainLoc + ' dicht is en Circusbar geen plek meer heeft:\n\n' + lijst +
+        '\n\nZet een zaal of extra tafels open, of wijs ze handmatig toe.');
+    }
   }
 
   function renderResults() {
