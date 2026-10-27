@@ -3613,6 +3613,11 @@ const DEFAULT_LAYOUT = {
       }
     },
     'Le Cirque': {
+      // Volgorde bij het verdelen: eerst het voorste stuk (14-23 en 30-36),
+      // dan door naar achteren (24-29 en 37-40), de Serre (1-13) als laatste.
+      volgorde: [14,15,16,17,18,19,20,21,22,23, 30,31,32,33,34,35,36,
+                 24,25,26,27,28,29, 37,38,39,40,
+                 1,2,3,4,5,6,7,8,9,10,11,12,13],
       tafels: {
         1:4, 2:4, 3:4, 4:4, 5:2,
         6:2, 7:2, 8:2, 9:2, 10:2, 11:2, 12:2, 13:2, 14:2,
@@ -3985,7 +3990,20 @@ const DEFAULT_LAYOUT = {
       return Object.entries(data.tafels)
         .filter(([nr]) => !blockedTafels[venue].has(Number(nr)))
         .map(([nr, s]) => ({ nr: parseInt(nr), stoelen: s }))
-        .sort((a,b) => a.nr - b.nr);
+        .sort((a,b) => rangVan(venue, a.nr) - rangVan(venue, b.nr));
+    }
+    // Plek in de vaste volgorde van de zaal. Zonder volgorde: gewoon op nummer.
+    function rangVan(venue, nr) {
+      const v = (venueData[venue] && venueData[venue].volgorde) || null;
+      if (!v) return nr;
+      const i = v.indexOf(nr);
+      return i >= 0 ? i : 1000 + nr;
+    }
+    function venueVan(tafels) {
+      for (const [venue, data] of Object.entries(venueData)) {
+        if (tafels.length > 0 && data.tafels[tafels[0].nr] !== undefined) return venue;
+      }
+      return '';
     }
     const cbAll = makeTafels(cbData, 'Circusbar');
     const mainAll = makeTafels(mainData, mainLoc);
@@ -4014,17 +4032,18 @@ const DEFAULT_LAYOUT = {
     function grab(tafels, needed, extraFilter) {
       grab.stoelErbij = false; // wordt true als de gekozen optie een losse stoel op de hoek nodig heeft
       const neighbors = getNeighbors(tafels);
+      const zaalNu = venueVan(tafels);
       const available = tafels.filter(t => !used.has(t.nr) && (!extraFilter || extraFilter(t)));
       if (available.length === 0) return [];
 
       // Proximity: hoe dicht bij al bezette tafels (0=naast, 1=2 stappen, 100+=ver)
       function proximity(nr) {
-        if (used.size === 0) return nr;
+        if (used.size === 0) return rangVan(zaalNu, nr);
         const nbs = neighbors[nr] || [];
         for (const nb of nbs) { if (used.has(nb)) return 0; }
         for (const nb of nbs) { for (const nb2 of (neighbors[nb] || [])) { if (used.has(nb2)) return 1; } }
         for (const nb of nbs) { for (const nb2 of (neighbors[nb] || [])) { for (const nb3 of (neighbors[nb2] || [])) { if (used.has(nb3)) return 2; } } }
-        return 100 + nr;
+        return 100 + rangVan(zaalNu, nr);
       }
 
       // Score: proximity eerst (bij elkaar houden), waste als tiebreaker
@@ -4173,7 +4192,7 @@ const DEFAULT_LAYOUT = {
 
       // === Optie E: Niet-aangrenzend combineren (grootste eerst, tot ≥ needed) ===
       // Vangt het Le Cirque 16-pers scenario: geen keten haalt 16, maar 4 losse 4-tops samen wel.
-      const byCapacity = [...available].sort((a, b) => b.stoelen - a.stoelen || a.nr - b.nr);
+      const byCapacity = [...available].sort((a, b) => b.stoelen - a.stoelen || rangVan(zaalNu, a.nr) - rangVan(zaalNu, b.nr));
       const collected = [];
       let collectedSeats = 0;
       for (const t of byCapacity) {
@@ -4698,6 +4717,9 @@ const DEFAULT_LAYOUT = {
     // Update reservering
     res.tafelNr = String(tafelNr);
     res.zaal = venue;
+    /* Handmatig gekozen: blijft staan als er later opnieuw wordt verdeeld,
+       bijvoorbeeld na het toevoegen van een gast. */
+    res.tafelPinned = true;
 
     // Sluit popup
     var ov=document.getElementById('tafelSwapOverlay');if(ov)ov.remove();
@@ -5277,7 +5299,7 @@ const DEFAULT_LAYOUT = {
 
     const melding = document.getElementById('ctMelding');
     const terugval = document.getElementById('ctTerugval');
-    const data = window._ctData || buildCTData();
+    const data = buildCTData();  /* altijd vers, zodat een late wijziging ook meegaat */
     const aantal = (data.reserveringen || []).length;
 
     function zeg(soort, tekst){
@@ -5688,7 +5710,13 @@ const DEFAULT_LAYOUT = {
     }
 
     wiClose();
-    confirmLocations();
+    /* Een losse gast erbij mag de rest niet door elkaar schudden. Wie al een
+       tafel heeft houdt die tijdens deze verdeling, alleen de nieuwe gast
+       krijgt een plek. */
+    const tijdelijk = allReservations.filter(r => !r.tafelPinned && r.tafelNr && r.label !== 'Na Borrel');
+    tijdelijk.forEach(r => { r.tafelPinned = true; });
+    try { confirmLocations(); }
+    finally { tijdelijk.forEach(r => { r.tafelPinned = false; }); }
   }
 
   // === VRIJE TAFELS COUNTER ===
@@ -6212,6 +6240,88 @@ if('serviceWorker' in navigator){
         return echteKies.apply(this, arguments);
       };
     }
+    /* Locatie wisselen of tafels dicht/open zetten nadat er al verdeeld is:
+       de oude uitkomst klopt dan niet meer. Controle, Hapjes en Invullen
+       gaan weer op slot, zodat de knop onderaan weer Tafels verdelen wordt
+       en er echt opnieuw wordt gerekend. */
+    function opnieuwRekenen(){
+      if(!vrij.has(2)) return;
+      slotVanaf(2);
+      schoonNaarKish();
+      teken();
+    }
+    window.paOpnieuwRekenen = opnieuwRekenen;
+
+    /* Elke nieuwe lading gegevens (andere dag uit de Excel, of een PDF)
+       loopt via renderResults. Daar alles van de vorige show weggooien,
+       zodat er nergens nog oude uitkomsten blijven staan. */
+    const echteRender = window.renderResults;
+    if(typeof echteRender === 'function'){
+      window.renderResults = function(){
+        slotVanaf(2);
+        schoonNaarKish();
+        ['summaryStats','freeTablesInfo','resTable','hapjesContent'].forEach(function(id){
+          const e = document.getElementById(id);
+          if(e) e.innerHTML = '';
+        });
+        const zoek = document.getElementById('searchRes');
+        if(zoek) zoek.value = '';
+        const r = echteRender.apply(this, arguments);
+        if(huidig > 1) naar(1);
+        teken();
+        return r;
+      };
+    }
+
+    /* De knop Andere show staat op de pagina Locaties, maar de showkeuze
+       zit op Inlezen. Eerst daarheen, anders opent hij onzichtbaar. */
+    const echteTerug = window.terugNaarShowkeuze;
+    if(typeof echteTerug === 'function'){
+      window.terugNaarShowkeuze = function(){
+        if(huidig !== 0 && vrij.has(0)){ naar(0); return; }
+        return echteTerug.apply(this, arguments);
+      };
+    }
+
+    const echteLoc = window.pickLocation;
+    if(typeof echteLoc === 'function'){
+      window.pickLocation = function(btn){
+        const oud = typeof selectedMainLocation !== 'undefined' ? selectedMainLocation : null;
+        const r = echteLoc.apply(this, arguments);
+        const nieuw = btn && btn.dataset ? btn.dataset.loc : null;
+        if(oud && nieuw && oud !== nieuw){
+          /* Handmatig vastgezette tafels in de oude zaal bestaan in de nieuwe
+             zaal niet. Die worden weer los, zodat ze mee verdeeld worden. */
+          try{
+            allReservations.forEach(function(res){
+              if(res.tafelPinned && res.zaal === oud){
+                res.tafelPinned = false; res.tafelNr = ''; res.zaal = '';
+              }
+            });
+          }catch(e){}
+          opnieuwRekenen();
+        }
+        return r;
+      };
+    }
+    ['toggleBlock','toggleBlockGrid','toggleAllTafels','blokkeerHelftCB'].forEach(function(naam){
+      const echt = window[naam];
+      if(typeof echt !== 'function') return;
+      window[naam] = function(){
+        const r = echt.apply(this, arguments);
+        /* Een handmatig gekozen tafel die nu dicht staat, laat de gast weer los */
+        try{
+          allReservations.forEach(function(res){
+            if(!res.tafelPinned || !res.tafelNr || !blockedTafels[res.zaal]) return;
+            const dicht = String(res.tafelNr).split('+').some(function(n){ return blockedTafels[res.zaal].has(parseInt(n)); });
+            if(dicht){ res.tafelPinned = false; res.tafelNr = ''; }
+          });
+        }catch(e){}
+        opnieuwRekenen();
+        return r;
+      };
+    });
+
     bouwRail();
     bouwVoet();
     teken();
